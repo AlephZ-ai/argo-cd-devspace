@@ -1,18 +1,22 @@
+# https://docs.docker.com/compose/compose-file/
 version: '3.8'
 
 services:
   # Kind cluster
   k8s:
+    # https://docs.docker.com/compose/compose-file/build/#build-definition
     # Includes https://github.com/devcontainers/features/tree/main/src/common-utils
+    build:
+      context: .
+      args:
+        IMAGE: mcr.microsoft.com/devcontainers/base:bullseye
     # https://github.com/devcontainers/images/tree/main/src/base-debian
-    image: "mcr.microsoft.com/devcontainers/base:bullseye"
+    image: "cr.alephz.ai/devcontainers/argo-cd-devspace:latest"
     labels: ["ai.alephz.role=K8s Kind Cluster"]
     networks:
       - default
     volumes:
       - ../..:/workspaces:cached
-    # Overrides default command so things don't shut down after the process ends.
-    command: sleep infinity
 
 networks:
   default:

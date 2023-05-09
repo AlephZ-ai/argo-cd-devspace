@@ -82,8 +82,10 @@
 		}
 	},
 
-	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "bash -i -c './init.sh'",
+	// https://code.visualstudio.com/remote/advancedcontainers/start-processes
+	// https://containers.dev/implementors/json_reference/#lifecycle-scripts
+	// "postStartCommand": "",
+	// "postCreateCommand": "",
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
