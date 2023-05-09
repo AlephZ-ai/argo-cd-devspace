@@ -1,3 +1,7 @@
-# https://docs.npmjs.com/getting-started/
-# https://www.npmjs.com/package/@devcontainers/cli
-npm install -g @devcontainers/cli
+#!/bin/sh
+# https://docs.docker.com/engine/reference/builder/#entrypoint
+# set defaults
+set -e
+
+# return control
+exec "$@"

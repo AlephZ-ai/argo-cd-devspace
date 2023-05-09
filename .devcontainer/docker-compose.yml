@@ -8,6 +8,7 @@ services:
     # Includes https://github.com/devcontainers/features/tree/main/src/common-utils
     build:
       context: .
+      dockerfile: Dockerfile
       args:
         IMAGE: mcr.microsoft.com/devcontainers/base:bullseye
     # https://github.com/devcontainers/images/tree/main/src/base-debian

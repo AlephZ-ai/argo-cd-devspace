@@ -10,7 +10,7 @@
 	"features": {
 		// https://github.com/rocker-org/devcontainer-features/tree/main/src/apt-packages
 		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
-			"packages": "wget,sudo,curl,gnupg2,openssl",
+			"packages": "wget,sudo,curl,gnupg2,openssl,dos2unix",
 			"updatePackages": "true"
 		},
 		// https://github.com/devcontainers/features/tree/main/src/powershell
@@ -84,7 +84,7 @@
 
 	// https://code.visualstudio.com/remote/advancedcontainers/start-processes
 	// https://containers.dev/implementors/json_reference/#lifecycle-scripts
-	"postStartCommand": "bash -i -c './.devcontainer/scripts/devspace-on-create.sh'",
+	"onCreateCommand": "bash -i -c './.devcontainer/scripts/devspace-on-create.sh'",
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
@@ -108,22 +108,22 @@
 		},
 		"settings": {
 			"terminal.integrated.profiles.windows": {
-				"PowerShell": {
-					"source": "PowerShell",
-					"args": ["-NoProfile"]
-				}
+					"PowerShell": {
+						"source": "PowerShell",
+						"args": ["-NoProfile"]
+					}
 				},
 				"terminal.integrated.profiles.osx": {
-				"zsh": {
-					"path": "zsh",
-					"args": ["-l"]
-				}
+					"zsh": {
+						"path": "zsh",
+						"args": ["-l"]
+					}
 				},
 				"terminal.integrated.profiles.linux": {
-				"zsh": {
-					"path": "zsh",
-					"args": ["-l"]
-				}
+					"zsh": {
+						"path": "zsh",
+						"args": ["-l"]
+					}
 				},
 				"terminal.integrated.defaultProfile.windows": "PowerShell",
 				"terminal.integrated.defaultProfile.osx": "zsh",
