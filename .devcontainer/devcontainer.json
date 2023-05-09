@@ -1,0 +1,120 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/kubernetes-helm-minikube
+{
+	"name": "Argo CD Dev Container",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "k8s",
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	// https://containers.dev/features
+	"features": {
+		// https://github.com/rocker-org/devcontainer-features/tree/main/src/apt-packages
+		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
+			"packages": "wget,sudo,curl,gnupg2",
+			"updatePackages": "true"
+		},
+		// https://github.com/devcontainers/features/tree/main/src/powershell
+		"ghcr.io/devcontainers/features/powershell:1": {
+			"version": "latest",
+			"modules": ""
+		},
+		// https://github.com/devcontainers/features/tree/main/src/git
+		"ghcr.io/devcontainers/features/git:1": {
+			"version": "os-provided",
+			"ppa": "true"
+		},
+		// https://github.com/devcontainers/features/tree/main/src/git-lfs
+		"ghcr.io/devcontainers/features/git-lfs:1": {
+			"version": "latest",
+			"autoPull": true
+		},
+		// https://github.com/devcontainers/features/tree/main/src/github-cli
+		"ghcr.io/devcontainers/features/github-cli:1": {
+			"version": "latest",
+			"installDirectlyFromGitHubRelease": "true"
+		},
+		// https://github.com/devcontainers/features/tree/main/src/node
+		"ghcr.io/devcontainers/features/node:1": {
+			"version": "node",
+			"nodeGypDependencies": "true",
+			"nvmVersion": "0.39.3"
+		},
+		// https://github.com/meaningful-ooo/devcontainer-features/tree/main/src/homebrew
+		"ghcr.io/meaningful-ooo/devcontainer-features/homebrew:2": {
+			"shallowClone": false
+		},
+		// https://github.com/devcontainers/features/tree/main/src/docker-in-docker
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {
+				"version": "latest",
+				"moby": "true",
+				"dockerDashComposeVersion": "v2",
+				"azureDnsAutoDetection": "true",
+				"enableNonRootDocker": "true",
+				"installDockerBuildx": "true"
+		},
+		// https://github.com/devcontainers/features/tree/main/src/kubectl-helm-minikube
+		"ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
+			"version": "latest",
+			"helm": "latest",
+			"minikube": "latest"
+		},
+		// https://github.com/devcontainers-contrib/features/tree/main/src/kind
+		"ghcr.io/devcontainers-contrib/features/kind:1": {
+			"version": "latest"
+		},
+		// https://github.com/devcontainers-contrib/features/tree/main/src/argo-cd
+		"ghcr.io/devcontainers-contrib/features/argo-cd:1": {
+			"version": "latest"
+		}
+	},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [6443],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "bash -i -c 'init.sh'",
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+	"remoteUser": "vscode",
+
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-azuretools.vscode-docker",
+				"GitHub.codespaces",
+				"GitHub.vscode-pull-request-github",
+				"GitHub.remotehub",
+				"GitHub.copilot-nightly",
+				"GitHub.copilot-labs",
+				"github.vscode-github-actions",
+				"ms-vscode-remote.remote-containers",
+				"ms-kubernetes-tools.vscode-kubernetes-tools",
+				"mindaro.mindaro",
+				"hilleer.yaml-plus-json"
+			]
+		},
+		"settings": {
+			"terminal.integrated.profiles.windows": {
+				"PowerShell": {
+					"source": "PowerShell",
+					"args": ["-NoProfile"]
+				}
+				},
+				"terminal.integrated.profiles.osx": {
+				"zsh": {
+					"path": "zsh",
+					"args": ["-l"]
+				}
+				},
+				"terminal.integrated.profiles.linux": {
+				"zsh": {
+					"path": "zsh",
+					"args": ["-l"]
+				}
+				},
+				"terminal.integrated.defaultProfile.windows": "PowerShell",
+				"terminal.integrated.defaultProfile.osx": "zsh",
+				"terminal.integrated.defaultProfile.linux": "zsh"
+		}
+	}
+}
