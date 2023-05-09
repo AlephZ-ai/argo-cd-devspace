@@ -1,4 +1,5 @@
 #!/bin/sh
+local argocdNamespace="argocd"
 # TODO: Make sure this script is idempotent since it will be run multiple times
 # TODO: Actuual error has occured because of failure of idempotency `ERROR: unknown flag: --name`
 # https://kind.sigs.k8s.io/docs/user/quick-start/
@@ -31,6 +32,6 @@ kubectl wait --namespace ingress-nginx \
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 # https://argo-cd.readthedocs.io/en/stable/operator-manual/tls/
-~/.devcontainer/scripts/create-kubernetes-devcert.sh argocd argocd-server-tls argocd-server-tls-password
-~/.devcontainer/scripts/create-kubernetes-devcert.sh argocd argocd-repo-server-tls argocd-repo-server-tls-password
-~/.devcontainer/scripts/create-kubernetes-devcert.sh argocd argocd-dex-server-tls argocd-dex-server-tls-password
+~/.devcontainer/scripts/create-kubernetes-devcert.sh $argocdNamespace $argocdNamespace-server-tls $argocdNamespace-server-tls-password
+~/.devcontainer/scripts/create-kubernetes-devcert.sh $argocdNamespace $argocdNamespace-repo-server-tls $argocdNamespace-repo-server-tls-password
+~/.devcontainer/scripts/create-kubernetes-devcert.sh $argocdNamespace $argocdNamespace-dex-server-tls $argocdNamespace-dex-server-tls-password
