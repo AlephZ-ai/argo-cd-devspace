@@ -11,4 +11,4 @@ ENTRYPOINT [ "./home/vscode/.devcontainer/scripts/docker-entrypoint.sh" ]
 # https://docs.docker.com/engine/reference/builder/#cmd
 # https://riptutorial.com/docker/example/11009/cmd-instruction
 # Overrides default command so things don't shut down after the process ends.
-CMD [ "bash", "-i", "-c", "./home/vscode/.devcontainer/scripts/docker-cmd.sh && sleep infinity" ]
+CMD [ "sleep", "infinity" ]
