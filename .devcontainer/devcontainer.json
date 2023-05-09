@@ -1,3 +1,4 @@
+// https://containers.dev/templates
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/kubernetes-helm-minikube
 {
@@ -27,10 +28,9 @@
 			"version": "latest",
 			"autoPull": true
 		},
-		// https://github.com/devcontainers/features/tree/main/src/github-cli
-		"ghcr.io/devcontainers/features/github-cli:1": {
-			"version": "latest",
-			"installDirectlyFromGitHubRelease": "true"
+		// https://github.com/meaningful-ooo/devcontainer-features/tree/main/src/homebrew
+		"ghcr.io/meaningful-ooo/devcontainer-features/homebrew:2": {
+			"shallowClone": false
 		},
 		// https://github.com/devcontainers/features/tree/main/src/node
 		"ghcr.io/devcontainers/features/node:1": {
@@ -38,9 +38,10 @@
 			"nodeGypDependencies": "true",
 			"nvmVersion": "0.39.3"
 		},
-		// https://github.com/meaningful-ooo/devcontainer-features/tree/main/src/homebrew
-		"ghcr.io/meaningful-ooo/devcontainer-features/homebrew:2": {
-			"shallowClone": false
+		// https://github.com/devcontainers/features/tree/main/src/github-cli
+		"ghcr.io/devcontainers/features/github-cli:1": {
+			"version": "latest",
+			"installDirectlyFromGitHubRelease": "true"
 		},
 		// https://github.com/devcontainers/features/tree/main/src/docker-in-docker
 		"ghcr.io/devcontainers/features/docker-in-docker:2": {
