@@ -19,7 +19,7 @@ A Dev Container Workspace with Argo CD running powered by Kind
 - Write Code, Debug Code, Checkin Code
 
 # troubleshooting
-- Install Node an NPM on your dev machine to help with troubleshooting
+- Install Node and NPM on your dev machine to help with troubleshooting
   - https://nodejs.org/en/download
 - Install DevContainers CLI package
   - https://code.visualstudio.com/docs/devcontainers/devcontainer-cli
