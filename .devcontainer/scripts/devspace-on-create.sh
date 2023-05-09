@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # TODO: Make sure this script is idempotent since it will be run multiple times
-local argocdNamespace="argocd"
+argocdNamespace="argocd"
 # https://kind.sigs.k8s.io/docs/user/quick-start/
 # https://cloud.google.com/anthos/clusters/docs/on-prem/latest/troubleshoot-user-cluster-create-api
 # https://itnext.io/kubernetes-kind-cheat-shee-2605da77984
-# local existingCluster=$(kind get cluster default)
+# existingCluster=$(kind get cluster default)
 kind create cluster --wait 30s --config /home/vscode/.devcontainer/clusters/default.yaml
 # https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
 # https://kubernetes.io/docs/reference/kubectl/cheatsheet/
