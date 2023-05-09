@@ -84,8 +84,7 @@
 
 	// https://code.visualstudio.com/remote/advancedcontainers/start-processes
 	// https://containers.dev/implementors/json_reference/#lifecycle-scripts
-	// "postStartCommand": "",
-	// "postCreateCommand": "",
+	"postStartCommand": "bash -i -c './.devcontainer/scripts/devspace-on-create.sh'",
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"

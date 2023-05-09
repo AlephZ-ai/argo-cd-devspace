@@ -1,8 +1,5 @@
-# https://docs.npmjs.com/getting-started/
-# https://www.npmjs.com/package/@devcontainers/cli
-npm install -g @devcontainers/cli
 # https://kind.sigs.k8s.io/docs/user/quick-start/
-kind create cluster --config clusters/default.yaml
+kind create cluster --config .devcontainer/clusters/default.yaml
 # https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
 # https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 # https://kubernetes.io/docs/reference/kubectl/
