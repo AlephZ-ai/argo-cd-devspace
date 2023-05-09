@@ -1,9 +1,5 @@
 #!/bin/sh
 # TODO: Make sure this script is idempotent since it will be run multiple times
-# https://docs.docker.com/engine/reference/builder/#cmd
-# https://docs.npmjs.com/getting-started/
-# https://www.npmjs.com/package/@devcontainers/cli
-npm install -g @devcontainers/cli
 # https://kind.sigs.k8s.io/docs/user/quick-start/
 kind create cluster --config /home/vscode/.devcontainer/clusters/default.yaml
 # https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands

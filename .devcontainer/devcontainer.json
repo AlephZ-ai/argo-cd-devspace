@@ -71,12 +71,15 @@
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [5443, 6443, 8080],
 	"portsAttributes": {
+		// Kind Cluster Port (TLS)
 		"5443": {
 			"protocol": "https"
 		},
+		// Control Plane Port (TLS)
 		"6443": {
 			"protocol": "https"
 		},
+		// Control Plane Port (Non-TLS)
 		"8080": {
 			"protocol": "http"
 		}
@@ -86,8 +89,7 @@
 	// https://containers.dev/implementors/json_reference/#lifecycle-scripts
 	"onCreateCommand": "bash -i -c './.devcontainer/scripts/devspace-on-create.sh'",
 
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+	// https://aka.ms/dev-containers-non-root.
 	"remoteUser": "vscode",
 
 	"customizations": {
