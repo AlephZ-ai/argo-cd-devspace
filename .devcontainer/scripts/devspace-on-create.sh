@@ -27,6 +27,6 @@ kubectl wait --namespace ingress-nginx \
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 # https://argo-cd.readthedocs.io/en/stable/operator-manual/tls/
-~/scripts/create-kubernetes-devcert.sh argocd argocd-server-tls argocd-server-tls-password
-~/scripts/create-kubernetes-devcert.sh argocd argocd-repo-server-tls argocd-repo-server-tls-password
-~/scripts/create-kubernetes-devcert.sh argocd argocd-dex-server-tls argocd-dex-server-tls-password
+~/.devcontainer/scripts/create-kubernetes-devcert.sh argocd argocd-server-tls argocd-server-tls-password
+~/.devcontainer/scripts/create-kubernetes-devcert.sh argocd argocd-repo-server-tls argocd-repo-server-tls-password
+~/.devcontainer/scripts/create-kubernetes-devcert.sh argocd argocd-dex-server-tls argocd-dex-server-tls-password

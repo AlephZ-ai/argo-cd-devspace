@@ -6,4 +6,4 @@ local certpass=$3
 ~/scripts/generate-devcert.sh $certpurpose $certpass
 kubectl create -n $namespace secret tls $certpurpose \
   --cert=.devcontainer/devcerts/$certpurpose/cert.pem \
-  --key=.devcontainer/devcerts/$certpurpose-tls/key.pem
+  --key=.devcontainer/devcerts/$certpurpose/key.pem
