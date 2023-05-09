@@ -16,6 +16,7 @@ A Dev Container Workspace with Argo CD running powered by Kind
 - There will also be a 3 node Citus cluster running locally for development in docker
 - Press `Ctrl+Shift+`\` to open a `zsh` terminal into the dev container
   - `bash` and `pwsh` are also suported
+  - `PowerShell` is supported on Windows
 - Write Code, Debug Code, Checkin Code
 
 # troubleshooting
