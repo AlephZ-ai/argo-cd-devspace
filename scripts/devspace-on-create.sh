@@ -4,7 +4,7 @@ argocdNamespace="argocd"
 # https://docs.docker.com/engine/reference/builder/#cmd
 # https://docs.npmjs.com/getting-started/
 # https://www.npmjs.com/package/@devcontainers/cli
-sudo chown -R vscode:vscode "/home/vscode/.npm"
+sudo chown -R vscode:vscode "/home/vscode"
 npm update -g npm
 npm install -g @devcontainers/cli
 # https://kind.sigs.k8s.io/docs/user/quick-start/
