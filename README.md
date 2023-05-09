@@ -26,12 +26,12 @@ A Dev Container Workspace with Argo CD running powered by Kind
   - https://code.visualstudio.com/docs/devcontainers/devcontainer-cli
 # https://github.com/microsoft/vscode-remote-release/issues/2133
 # - First command for troubleshooting is `devcontainer open`
-  - If this fails then fall back to `devcontainer up --workspace-folder .`
-    - If this fails then fall back to `devcontainer build . --workspace-folder .`
-      - If this fails then fall back to `docker run -it --rm cr.alephz.ai/devcontainers/argo-cd-devspace`
-        - If this fails then fall back to `docker run -it --rm cr.alephz.ai/devcontainers/argo-cd-devspace zsh`
-          - If this fails then fall back to `docker run -it --rm cr.alephz.ai/devcontainers/argo-cd-devspace --entry-point /bin/bash`
-            - If this fails then fall back to `docker run -it --rm cr.alephz.ai/devcontainers/argo-cd-devspace --entry-point /bin/bash zsh`
+- First command for troubleshooting is `devcontainer up --workspace-folder .`
+  - If this fails then fall back to `devcontainer build . --workspace-folder .`
+    - If this fails then fall back to `docker run -it --rm cr.alephz.ai/devcontainers/argo-cd-devspace`
+      - If this fails then fall back to `docker run -it --rm cr.alephz.ai/devcontainers/argo-cd-devspace zsh`
+        - If this fails then fall back to `docker run -it --rm cr.alephz.ai/devcontainers/argo-cd-devspace --entry-point /bin/bash`
+          - If this fails then fall back to `docker run -it --rm cr.alephz.ai/devcontainers/argo-cd-devspace --entry-point /bin/bash zsh`
 - TODO: What is next?  Add More Info.  What are common errors from each troubleshooting step?  What can you learn from each failure?  When you encounter a failure what steps should you take to mitigate?
 
 # references
