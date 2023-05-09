@@ -27,7 +27,8 @@ A Dev Container Workspace with Argo CD running powered by Kind
 - First command for testing is `devcontainer up --workspace-folder .`
   - If this fails then fall back to `devcontainer build . --workspace-folder .`
     - If this fails then fall back to `docker run -it --rm cr.alephz.ai/devcontainers/argo-cd-devspace`
-- TODO: What is next?
+      - If this fails then fall back to `docker run -it --rm cr.alephz.ai/devcontainers/argo-cd-devspace zsh`
+- TODO: What is next?  Add More Info.
 
 # references
 - https://kind.sigs.k8s.io/docs/user/ingress/#using-ingress
