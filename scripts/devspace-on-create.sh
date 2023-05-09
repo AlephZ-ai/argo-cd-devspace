@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 # TODO: Make sure this script is idempotent since it will be run multiple times
 argocdNamespace="argocd"
+# https://docs.docker.com/engine/reference/builder/#cmd
+# https://docs.npmjs.com/getting-started/
+# https://www.npmjs.com/package/@devcontainers/cli
+sudo chown -R vscode:vscode "/home/vscode/.npm"
+npm update -g npm
+npm install -g @devcontainers/cli
 # https://kind.sigs.k8s.io/docs/user/quick-start/
 # https://cloud.google.com/anthos/clusters/docs/on-prem/latest/troubleshoot-user-cluster-create-api
 # https://itnext.io/kubernetes-kind-cheat-shee-2605da77984
