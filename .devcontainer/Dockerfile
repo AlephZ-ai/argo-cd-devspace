@@ -1,6 +1,7 @@
 # https://docs.docker.com/engine/reference/builder/
 # https://github.com/devcontainers/images/tree/main/src/base-debian
-ARG IMAGE=mcr.microsoft.com/devcontainers/base:bullseye
+# https://github.com/dotnet/dotnet-docker/tree/main/src/runtime-deps
+ARG IMAGE=debian:latest
 FROM ${IMAGE}
 # https://code.visualstudio.com/remote/advancedcontainers/start-processes#_adding-startup-commands-to-the-docker-image-instead
 COPY --chown=vscode:vscode / /home/vscode/.devcontainer/

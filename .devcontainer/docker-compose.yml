@@ -10,8 +10,8 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        IMAGE: mcr.microsoft.com/devcontainers/base:bullseye
-    # https://github.com/devcontainers/images/tree/main/src/base-debian
+        # https://github.com/dotnet/dotnet-docker/tree/main/src/runtime-deps
+        IMAGE: debian:latest
     image: "cr.alephz.ai/devcontainers/argo-cd-devspace:latest"
     labels: ["ai.alephz.role=K8s Kind Cluster"]
     networks:

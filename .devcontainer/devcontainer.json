@@ -8,6 +8,16 @@
     "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 	// https://containers.dev/features
 	"features": {
+		// https://github.com/devcontainers/features/tree/main/src/common-utils
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": "true",
+			"configureZshAsDefaultShell": "true",
+			"installOhMyZsh": "true",
+			"username": "vscode",
+			"userUid": "1000",
+			"userGid": "1000",
+			"nonFreePackages": "true"
+		},
 		// https://github.com/rocker-org/devcontainer-features/tree/main/src/apt-packages
 		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
 			"packages": "wget,sudo,curl,gnupg2,openssl,dos2unix",
