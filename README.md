@@ -27,7 +27,9 @@ A Dev Container Workspace with Argo CD running powered by Kind
 - First command for testing is `devcontainer up --workspace-folder .`
   - If this fails then fall back to `devcontainer build . --workspace-folder .`
     - If this fails then fall back to `docker run -it --rm container-repository/devcontainers/devspace`
-      - If this fails then fall back to `docker run -it --rm container-repositor/devcontainers/devspace zsh`
+      - If this fails then fall back to `docker run -it --rm container-repository/devcontainers/devspace zsh`
+        - If this fails then fall back to `docker run -it --rm container-repository/devcontainers/devspace --entry-point /bin/bash`
+          - If this fails then fall back to `docker run -it --rm container-repository/devcontainers/devspace --entry-point /bin/bash zsh`
 - TODO: What is next?  Add More Info.
 
 # references
