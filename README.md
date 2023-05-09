@@ -30,7 +30,7 @@ A Dev Container Workspace with Argo CD running powered by Kind
       - If this fails then fall back to `docker run -it --rm container-repository/devcontainers/devspace zsh`
         - If this fails then fall back to `docker run -it --rm container-repository/devcontainers/devspace --entry-point /bin/bash`
           - If this fails then fall back to `docker run -it --rm container-repository/devcontainers/devspace --entry-point /bin/bash zsh`
-- TODO: What is next?  Add More Info.
+- TODO: What is next?  Add More Info.  What are common errors from each troubleshooting step?
 
 # references
 - https://kind.sigs.k8s.io/docs/user/ingress/#using-ingress
