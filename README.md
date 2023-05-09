@@ -18,6 +18,8 @@ A Dev Container Workspace with Argo CD running powered by Kind
   - `bash` and `pwsh` are also suported
 - Write Code, Debug Code, Checkin Code
 
+# troubleshooting
+
 # references
 - https://kind.sigs.k8s.io/docs/user/ingress/#using-ingress
 - https://argo-cd.readthedocs.io/en/stable/getting_started
