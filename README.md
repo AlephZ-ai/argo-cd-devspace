@@ -22,12 +22,12 @@ A Dev Container Workspace with Argo CD running powered by Kind
 # troubleshooting
 - Install Node and NPM on your dev machine to help with troubleshooting
   - https://nodejs.org/en/download
-- Install DevContainers CLI package
+- Install DevContainers CLI NPM package
   - https://code.visualstudio.com/docs/devcontainers/devcontainer-cli
 - First command for testing is `devcontainer up --workspace-folder .`
   - If this fails then fall back to `devcontainer build . --workspace-folder .`
-    - If this fails then fall back to `docker run -it --rm cr.alephz.ai/devcontainers/argo-cd-devspace`
-      - If this fails then fall back to `docker run -it --rm cr.alephz.ai/devcontainers/argo-cd-devspace zsh`
+    - If this fails then fall back to `docker run -it --rm container-repository/devcontainers/devspace`
+      - If this fails then fall back to `docker run -it --rm container-repositor/devcontainers/devspace zsh`
 - TODO: What is next?  Add More Info.
 
 # references
