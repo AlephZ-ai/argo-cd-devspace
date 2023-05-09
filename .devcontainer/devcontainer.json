@@ -97,7 +97,7 @@
 
 	// https://code.visualstudio.com/remote/advancedcontainers/start-processes
 	// https://containers.dev/implementors/json_reference/#lifecycle-scripts
-	"onCreateCommand": "bash -i -c './scripts/devspace-on-create.sh'",
+	"onCreateCommand": "bash -i -c './src/scripts/devspace-on-create.sh'",
 
 	// https://aka.ms/dev-containers-non-root.
 	"remoteUser": "vscode",
