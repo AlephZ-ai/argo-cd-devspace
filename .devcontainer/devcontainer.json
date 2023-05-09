@@ -9,7 +9,7 @@
 	"features": {
 		// https://github.com/rocker-org/devcontainer-features/tree/main/src/apt-packages
 		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
-			"packages": "wget,sudo,curl,gnupg2",
+			"packages": "wget,sudo,curl,gnupg2,openssl",
 			"updatePackages": "true"
 		},
 		// https://github.com/devcontainers/features/tree/main/src/powershell
@@ -68,7 +68,18 @@
 	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [6443],
+	"forwardPorts": [5443, 6443, 8080],
+	"portsAttributes": {
+		"5443": {
+			"protocol": "https"
+		},
+		"6443": {
+			"protocol": "https"
+		},
+		"8080": {
+			"protocol": "http"
+		}
+	},
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "bash -i -c './init.sh'",

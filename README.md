@@ -19,6 +19,7 @@ A Dev Container Workspace with Argo CD running powered by Kind
 - Write Code, Debug Code, Checkin Code
 
 # references
+- https://kind.sigs.k8s.io/docs/user/ingress/#using-ingress
 - https://argo-cd.readthedocs.io/en/stable/getting_started
 - https://code.visualstudio.com/docs/devcontainers/containers
 - https://github.com/devcontainers/ci
