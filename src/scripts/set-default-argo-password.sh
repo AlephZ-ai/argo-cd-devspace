@@ -9,7 +9,7 @@ while ! (kubectl get secret $secret 2>&1); do sleep 3; done
 defaultpassword=password
 currentpassword=$(kubectl get secret $secret -o jsonpath="{.data.password}" | base64 --decode)
 argocd account update-password --current-password $currentpassword --new-password $defaultpassword
-$encodedpassword=$(echo -n $defaultpassword | base64)
+encodedpassword=$($defaultpassword | base64)
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
 data:
