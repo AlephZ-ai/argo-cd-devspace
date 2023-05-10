@@ -4,7 +4,7 @@
 {
 	"name": "Argo CD Dev Container",
 	"dockerComposeFile": "docker-compose.yml",
-	"service": "k8s",
+	"service": "kindest",
     "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 	// https://containers.dev/features
 	"features": {
