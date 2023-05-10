@@ -13,4 +13,5 @@ kubectl apply -n $namespace -f https://raw.githubusercontent.com/argoproj/argo-c
 # https://argo-cd.readthedocs.io/en/stable/getting_started/
 # https://howchoo.com/kubernetes/read-kubernetes-secrets
 kubectl config set-context --current --namespace=$namespace
-helm upgrade --install $namespace ./src/$namespace/ --create-namespace
+helm upgrade --wait --install $namespace ./src/$namespace/ --create-namespace
+argocd cert add-tls $namespace.local --from ./devcerts/root/cert.crt

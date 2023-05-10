@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# https://argo-cd.readthedocs.io/en/stable/user-guide/private-repositories/
 namespace=argocd
 secret=$namespace-initial-admin-secret
 kubectl config set-context --current --namespace=$namespace
@@ -13,6 +14,7 @@ fi
 (kubectl port-forward svc/$namespace-server 7443:443 2>&1) &
 ./src/scripts/argo-login.sh
 argocd account update-password --current-password $currentpassword --new-password $defaultpassword
+argocd cert add-tls git.example.com --from ./devcerts/root/cert.crt
 encodedpassword=$(echo $defaultpassword | base64)
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
