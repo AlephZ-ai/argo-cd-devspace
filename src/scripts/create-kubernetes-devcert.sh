@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 namespace=$1
 certpurpose=$2
 echo $certpurpose

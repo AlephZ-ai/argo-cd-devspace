@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 # https://linuxhandbook.com/bash-arguments
 # https://support.microfocus.com/kb/doc.php?id=7013103
 # https://gist.github.com/cecilemuller/9492b848eb8fe46d462abeb26656c4f8

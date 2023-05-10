@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 # Make sure this script is idempotent since it will be run multiple times
 rm -f nohup.out
 sudo chsh -s $(which zsh) $(whoami)

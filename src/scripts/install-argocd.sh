@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 # https://argo-cd.readthedocs.io/en/stable/getting_started
 namespace="argocd"
 exists=$(kubectl get namespace argocd | grep argocd)
