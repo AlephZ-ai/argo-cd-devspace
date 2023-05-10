@@ -9,5 +9,6 @@ COPY scripts/docker-entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["docker-entrypoint.sh"]
 # https://docs.docker.com/engine/reference/builder/#cmd
 # https://riptutorial.com/docker/example/11009/cmd-instruction
+# https://devopscube.com/keep-docker-container-running/
 # Overrides default command so things don't shut down after the process ends.
-CMD [ "sleep", "infinity" ]
+CMD ["tail", "-f", "/dev/null"]
