@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# TODO: Make sure this script is idempotent since it will be run multiple times
 argocdNamespace="argocd"
 # https://docs.docker.com/engine/reference/builder/#cmd
 # https://docs.npmjs.com/getting-started/
@@ -45,7 +46,8 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 argoSecret=argocd-initial-admin-secret
 kubectl config set-context --current --namespace=argocd
 helm install argocd ./src/argocd/ --create-namespace
-while ! kubectl get secret $argoSecret; do echo "Waiting for argo password. CTRL-C to exit."; sleep 1; done
+echo "Waiting for argo password. CTRL-C to exit."
+while ! (kubectl get secret $argoSecret 2>&1); do sleep 1; done
 argopassword=$(kubectl get secret $argoSecret -o jsonpath="{.data.password}" | base64 --decode) 
 argocd login --core localhost:5443 --username admin --password $argopassword
 argocd account update-password --current-password $argopassword --new-password password

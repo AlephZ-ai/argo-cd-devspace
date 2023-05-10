@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-find . -type f -iname "*.sh" -exec chmod +x {} \;
+git add .
+find . -type f -iname "*.sh" -exec git update-index --chmod=+x {} \;
