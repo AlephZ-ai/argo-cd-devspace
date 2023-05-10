@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Make sure this script is idempotent since it will be run multiple times
+ git config --global --add safe.directory /workspaces/kindest-argo-cd
 ./src/scripts/install-devcontainers-cli.sh
 ./src/scripts/create-default-kind-cluster.sh
 # https://helm.sh/docs/intro/quickstart/
