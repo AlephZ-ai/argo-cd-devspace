@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 # https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/
 # https://phoenixnap.com/kb/kubectl-port-forward
 existingForward=$(ps -ef | grep port-forward | grep 7443)

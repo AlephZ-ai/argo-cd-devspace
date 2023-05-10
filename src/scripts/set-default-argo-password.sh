@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 # https://argo-cd.readthedocs.io/en/stable/user-guide/private-repositories/
 namespace=argocd
 secret=$namespace-initial-admin-secret

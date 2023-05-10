@@ -3,7 +3,7 @@
 # https://cloud.google.com/anthos/clusters/docs/on-prem/latest/troubleshoot-user-cluster-create-api
 # https://itnext.io/kubernetes-kind-cheat-shee-2605da77984
 name=kindest
-existingCluster=$(kind get clusters | grep $name)
+existingCluster=$((kind get clusters 2>&1) | grep $name)
 if [ "$existingCluster" == "$name" ]; then
     kind delete clusters $name
 fi
