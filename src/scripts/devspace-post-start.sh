@@ -2,8 +2,8 @@
 # Make sure this script is idempotent since it will be run multiple times
 # https://code.visualstudio.com/remote/advancedcontainers/start-processes
 $argo="argocd"
-./src/scripts/set-default-argo-password.sh
 argocd cert add-tls $namespace.local --from ./devcerts/root/cert.crt
+./src/scripts/set-default-argo-password.sh
 # https://docs.github.com/en/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli#ssh-into-a-codespace
 # https://github.com/argoproj/argo-cd/blob/master/docs/user-guide/private-repositories.md
 argocd repo add https://github.com/AlephZ-ai/kindest-argo-cd.git --username token --password $GITHUB_TOKEN
