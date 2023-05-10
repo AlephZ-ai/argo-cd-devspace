@@ -3,6 +3,7 @@
 # https://code.visualstudio.com/remote/advancedcontainers/start-processes
 $argo="argocd"
 ./src/scripts/set-default-argo-password.sh
+argocd cert add-tls $namespace.local --from ./devcerts/root/cert.crt
 argocd app create $argo --repo git@github.com:AlephZ-ai/argo-cd-devspace.git --path src/$argo --dest-server https://kubernetes.default.svc --dest-namespace $argo --directory-recursegit a
 echo "Setup Complete Ctrl+Shift+~ to open a terminal"
 echo "Press Ctrl+Shift+~ to open a terminal in the current dev container"
