@@ -1,4 +1,4 @@
-# argo-cd-devspace
+# kindest-argo-cd
 A Dev Container Workspace with Argo CD running powered by Kind
 
 # devspace-setup
