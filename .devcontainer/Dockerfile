@@ -11,4 +11,4 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 # https://riptutorial.com/docker/example/11009/cmd-instruction
 # https://devopscube.com/keep-docker-container-running/
 # Overrides default command so things don't shut down after the process ends.
-CMD ["tail", "-f", "/dev/null"]
+CMD ["sleep", "infinity"]
