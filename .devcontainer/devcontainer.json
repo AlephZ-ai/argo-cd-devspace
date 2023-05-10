@@ -79,7 +79,7 @@
 	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [5443, 6443, 8080],
+	"forwardPorts": [5443, 6443, 7443, 8080],
 	"portsAttributes": {
 		// Kind Cluster Port (TLS)
 		"5443": {
@@ -87,6 +87,10 @@
 		},
 		// Control Plane Port (TLS)
 		"6443": {
+			"protocol": "https"
+		},
+		// Argo CD (TLS)
+		"7443": {
 			"protocol": "https"
 		},
 		// Control Plane Port (Non-TLS)

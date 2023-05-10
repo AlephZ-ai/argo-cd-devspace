@@ -14,17 +14,14 @@ spec:
     helm:
       values: |
         server:
-          extraArgs:
-            - "--disable-auth"
-            - "--insecure"
           ingress:
             enabled: "true"
             hosts:
               - argocd.local
             annotations:
-              # kubernetes.io/ingress.class: ambassador ### For some ingress controllers required
-        dex:
-          enabled: "false"        
+              kubernetes.io/ingress.class: nginx
+              nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+              nginx.ingress.kubernetes.io/ssl-passthrough: "true"
   destination:
     server: {{ .Values.spec.destination.server }}
     namespace: argocd

@@ -38,3 +38,17 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 ./src/scripts/create-kubernetes-devcert.sh $argocdNamespace $argocdNamespace-server-tls
 ./src/scripts/create-kubernetes-devcert.sh $argocdNamespace $argocdNamespace-repo-server-tls
 ./src/scripts/create-kubernetes-devcert.sh $argocdNamespace $argocdNamespace-dex-server-tls
+# https://www.pcbaecker.com/posts/setup-argocd/
+# https://medium.com/devopsturkiye/self-managed-argo-cd-app-of-everything-a226eb100cf0
+# https://argo-cd.readthedocs.io/en/stable/getting_started/
+# https://howchoo.com/kubernetes/read-kubernetes-secrets
+argoSecret=argocd-initial-admin-secret
+kubectl config set-context --current --namespace=argocd
+helm install argocd ./src/argocd/ --create-namespace
+while ! kubectl get secret $argoSecret; do echo "Waiting for argo password. CTRL-C to exit."; sleep 1; done
+argopassword=$(kubectl get secret $argoSecret -o jsonpath="{.data.password}" | base64 --decode) 
+argocd login --core localhost:5443 --username admin --password $argopassword
+argocd account update-password --current-password $argopassword --new-password password
+$argopassword=password
+argocd login --core localhost:5443 --username admin --password $argopassword
+kubectl port-forward svc/argocd-server -n argocd 7443:443 &
