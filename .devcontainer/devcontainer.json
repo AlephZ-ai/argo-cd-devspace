@@ -102,8 +102,7 @@
 	// https://code.visualstudio.com/remote/advancedcontainers/start-processes
 	// https://containers.dev/implementors/json_reference/#lifecycle-scripts
 	"onCreateCommand": ["/bin/zsh", "-l", "-c", "./src/scripts/devspace-on-create.sh"],
-	"postAttachCommand": ["/bin/zsh", "-l", "-c", "./src/scripts/devspace-post-attach.sh"],
-	"postStartCommand": ["nohup", "/bin/bash", "-c", "'./src/scripts/devspace-post-start.sh &'"],
+	"postStartCommand": "nohup /bin/bash -c './src/scripts/devspace-post-start.sh &'",
 
 	// https://aka.ms/dev-containers-non-root.
 	"remoteUser": "vscode",
