@@ -2,7 +2,7 @@
 # https://kind.sigs.k8s.io/docs/user/quick-start/
 # https://cloud.google.com/anthos/clusters/docs/on-prem/latest/troubleshoot-user-cluster-create-api
 # https://itnext.io/kubernetes-kind-cheat-shee-2605da77984
-name=default
+name=kindest
 existingCluster=$(kind get clusters | grep $name)
 if [ "$existingCluster" == "$name" ]; then
     kind delete clusters $name
