@@ -11,7 +11,7 @@ kubectl wait \
    --for=condition=ready pod \
    --selector=app.kubernetes.io/name: $namespace-server \
    --timeout=30s
-(kubectl port-forward svc/$namespace-server 7443:443 2>&1) &
+./src/scripts/forward-argo-ports.sh
 if [ "$currentpassword" == "$defaultpassword" ]; then
   echo "Password already set to $defaultpassword"
   exit 0

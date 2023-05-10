@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # Make sure this script is idempotent since it will be run multiple times
-export SHELL=`which zsh`
-sudo chsh vscode -s $(which zsh)
+sudo chsh -s $(which zsh) $(whoami)
 ./src/scripts/zsh-kubectl-autocomplete.sh
 # TODO: Why does this break things?
 # git config --global --add safe.directory /workspaces/kindest-argo-cd
