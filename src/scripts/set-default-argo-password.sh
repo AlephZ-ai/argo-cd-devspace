@@ -3,7 +3,7 @@ namespace=argocd
 secret=$namespace-initial-admin-secret
 echo "Waiting for $namespace password. CTRL-C to exit."
 while ! (kubectl get secret $secret 2>&1); do sleep 3; done
-argo-login.sh
+./src/scripts/argo-login.sh
 defaultpassword=password
 currentpassword=$(kubectl get secret $secret -o jsonpath="{.data.password}" | base64 --decode)
 argocd account update-password --current-password $currentpassword --new-password $defaultpassword
@@ -18,4 +18,4 @@ metadata:
   namespace: $namespace
 type: Opaque
 EOF
-argo-login.sh
+./src/scripts/argo-login.sh
