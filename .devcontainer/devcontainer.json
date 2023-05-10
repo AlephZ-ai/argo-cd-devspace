@@ -107,6 +107,11 @@
 	// https://aka.ms/dev-containers-non-root.
 	"remoteUser": "vscode",
 
+	// https://code.visualstudio.com/remote/advancedcontainers/environment-variables
+	"containerEnv": {
+		"GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN_KINDEST_ARGO_CD}"
+	},
+
 	"customizations": {
 		"vscode": {
 			"extensions": [
