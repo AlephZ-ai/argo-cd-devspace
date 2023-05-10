@@ -5,6 +5,7 @@ $argo="argocd"
 ./src/scripts/set-default-argo-password.sh
 argocd cert add-tls $namespace.local --from ./devcerts/root/cert.crt
 # https://docs.github.com/en/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli#ssh-into-a-codespace
+# https://github.com/argoproj/argo-cd/blob/master/docs/user-guide/private-repositories.md
 argocd repo add git@github.com:AlephZ-ai/kindest-argo-cd.git --ssh-private-key-path ~/.ssh/id_rsa
 argocd app create $argo --repo git@github.com:AlephZ-ai/argo-cd-devspace.git --path src/$argo --dest-server https://kubernetes.default.svc --dest-namespace $argo --directory-recursegit a
 echo "Setup Complete Ctrl+Shift+~ to open a terminal"
