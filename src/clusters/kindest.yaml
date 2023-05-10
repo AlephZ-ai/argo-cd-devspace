@@ -2,7 +2,7 @@
 # https://kind.sigs.k8s.io/docs/user/ingress/
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
-name: default
+name: kindest
 # https://kubernetes.io/docs/reference/command-line-tools-reference/feature-gates/
 featureGates:
 # https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/
@@ -18,7 +18,7 @@ nodes:
     kind: InitConfiguration
     nodeRegistration:
       kubeletExtraArgs:
-        node-labels: "control-plane=true,ingress-ready=true"
+        node-labels: "cluster=kkindest,control-plane=true,ingress-ready=true"
   extraPortMappings:
   - containerPort: 80
     hostPort: 8080
@@ -32,11 +32,11 @@ nodes:
     kind: InitConfiguration
     nodeRegistration:
       kubeletExtraArgs:
-        node-labels: "worker=true"
+        node-labels: "cluster=kkindest,worker=true"
 - role: worker
   kubeadmConfigPatches:
   - |
     kind: InitConfiguration
     nodeRegistration:
       kubeletExtraArgs:
-        node-labels: "worker=true"
+        node-labels: "cluster=kkindest,worker=true"
