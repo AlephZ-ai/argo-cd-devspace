@@ -3,12 +3,12 @@
 # https://cloud.google.com/anthos/clusters/docs/on-prem/latest/troubleshoot-user-cluster-create-api
 # https://itnext.io/kubernetes-kind-cheat-shee-2605da77984
 name=kindest
-if kubectl config use-context kind-$name; then
+while !(kind create cluster --wait 30s --config src/clusters/$name.yaml 2>&1); do
+    kubectl config use-context kind-$name
     existingCluster=$((kind get clusters) | grep $name)
     if [ "$existingCluster" == "$name" ]; then
         kind delete clusters $name
-fi
-kind create cluster --wait 30s --config src/clusters/$name.yaml
+; done
 # https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
 # https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 # https://kubernetes.io/docs/reference/kubectl/
