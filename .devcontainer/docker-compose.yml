@@ -3,7 +3,7 @@ version: '3.8'
 
 services:
   # Kind cluster
-  k8s:
+  kindest:
     # https://docs.docker.com/compose/compose-file/build/#build-definition
     # Includes https://github.com/devcontainers/features/tree/main/src/common-utils
     build:
@@ -20,4 +20,3 @@ services:
       - ../..:/workspaces:cached
 
 networks:
-  default:
