@@ -35,6 +35,7 @@ A Dev Container Workspace with Argo CD running powered by Kind
 - TODO: What is next?  Add More Info.  What are common errors from each troubleshooting step?  What can you learn from each failure?  When you encounter a failure what steps should you take to mitigate?
 
 # references
+- https://en.wikipedia.org/wiki/Occam%27s_razor
 - https://kind.sigs.k8s.io/docs/user/ingress/#using-ingress
 - https://argo-cd.readthedocs.io/en/stable/getting_started
 - https://code.visualstudio.com/docs/devcontainers/containers
