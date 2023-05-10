@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 namespace=argocd
 secret=$namespace-initial-admin-secret
+kubectl config set-context --current --namespace=$namespace
+kubectl port-forward svc/$namespace-server 7443:443 &
 echo "Waiting for $namespace password. CTRL-C to exit."
 while ! (kubectl get secret $secret 2>&1); do sleep 3; done
 ./src/scripts/argo-login.sh
