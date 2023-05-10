@@ -53,15 +53,22 @@
 			"version": "latest",
 			"installDirectlyFromGitHubRelease": "true"
 		},
-		// https://github.com/devcontainers/features/tree/main/src/docker-in-docker
-		"ghcr.io/devcontainers/features/docker-in-docker:2": {
-				"version": "latest",
-				"moby": "true",
-				"dockerDashComposeVersion": "v2",
-				"azureDnsAutoDetection": "true",
-				"enableNonRootDocker": "true",
-				"installDockerBuildx": "true"
+		// https://github.com/devcontainers/features/tree/main/src/docker-outside-of-docker
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+			"version": "latest",
+			"moby": "true",
+			"dockerDashComposeVersion": "v2",
+			"installDockerBuildx": "true"
 		},
+		// https://github.com/devcontainers/features/tree/main/src/docker-in-docker
+		// "ghcr.io/devcontainers/features/docker-in-docker:2": {
+		// 		"version": "latest",
+		// 		"moby": "true",
+		// 		"dockerDashComposeVersion": "v2",
+		// 		"azureDnsAutoDetection": "true",
+		// 		"enableNonRootDocker": "true",
+		// 		"installDockerBuildx": "true"
+		// },
 		// https://github.com/devcontainers/features/tree/main/src/kubectl-helm-minikube
 		"ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
 			"version": "latest",
@@ -77,7 +84,6 @@
 			"version": "latest"
 		}
 	},
-
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [5443, 6443, 7443, 8080],
 	"portsAttributes": {
@@ -98,23 +104,16 @@
 			"protocol": "http"
 		}
 	},
-
 	// https://code.visualstudio.com/remote/advancedcontainers/start-processes
 	// https://containers.dev/implementors/json_reference/#lifecycle-scripts
 	"onCreateCommand": ["/bin/zsh", "-l", "-c", "./src/scripts/devspace/on-create.sh"],
 	"postStartCommand": "nohup /bin/bash -c './src/scripts/devspace/post-start.sh &'",
-
 	// https://aka.ms/dev-containers-non-root.
 	"remoteUser": "vscode",
-
 	// https://code.visualstudio.com/remote/advancedcontainers/environment-variables
-	"containerEnv": {
-		"SHELL": "/bin/zsh"
-	},
 	"remoteEnv": {
 		"GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN_KINDEST_ARGO_CD}"
 	},
-
 	"customizations": {
 		"vscode": {
 			"extensions": [
