@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 # https://argo-cd.readthedocs.io/en/stable/user-guide/private-repositories/
 namespace=argocd
 secret=$namespace-initial-admin-secret
@@ -11,12 +11,12 @@ kubectl wait \
    --for=condition=ready pod \
    --selector=app.kubernetes.io/name: $namespace-server \
    --timeout=30s
-./src/scripts/forward-argo-ports.sh
+./src/scripts/forward-ports.sh
 if [ "$currentpassword" == "$defaultpassword" ]; then
   echo "Password already set to $defaultpassword"
   exit 0
 fi
-./src/scripts/argo-login.sh
+./src/scripts/login.sh
 argocd account update-password --current-password $currentpassword --new-password $defaultpassword
 encodedpassword=$(echo $defaultpassword | base64)
 cat <<EOF | kubectl apply -f -
@@ -29,4 +29,4 @@ metadata:
   namespace: $namespace
 type: Opaque
 EOF
-./src/scripts/argo-login.sh
+./src/scripts/login.sh

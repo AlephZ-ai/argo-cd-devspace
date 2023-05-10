@@ -1,11 +1,11 @@
 #!/usr/bin/env zsh
 # Make sure this script is idempotent since it will be run multiple times
 rm -f nohup.out
-./src/scripts/zsh-kubectl-autocomplete.sh
+./src/script/devspace/zsh-kubectl-autocomplete.sh
 # TODO: Why does this break things?
 # git config --global --add safe.directory /workspaces/kindest-argo-cd
-./src/scripts/install-devcontainers-cli.sh
-./src/scripts/create-kindest-cluster.sh
+./src/scripts/devspace/install-devcontainers-cli.sh
+./src/scripts/kind/create-kindest-cluster.sh
 # https://helm.sh/docs/intro/quickstart/
 # https://github.com/kubernetes/dashboard
 # https://github.com/imorti/kind-dashboard-setup
@@ -16,9 +16,9 @@ rm -f nohup.out
 # helm install kubernetes-dashboard kubernetes-dashboard/kubernetes-dashboard
 # https://medium.com/@munza/local-kubernetes-with-kind-helm-dashboard-41152e4b3b3d
 # https://kind.sigs.k8s.io/docs/user/ingress/#ingress-nginx
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+#kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
 # kubectl wait --namespace ingress-nginx \
 #   --for=condition=ready pod \
 #   --selector=app.kubernetes.io/component=controller \
 #   --timeout=90s
-./src/scripts/install-argocd.sh
+./src/scripts/argo/install.sh
