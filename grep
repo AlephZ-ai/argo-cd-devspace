@@ -1,0 +1,12 @@
+Lists existing kind clusters by their name
+
+Usage:
+  kind get clusters [flags]
+
+Flags:
+  -h, --help   help for clusters
+
+Global Flags:
+      --loglevel string   DEPRECATED: see -v instead
+  -q, --quiet             silence all stderr output
+  -v, --verbosity int32   info log verbosity, higher value produces more output

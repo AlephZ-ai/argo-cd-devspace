@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# TODO: Make sure this script is idempotent since it will be run multiple times
+# Make sure this script is idempotent since it will be run multiple times
 ./src/scripts/install-devcontainers-cli.sh
 ./src/scripts/create-default-kind-cluster.sh
 # https://helm.sh/docs/intro/quickstart/
