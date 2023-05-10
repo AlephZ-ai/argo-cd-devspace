@@ -14,4 +14,5 @@ kubectl apply -n $namespace -f https://raw.githubusercontent.com/argoproj/argo-c
 # https://howchoo.com/kubernetes/read-kubernetes-secrets
 kubectl config set-context --current --namespace=$namespace
 helm upgrade --wait --install $namespace ./src/$namespace/ --create-namespace
-argocd cert add-tls $namespace.local --from ./devcerts/root/cert.crt
+echo "Waiting for argo. CTRL-C to exit."
+while ! (argocd cert add-tls $namespace.local --from ./devcerts/root/cert.crt 2>&1); do sleep 1; done
