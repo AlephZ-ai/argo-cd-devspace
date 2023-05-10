@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Make sure this script is idempotent since it will be run multiple times
-chsh -s $(which zsh)
+sudo chsh vscode -s $(which zsh)
 # TODO: Why does this break things?
 # git config --global --add safe.directory /workspaces/kindest-argo-cd
 ./src/scripts/install-devcontainers-cli.sh
