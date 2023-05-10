@@ -3,8 +3,8 @@
 # https://code.visualstudio.com/remote/advancedcontainers/start-processes
 $namespace="argocd"
 kubectl config set-context --current --namespace=$namespace
-argocd cert add-tls $namespace.local --from ./devcerts/root/cert.crt
-./src/scripts/set-default-password.sh
+./src/scripts/argo/set-default-password.sh
+./src/scripts/argo/login.sh
 # https://docs.github.com/en/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli#ssh-into-a-codespace
 # https://github.com/argoproj/argo-cd/blob/master/docs/user-guide/private-repositories.md
 argocd repo add https://github.com/AlephZ-ai/kindest-argo-cd.git --username token --password $GITHUB_TOKEN
