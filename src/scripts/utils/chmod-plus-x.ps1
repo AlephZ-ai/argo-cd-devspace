@@ -1,2 +1,2 @@
 git add .
-Get-ChildItem -Recurse -Filter "*.sh" | git update-index --chmod=+x
+Get-ChildItem -Recurse -Filter "*.sh" | ForEach-Object { git update-index --chmod=+x $_.FullName }
