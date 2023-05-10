@@ -2,5 +2,5 @@ spec:
   destination:
     server: https://kubernetes.default.svc
   source:
-    repoURL: git@github.com:AlephZ-ai/argo-cd-devspace.git
+    repoURL: ssh://git@github.com:AlephZ-ai/argo-cd-devspace.git
     targetRevision: HEAD
