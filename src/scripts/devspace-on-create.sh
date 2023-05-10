@@ -1,7 +1,6 @@
 #!/usr/bin/env zsh
 # Make sure this script is idempotent since it will be run multiple times
 rm -f nohup.out
-sudo chsh -s $(which zsh) $(whoami)
 ./src/scripts/zsh-kubectl-autocomplete.sh
 # TODO: Why does this break things?
 # git config --global --add safe.directory /workspaces/kindest-argo-cd

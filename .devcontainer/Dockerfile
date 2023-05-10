@@ -4,11 +4,6 @@
 ARG IMAGE=debian:latest
 FROM ${IMAGE}
 COPY scripts/docker-entrypoint.sh /usr/local/bin/
-RUN apt update && \
-    apt install -y zsh
-SHELL ["/bin/zsh", "-l", "-c"]
-ENV SHELL=/bin/zsh
-RUN chsh -s $(which zsh) $(whoami)
 
 # https://docs.docker.com/engine/reference/builder/#entrypoint
 # https://stackoverflow.com/questions/21553353/what-is-the-difference-between-cmd-and-entrypoint-in-a-dockerfile
