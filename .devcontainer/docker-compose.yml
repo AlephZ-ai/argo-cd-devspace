@@ -20,3 +20,4 @@ services:
       - ../..:/workspaces:cached
 
 networks:
+  default:
