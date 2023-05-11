@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 containerid=$(docker ps -q -f name=kindest-argo-cd_devcontainer-kindest)
-if [ ! (-z "$containerid") ]
+if ! [ -z "$containerid" ]
 then
     docker rm -f $containerid -f
 fi
