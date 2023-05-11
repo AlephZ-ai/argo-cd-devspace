@@ -15,6 +15,5 @@ then
 fi
 argocd repo add $repo --username token --password "$GITHUB_TOKEN"
 argocd proj add-source default $repo
-argocd app set $namespace --sync-policy automated
-argocd app set $namespace --repo $repo --path src/$namespace --dest-server https://kubernetes.default.svc --dest-namespace $namespace
+argocd app set $namespace --sync-policy automated --repo $repo --path src/$namespace --dest-server https://kubernetes.default.svc --dest-namespace $namespace
 pkill kubectl -9
