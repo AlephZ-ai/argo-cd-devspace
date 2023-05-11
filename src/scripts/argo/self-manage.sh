@@ -5,9 +5,9 @@
 ./src/scripts/argo/login.sh
 # https://docs.github.com/en/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli#ssh-into-a-codespace
 # https://github.com/argoproj/argo-cd/blob/master/docs/user-guide/private-repositories.md
-if [ -z "$GITHUB_TOKEN" ]
+if [ -z "$ARGOGITHUBTOKEN" ]
 then
-    echo "FAILURE: $GITHUB_TOKEN is not set. Cannot add git repo to argo." 1>&2
+    echo "FAILURE: $ARGOGITHUBTOKEN is not set. Cannot add git repo to argo." 1>&2
     exit 1
 fi
 argocd repo add "$REPOURL" --username token --password "$GITHUB_TOKEN"
