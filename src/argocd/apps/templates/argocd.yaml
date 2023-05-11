@@ -10,6 +10,7 @@ spec:
   syncPolicy:
     automated:
       prune: true
+      selfHeal: true
 source:
   repoURL: 'https://github.com/AlephZ-ai/kindest-argo-cd.git'
   path: src/argocd
