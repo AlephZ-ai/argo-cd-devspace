@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-cd /workspace/kindest-argo-cd || exit
+cd /workspaces/kindest-argo-cd || exit
 ./src/scripts/argo/forward-ports.sh
 argocd version
