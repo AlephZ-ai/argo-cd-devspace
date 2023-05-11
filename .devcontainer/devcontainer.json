@@ -108,6 +108,7 @@
 	"remoteEnv": {
 		"GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN_KINDEST_ARGO_CD}"
 	},
+	"userEnvProbe": "loginInteractiveShell",  
 	"customizations": {
 		"vscode": {
 			"extensions": [
