@@ -1,1 +1,2 @@
+#!/usr/bin/env zsh
 ./src/scripts/devspace/clean.sh
