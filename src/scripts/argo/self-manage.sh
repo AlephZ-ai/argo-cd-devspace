@@ -10,7 +10,7 @@ then
     echo "FAILURE: $ARGOGITHUBTOKEN is not set. Cannot add git repo to argo." 1>&2
     exit 1
 fi
-argocd repo add "$REPOURL" --username token --password "$GITHUB_TOKEN"
+argocd repo add "$REPOURL" --username token --password "$ARGOGITHUBTOKEN"
 #argocd proj create $project --upsert --orphaned-resources --orphaned-resources-warn -source-namespaces $namespace -src "$repo" --dest "https://kubernetes.default.svc,$namespace"
 argocd app create "$ARGONAME" --upsert --validate --release-name "$ARGONAMES" --app-namespace "$ARGONAMESPACE" --project "$ARGOPROJECT" --repo "$REPOURL" --set-finalizer --self-heal --auto-prune --sync-policy automated --sync-option CreateNamespace=true --sync-option ServerSideApply=true --path "src/$ARGONAME" --dest-server https://kubernetes.default.svc --dest-namespace "$ARGONAMESPACE"
 pkill kubectl -9
