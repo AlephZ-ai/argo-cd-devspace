@@ -19,3 +19,4 @@ kubectl apply -n $namespace -f https://raw.githubusercontent.com/argoproj/argo-c
 # https://howchoo.com/kubernetes/read-kubernetes-secrets
 kubectl config set-context --current --namespace=$namespace
 helm upgrade --wait --install $namespace ./src/$namespace/ --create-namespace
+./src/scripts/argo/login.sh

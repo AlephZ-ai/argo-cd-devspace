@@ -4,6 +4,12 @@ version: '3.8'
 services:
   # Kind cluster
   kindest:
+    image: "cr.alephz.ai/devcontainers/kindest-argo-cd:latest"
+    container_name: kindest-argo-cd-devspace
+    labels: ["ai.alephz.role=Kindest K8s Cluster"]
+    environment:
+      - KUBEPORT=10443
+      - ARGOPORT=11443
     # https://docs.docker.com/compose/compose-file/build/#build-definition
     # Includes https://github.com/devcontainers/features/tree/main/src/common-utils
     build:
@@ -12,9 +18,6 @@ services:
       args:
         # https://github.com/dotnet/dotnet-docker/tree/main/src/runtime-deps
         IMAGE: debian:latest
-    image: "cr.alephz.ai/devcontainers/kindest-argo-cd:latest"
-    container_name: kindest-argo-cd-devspace
-    labels: ["ai.alephz.role=K8s Kind Cluster"]
     networks:
       - default
     volumes:

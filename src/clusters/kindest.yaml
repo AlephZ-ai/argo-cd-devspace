@@ -9,7 +9,7 @@ featureGates:
 runtimeConfig:
 networking:
   ipFamily: dual
-  apiServerPort: 15443
+  apiServerPort: 10443
   kubeProxyMode: iptables
 nodes:
 - role: control-plane
