@@ -13,4 +13,4 @@ then
     exit 1
 fi
 argocd repo add https://github.com/AlephZ-ai/kindest-argo-cd.git --username token --password "$GITHUB_TOKEN"
-argocd app create $namespace --repo https://github.com/AlephZ-ai/kindest-argo-cd.git --path src/$namespace --dest-server https://kubernetes.default.svc --dest-namespace $namespace --directory-recursegit a
+argocd app create $namespace --repo https://github.com/AlephZ-ai/kindest-argo-cd.git --path src/$namespace --dest-server https://kubernetes.default.svc --dest-namespace $namespace

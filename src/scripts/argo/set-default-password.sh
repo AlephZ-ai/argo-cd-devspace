@@ -7,7 +7,7 @@ echo "Waiting for $namespace password. CTRL-C to exit."
 while ! (kubectl get secret $secret 2>&1); do sleep 3; done
 defaultpassword=password
 currentpassword=$(kubectl get secret $secret -o jsonpath="{.data.password}" | base64 --decode)
-echo "Waiting for $namespace password. CTRL-C to exit."
+echo "Waiting for $namespace-server to be ready. CTRL-C to exit."
 kubectl wait \
    --for=condition=ready pod \
    --selector=app.kubernetes.io/name=$namespace-server \
