@@ -4,3 +4,7 @@ spec:
   source:
     repoURL: ssh://git@github.com:AlephZ-ai/argo-cd-devspace.git
     targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfheal: true
