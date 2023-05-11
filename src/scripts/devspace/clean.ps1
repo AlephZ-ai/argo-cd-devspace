@@ -4,7 +4,7 @@ if ($containerid) {
 }
 $volumes = docker volume ls -q -f name=kindest-argo-cd_devcontainer
 if ($volumes) {
-    $volumes | ForEach-Object { docker volume -f rm $_ }
+    $volumes | ForEach-Object { docker volume rm -f $_ }
 }
 docker container prune -f
 docker image prune -a -f
