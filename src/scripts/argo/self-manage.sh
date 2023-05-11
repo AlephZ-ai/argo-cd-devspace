@@ -3,6 +3,7 @@
 # https://code.visualstudio.com/remote/advancedcontainers/start-processes
 namespace="argocd"
 repo=https://github.com/AlephZ-ai/kindest-argo-cd.git
+project=default
 kubectl config set-context --current --namespace=$namespace
 ./src/scripts/argo/set-default-password.sh
 ./src/scripts/argo/login.sh
@@ -14,6 +15,7 @@ then
     exit 1
 fi
 argocd repo add $repo --username token --password "$GITHUB_TOKEN"
-argocd proj add-source default $repo
-argocd app set $namespace --sync-policy automated --repo $repo --path src/$namespace --dest-server https://kubernetes.default.svc --dest-namespace $namespace
+argocd proj add-source $project $repo
+argocd proj set $project --orphaned-resources --orphaned-resources-warn
+argocd app create $namespace --project $project --repo $repo --self-heal --auto-prune --sync-policy automated --path src/$namespace --dest-server https://kubernetes.default.svc --dest-namespace $namespace
 pkill kubectl -9
