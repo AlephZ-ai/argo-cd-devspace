@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 root=root
 certpurpose=$root
 password=$root-password

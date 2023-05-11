@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 # Make sure this script is idempotent since it will be run multiple times
 rm -f nohup.out
 ./src/script/devspace/zsh-kubectl-completion.sh

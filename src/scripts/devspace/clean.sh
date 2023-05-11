@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 containerid=$(docker ps -q -f name=kindest-argo-cd_devcontainer-kindest)
 if ! [ -z "$containerid" ]
 then

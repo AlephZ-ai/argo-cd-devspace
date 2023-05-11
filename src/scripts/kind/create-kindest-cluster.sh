@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 # https://kind.sigs.k8s.io/docs/user/quick-start/
 # https://cloud.google.com/anthos/clusters/docs/on-prem/latest/troubleshoot-user-cluster-create-api
 # https://itnext.io/kubernetes-kind-cheat-shee-2605da77984

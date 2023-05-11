@@ -1,7 +1,7 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 # Make sure this script is idempotent since it will be run multiple times
 # https://code.visualstudio.com/remote/advancedcontainers/start-processes
-$namespace="argocd"
+namespace="argocd"
 kubectl config set-context --current --namespace=$namespace
 ./src/scripts/argo/set-default-password.sh
 ./src/scripts/argo/login.sh
