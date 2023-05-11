@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-containerid=$(docker ps -q -f name=kindest-argo-cd_devcontainer)
+containerid=$(docker ps -q -f name=kindest-argo-cd-devspace)
 if [ -n "$containerid" ]
 then
     docker rm -f "$containerid"
 fi
-volumes=$(docker volume ls -q -f name=kindest-argo-cd_devcontainer)
+volumes=$(docker volume ls -q -f name=kindest-argo-cd-devspace)
 if [ -n "$volumes" ]
 then
     echo $volumes | xargs docker volume rm -f
