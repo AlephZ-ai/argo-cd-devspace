@@ -11,12 +11,12 @@ kubectl wait \
    --for=condition=ready pod \
    --selector=app.kubernetes.io/name: $namespace-server \
    --timeout=30s
-./src/scripts/forward-ports.sh
+./src/scripts/argo/forward-ports.sh
 if [ "$currentpassword" == "$defaultpassword" ]; then
   echo "Password already set to $defaultpassword"
   exit 0
 fi
-./src/scripts/login.sh
+./src/scripts/argo/login.sh
 argocd account update-password --current-password "$currentpassword" --new-password $defaultpassword
 encodedpassword=$(echo $defaultpassword | base64)
 cat <<EOF | kubectl apply -f -
@@ -29,4 +29,4 @@ metadata:
   namespace: $namespace
 type: Opaque
 EOF
-./src/scripts/login.sh
+./src/scripts/argo/login.sh
