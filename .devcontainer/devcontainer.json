@@ -65,7 +65,7 @@
 		// https://github.com/devcontainers/features/tree/main/src/kubectl-helm-minikube
 		"ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
 			"version": "latest",
-			"helm": "3.11.3",
+			"helm": "latest",
 			"minikube": "latest"
 		},
 		// https://github.com/devcontainers-contrib/features/tree/main/src/kind
