@@ -15,8 +15,8 @@ destination:
   namespace: argocd
 syncPolicy:
   automated:
-  prune: true
-  selfHeal: true
+    prune: true
+    selfheal: true
 syncOptions:
   - CreateNamespace=true
   - ServerSideApply=true
