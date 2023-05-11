@@ -4,7 +4,7 @@ if [ -n "$containerid" ]
 then
     docker rm -f "$containerid"
 fi
-volumes=$(docker volume ls -q -f name=kindest-argo-cd-devspace)
+volumes=$(docker volume ls -q -f name=name=kindest-argo-cd_devcontainer)
 if [ -n "$volumes" ]
 then
     echo $volumes | xargs docker volume rm -f
