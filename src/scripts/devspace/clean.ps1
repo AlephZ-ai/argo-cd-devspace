@@ -1,6 +1,6 @@
 $containerid = docker ps -q -f name=kindest-argo-cd_devcontainer
 if ($containerid) {
-    docker rm -f $containerid -f
+    docker rm -f $containerid
 }
 $volumes = docker volume ls -q -f name=kindest-argo-cd_devcontainer
 if ($volumes) {

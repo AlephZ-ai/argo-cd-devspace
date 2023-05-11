@@ -2,7 +2,7 @@
 containerid=$(docker ps -q -f name=kindest-argo-cd_devcontainer)
 if [ -n "$containerid" ]
 then
-    docker rm -f "$containerid" -f
+    docker rm -f "$containerid"
 fi
 volumes=$(docker volume ls -q -f name=kindest-argo-cd_devcontainer)
 if [ -n "$volumes" ]

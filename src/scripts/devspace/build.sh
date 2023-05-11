@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-devcontainer up --workspace-folder .
+devcontainer build --workspace-folder .
