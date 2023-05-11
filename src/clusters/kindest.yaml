@@ -9,7 +9,7 @@ featureGates:
 runtimeConfig:
 networking:
   ipFamily: dual
-  apiServerPort: 5443
+  apiServerPort: 15443
   kubeProxyMode: iptables
 nodes:
 - role: control-plane
@@ -21,10 +21,10 @@ nodes:
         node-labels: "cluster=kkindest,control-plane=true,ingress-ready=true"
   extraPortMappings:
   - containerPort: 80
-    hostPort: 8080
+    hostPort: 16080
     protocol: TCP
   - containerPort: 443
-    hostPort: 6443
+    hostPort: 16443
     protocol: TCP
 - role: worker
   kubeadmConfigPatches:
