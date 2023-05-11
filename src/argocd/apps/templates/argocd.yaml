@@ -7,6 +7,9 @@ metadata:
   - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
+  syncPolicy:
+    automated:
+      prune: true
 source:
   repoURL: 'https://github.com/AlephZ-ai/kindest-argo-cd.git'
   path: src/argocd
