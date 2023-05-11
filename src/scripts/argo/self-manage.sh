@@ -6,7 +6,7 @@
 # https://docs.github.com/en/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli#ssh-into-a-codespace
 # https://github.com/argoproj/argo-cd/blob/master/docs/user-guide/private-repositories.md
 # https://docs.github.com/en/enterprise-cloud@latest/codespaces/developing-in-codespaces/default-environment-variables-for-your-codespace
-if [ -z "$GITHUB_TOKEN" ]
+if [ -n "$GITHUB_TOKEN" ]
 then
     echo "FAILURE: $GITHUB_TOKEN is not set. Cannot add git repo to argo." 1>&2
     exit 1
