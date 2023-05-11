@@ -4,4 +4,4 @@ secret=argocd-initial-admin-secret
 ./src/scripts/argo/wait-for-argo-server.sh
 ./src/scripts/argo/forward-ports.sh
 password=$(kubectl get secret $secret -o jsonpath="{.data.password}" | base64 --decode)
-argocd login --insecure localhost:"$ARGO_PORT" --username admin --password "$password"
+argocd login --insecure localhost:"$KINDEST_ARGO_CD_ARGO_PORT" --username admin --password "$password"

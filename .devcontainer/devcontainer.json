@@ -98,7 +98,7 @@
 	"remoteUser": "vscode",
 	// https://code.visualstudio.com/remote/advancedcontainers/environment-variables
 	"remoteEnv": {
-		"ARGO_GITHUB_TOKEN": "${localEnv:KINDEST_ARGO_GITHUB_TOKEN}"
+		"KINDEST_ARGO_CD_GITHUB_TOKEN": "${localEnv:KINDEST_ARGO_CD_GITHUB_TOKEN}"
 	},
 	"userEnvProbe": "loginInteractiveShell",  
 	"customizations": {
