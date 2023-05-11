@@ -14,6 +14,3 @@ then
 fi
 argocd repo add https://github.com/AlephZ-ai/kindest-argo-cd.git --username token --password "$GITHUB_TOKEN"
 argocd app create $namespace --repo https://github.com/AlephZ-ai/kindest-argo-cd.git --path src/$namespace --dest-server https://kubernetes.default.svc --dest-namespace $namespace --directory-recursegit a
-echo "Press Ctrl+Shift+~ to open a terminal in the current dev container"
-# keep port forwards alive don't shut down after the process ends.
-sleep infinity
