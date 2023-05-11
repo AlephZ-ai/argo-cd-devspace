@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
+chmod +x devspace-build
 chmod +x devspace-clean
 ./src/scripts/utils/chmod-plus-x.sh
