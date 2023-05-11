@@ -98,8 +98,8 @@
 	"remoteUser": "vscode",
 	// https://code.visualstudio.com/remote/advancedcontainers/environment-variables
 	"remoteEnv": {
-		// This is a readonly token to access the public repo https://github.com/AlephZ-ai/kindest-argo-cd.
-		// SECURITY WARNING: If this was a private repo or this token allowed for more than readonly access then it would be a security risk.
+		// This is a readonly token to access the public repos owned by https://github.com/AlephZ-ai
+		// SECURITY WARNING: If token had access to private repos or this token allowed for more than readonly access then it would be a security risk.
 		// https://docs.github.com/en/enterprise-cloud@latest/codespaces/developing-in-codespaces/default-environment-variables-for-your-codespace
 		"GITHUB_TOKEN": "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"
 	},
