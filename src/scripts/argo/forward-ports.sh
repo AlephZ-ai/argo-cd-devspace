@@ -2,8 +2,6 @@
 #shellcheck disable=SC2009
 # https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/
 # https://phoenixnap.com/kb/kubectl-port-forward
-namespace=argocd
-echo "Waiting for $namespace-server to be ready. CTRL-C to exit."
 ./src/scripts/argo/wait-for-argo-server.sh
 existingForward=$(ps -ef | grep port-forward | grep 17443)
 if [ "$existingForward" != "" ]; then
