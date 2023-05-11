@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
-containerid=$(docker ps -q -f name=kindest-argo-cd_devcontainer-kindest)
+containerid=$(docker ps -q -f name=kindest-argo-cd_devcontainer)
 if [ -n "$containerid" ]
 then
     docker rm -f "$containerid" -f
 fi
-volumes=$(docker volume ls -q -f name=kindest-argo-cd)
+volumes=$(docker volume ls -q -f name=kindest-argo-cd_devcontainer)
 if [ -n "$volumes" ]
 then
-    $volumes | xargs docker volume rm -f
+    echo $volumes | xargs docker volume rm -f
 fi
 docker container prune -f
 docker image prune -a -f

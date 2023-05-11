@@ -1,10 +1,10 @@
-$containerid = docker ps -q -f name=kindest-argo-cd_devcontainer-kindest
+$containerid = docker ps -q -f name=kindest-argo-cd_devcontainer
 if ($containerid) {
     docker rm -f $containerid -f
 }
-$volumes = docker volume ls -q -f name=kindest-argo-cd
+$volumes = docker volume ls -q -f name=kindest-argo-cd_devcontainer
 if ($volumes) {
-    $volumes | ForEach-Object { docker volume rm $_ -f }
+    $volumes | ForEach-Object { docker volume -f rm $_ }
 }
 docker container prune -f
 docker image prune -a -f
