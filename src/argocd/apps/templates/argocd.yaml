@@ -7,6 +7,6 @@ metadata:
   - resources-finalizer.argocd.argoproj.io
 spec:
   source:
-    repoURL: 'https://argoproj.github.io/argo-helm'
+    REPO_URL: 'https://argoproj.github.io/argo-helm'
     targetRevision: HEAD
     chart: argo-cd

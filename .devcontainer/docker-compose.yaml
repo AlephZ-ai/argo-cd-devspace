@@ -8,13 +8,13 @@ services:
     container_name: kindest-argo-cd-devspace
     labels: ["ai.alephz.role=Kindest K8s Cluster"]
     environment:
-      - REPOURL=https://github.com/AlephZ-ai/kindest-argo-cd.git
-      - KUBEPORT=10443
-      - ARGOPORT=11443
-      - ARGOPASSWORD=password
-      - ARGONAME=argocd
-      - ARGONAMESPACE=argocd
-      - ARGOPROJECT=default
+      - REPO_URL=https://github.com/AlephZ-ai/kindest-argo-cd.git
+      - KUBE_PORT=10443
+      - ARGO_PORT=11443
+      - ARGO_PASSWORD=password
+      - ARGO_NAME=argocd
+      - ARGO_NAMESPACE=argocd
+      - ARGO_PROJECT=default
     # https://docs.docker.com/compose/compose-file/build/#build-definition
     # Includes https://github.com/devcontainers/features/tree/main/src/common-utils
     build:
