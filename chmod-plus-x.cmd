@@ -1,1 +1,1 @@
-powershell -command "chmod-plus-x.ps1"
+powershell -command "./chmod-plus-x.ps1"
