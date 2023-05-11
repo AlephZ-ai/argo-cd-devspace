@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-secret=argocd-initial-admin-secret
-echo "Waiting for argo password. CTRL-C to exit."
-while ! (kubectl get secret $secret 2>&1); do sleep 10; done
+./src/scripts/argo/wait-for-argo-password.sh
 password=$(kubectl get secret $secret -o jsonpath="{.data.password}" | base64 --decode)
 argocd login --insecure localhost:17443 --username admin --password "$password"

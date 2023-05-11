@@ -4,10 +4,7 @@
 # https://phoenixnap.com/kb/kubectl-port-forward
 namespace=argocd
 echo "Waiting for $namespace-server to be ready. CTRL-C to exit."
-kubectl wait \
-   --for=condition=ready pod \
-   --selector=app.kubernetes.io/name=$namespace-server \
-   --timeout=30s
+./src/scripts/argo/wait-for-argo-server.sh
 existingForward=$(ps -ef | grep port-forward | grep 17443)
 if [ "$existingForward" != "" ]; then
     echo "Forward already exists. Skipping."

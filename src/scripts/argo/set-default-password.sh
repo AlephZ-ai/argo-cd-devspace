@@ -4,7 +4,7 @@ namespace=argocd
 secret=$namespace-initial-admin-secret
 kubectl config set-context --current --namespace=$namespace
 echo "Waiting for $namespace password. CTRL-C to exit."
-while ! (kubectl get secret $secret 2>&1); do sleep 3; done
+./src/scripts/argo/wait-for-argo-password.sh
 defaultpassword=password
 currentpassword=$(kubectl get secret $secret -o jsonpath="{.data.password}" | base64 --decode)
 ./src/scripts/argo/forward-ports.sh
