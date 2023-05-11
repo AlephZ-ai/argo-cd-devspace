@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 chmod +x build-devspace
 chmod +x clean-devspace
+chmod +x test-devspace
+chmod +x external-argo-version
 ./src/scripts/utils/chmod-plus-x.sh
