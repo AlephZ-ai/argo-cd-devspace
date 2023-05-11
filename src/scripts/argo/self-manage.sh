@@ -4,7 +4,6 @@
 namespace="argocd"
 repo=https://github.com/AlephZ-ai/kindest-argo-cd.git
 project=default
-kubectl config set-context --current --namespace=$namespace
 ./src/scripts/argo/set-default-password.sh
 ./src/scripts/argo/login.sh
 # https://docs.github.com/en/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli#ssh-into-a-codespace

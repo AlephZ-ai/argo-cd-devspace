@@ -2,16 +2,14 @@
 # https://argo-cd.readthedocs.io/en/stable/user-guide/private-repositories/
 namespace=argocd
 secret=$namespace-initial-admin-secret
-kubectl config set-context --current --namespace=$namespace
 ./src/scripts/argo/wait-for-argo-password.sh
 defaultpassword=password
 currentpassword=$(kubectl get secret $secret -o jsonpath="{.data.password}" | base64 --decode)
-./src/scripts/argo/forward-ports.sh
+./src/scripts/argo/login.sh
 if [ "$currentpassword" == "$defaultpassword" ]; then
   echo "Password already set to $defaultpassword"
   exit 0
 fi
-./src/scripts/argo/login.sh
 argocd account update-password --current-password "$currentpassword" --new-password $defaultpassword
 encodedpassword=$(echo $defaultpassword | base64)
 cat <<EOF | kubectl apply -f -
