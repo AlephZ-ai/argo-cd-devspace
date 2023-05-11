@@ -78,23 +78,15 @@
 		}
 	},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [15443, 16443, 17443, 16080],
+	"forwardPorts": [15443, 16080, 16443, 17443],
 	"portsAttributes": {
-		// Kind Cluster Port (TLS)
-		"5443": {
+		"15443": {
+			"label": "Kind Cluster Port (TLS)",
 			"protocol": "https"
 		},
-		// Control Plane Port (TLS)
-		"6443": {
+		"17443": {
+			"label": "Argo CD (TLS)",
 			"protocol": "https"
-		},
-		// Argo CD (TLS)
-		"7443": {
-			"protocol": "https"
-		},
-		// Control Plane Port (Non-TLS)
-		"8080": {
-			"protocol": "http"
 		}
 	},
 	// https://code.visualstudio.com/remote/advancedcontainers/start-processes
