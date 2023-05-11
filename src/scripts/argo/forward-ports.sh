@@ -4,11 +4,11 @@
 # https://phoenixnap.com/kb/kubectl-port-forward
 ./src/scripts/argo/wait-for-argo-server.sh
 existingForward=$(ps -ef | grep port-forward | grep "$$KINDEST_ARGO_CD_ARGO_PORT")
-if [ "$existingForward" != "" ]; then
+if [ -n "$existingForward" ]; then
     echo "Forward already exists. Skipping."
     return 0
     # echo "Forward already exists. Killing."
     # pkill kubectl -9
 fi
-(kubectl port-forward svc/argocd-server "$KINDEST_ARGO_CD_ARGO_PORT":443 2>&1) &
+(kubectl port-forward svc/argocd-server "$KINDEST_ARGO_CD_ARGO_PORT":443 2>&1)
 sleep 1s
