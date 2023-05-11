@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 containerid=$(docker ps -q -f name=kindest-argo-cd_devcontainer-kindest)
-if ! [ -z "$containerid" ]
+if [ -n "$containerid" ]
 then
-    docker rm -f $containerid -f
+    docker rm -f "$containerid" -f
 fi
 docker container prune -f
 docker image prune -a -f

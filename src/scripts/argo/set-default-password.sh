@@ -17,7 +17,7 @@ if [ "$currentpassword" == "$defaultpassword" ]; then
   exit 0
 fi
 ./src/scripts/login.sh
-argocd account update-password --current-password $currentpassword --new-password $defaultpassword
+argocd account update-password --current-password "$currentpassword" --new-password $defaultpassword
 encodedpassword=$(echo $defaultpassword | base64)
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
