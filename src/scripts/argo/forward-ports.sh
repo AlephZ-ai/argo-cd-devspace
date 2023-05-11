@@ -10,5 +10,4 @@ if [ -n "$existingForward" ]; then
     # echo "Forward already exists. Killing."
     # pkill kubectl -9
 fi
-(kubectl port-forward svc/argocd-server "$KINDEST_ARGO_CD_ARGO_PORT":443 2>&1)
-sleep 1s
+kubectl port-forward svc/argocd-server "$KINDEST_ARGO_CD_ARGO_PORT":443

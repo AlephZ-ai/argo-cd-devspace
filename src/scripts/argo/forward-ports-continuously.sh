@@ -5,4 +5,5 @@ if [ -n "$existingForward" ]; then
     echo "Forward already exists. Skipping."
     return 0
 fi
-while ./src/scripts/argo/forward-ports.sh; do sleep 1s; done
+while ./src/scripts/argo/forward-ports.sh; do sleep 1s; done &
+sleep 1s
