@@ -16,5 +16,5 @@ then
 fi
 argocd repo add $repo --username token --password "$GITHUB_TOKEN"
 #argocd proj create $project --upsert --orphaned-resources --orphaned-resources-warn -source-namespaces $namespace -src "$repo" --dest "https://kubernetes.default.svc,$namespace"
-#argocd app create $namespace --upsert --validate --release-name $namespace --app-namespace $namespace --project $project --repo "$repo" --set-finalizer --self-heal --auto-prune --sync-policy automated --sync-option CreateNamespace=true --sync-option ServerSideApply=true --path src/$namespace --dest-server https://kubernetes.default.svc --dest-namespace $namespace
+argocd app create $namespace --upsert --validate --release-name $namespace --app-namespace $namespace --project $project --repo "$repo" --set-finalizer --self-heal --auto-prune --sync-policy automated --sync-option CreateNamespace=true --sync-option ServerSideApply=true --path src/$namespace --dest-server https://kubernetes.default.svc --dest-namespace $namespace
 pkill kubectl -9

@@ -78,7 +78,7 @@
 		}
 	},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [15443, 16080, 16443, 17443],
+	"forwardPorts": [15443, 17443],
 	"portsAttributes": {
 		"15443": {
 			"label": "Kind Cluster Port (TLS)",
