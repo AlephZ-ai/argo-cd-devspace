@@ -3,7 +3,7 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/kubernetes-helm-minikube
 {
 	"name": "Argo CD Dev Container",
-	"dockerComposeFile": "docker-compose.yml",
+	"dockerComposeFile": "docker-compose.yaml",
 	"service": "kindest",
     "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 	// https://containers.dev/features
