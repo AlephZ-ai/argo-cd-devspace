@@ -7,19 +7,6 @@ metadata:
   - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-source:
-  repoURL: 'https://github.com/AlephZ-ai/kindest-argo-cd.git'
-  path: src/argocd
-destination:
-  server: 'https://kubernetes.default.svc'
-  namespace: argocd
-syncOptions:
-  - CreateNamespace=true
-  - ServerSideApply=true
   source:
     repoURL: 'https://argoproj.github.io/argo-helm'
     targetRevision: HEAD
@@ -35,26 +22,12 @@ syncOptions:
               kubernetes.io/ingress.class: nginx
               nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
               nginx.ingress.kubernetes.io/ssl-passthrough: "true"
-  destination:
-    server: {{ .Values.spec.destination.server }}
-    namespace: argocd
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+    destination:
+      server: 'https://kubernetes.default.svc'
+      namespace: argocd
+    source:
+      repoURL: 'https://github.com/AlephZ-ai/kindest-argo-cd.git'
+      path: src/argocd
     syncOptions:
-    - CreateNamespace=true
-project: default
-source:
-  repoURL: 'https://github.com/AlephZ-ai/kindest-argo-cd.git'
-  path: src/argocd
-destination:
-  server: 'https://kubernetes.default.svc'
-  namespace: argocd
-syncPolicy:
-  automated:
-    prune: true
-    selfHeal: true
-  syncOptions:
     - CreateNamespace=true
     - ServerSideApply=true
