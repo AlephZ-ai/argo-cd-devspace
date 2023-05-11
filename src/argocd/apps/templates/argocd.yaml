@@ -13,10 +13,6 @@ source:
 destination:
   server: 'https://kubernetes.default.svc'
   namespace: argocd
-syncPolicy:
-  automated:
-    prune: true
-    selfheal: true
 syncOptions:
   - CreateNamespace=true
   - ServerSideApply=true
