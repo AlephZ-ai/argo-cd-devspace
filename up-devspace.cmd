@@ -1,2 +1,2 @@
 @ECHO OFF
-powershell -command "./src/scripts/devspace/clean.ps1"
+powershell -command "./src/scripts/devspace/up.ps1"
