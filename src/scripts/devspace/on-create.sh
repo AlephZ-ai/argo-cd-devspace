@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Make sure this script is idempotent since it will be run multiple times
 rm -f nohup.out
-grep -qxF 'source <(kubectl completion zsh)'  ~/.zshrc || echo 'source <(kubectl completion zsh)' >>  ~/.zshrc
+./src/scripts/devspace/setup-zshrc.sh
 # TODO: Why does this break things?
 # git config --global --add safe.directory /workspaces/kindest-argo-cd
 ./src/scripts/devspace/install-devcontainers-cli.sh
