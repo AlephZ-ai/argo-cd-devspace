@@ -2,6 +2,7 @@
 # Make sure this script is idempotent since it will be run multiple times
 # https://code.visualstudio.com/remote/advancedcontainers/start-processes
 namespace="argocd"
+repo=https://github.com/AlephZ-ai/kindest-argo-cd.git
 kubectl config set-context --current --namespace=$namespace
 ./src/scripts/argo/set-default-password.sh
 ./src/scripts/argo/login.sh
@@ -12,6 +13,7 @@ then
     echo "FAILURE: $GITHUB_TOKEN is not set. Cannot add git repo to argo." 1>&2
     exit 1
 fi
-argocd repo add https://github.com/AlephZ-ai/kindest-argo-cd.git --username token --password "$GITHUB_TOKEN"
-argocd app create $namespace --repo https://github.com/AlephZ-ai/kindest-argo-cd.git --path src/$namespace --dest-server https://kubernetes.default.svc --dest-namespace $namespace
+argocd repo add $repo --username token --password "$GITHUB_TOKEN"
+argocd proj add-source default $repo
+argocd app create $namespace --repo $repo --path src/$namespace --dest-server https://kubernetes.default.svc --dest-namespace $namespace
 pkill kubectl -9
