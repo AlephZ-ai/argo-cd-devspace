@@ -1,4 +1,4 @@
-$containerid=$(docker ps -q -f name=kindest-argo-cd_devcontainer-kindest)
+$containerid = docker ps -q -f name=kindest-argo-cd_devcontainer-kindest
 if ($containerid) {
     docker rm -f $containerid -f
 }
