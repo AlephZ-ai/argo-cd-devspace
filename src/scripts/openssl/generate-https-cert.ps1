@@ -12,6 +12,8 @@ param (
 $commandPath = $PSCommandPath | Resolve-Path -Relative
 Write-Host "${commandPath}: Starting."
 try {
+    $SCRIPTS_ROOT = $commandPath | Resolve-Path -Parent -Abosulte
+    "$SCRIPTS_ROOT/devspace/setup/set-env-vars.ps1"
     $root="root"
     mkdir -p "$PROJECT_ROOT/devcerts/$certpurpose"
     openssl req -new -nodes -newkey rsa:2048 -keyout "$PROJECT_ROOT/devcerts/$certpurpose/cert.key" -out "$PROJECT_ROOT/devcerts/$certpurpose/cert.csr" -subj "/C=US/ST=NC/L=Rolesville/O=$certpurpose/CN=localhost.local"

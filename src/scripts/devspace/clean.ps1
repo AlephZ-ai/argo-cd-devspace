@@ -1,6 +1,8 @@
 $commandPath = $PSCommandPath | Resolve-Path -Relative
 Write-Host "${commandPath}: Starting."
 try {
+    $SCRIPTS_ROOT = $commandPath | Resolve-Path -Parent -Abosulte
+    "$SCRIPTS_ROOT/devspace/setup/set-env-vars.ps1"
     for($i=1; $i -le 3; $i++) {
         $containerid = docker ps -q -f name=kindest-argo-cd-devspace
         if ($containerid) {

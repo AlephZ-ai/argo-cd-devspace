@@ -1,6 +1,8 @@
 $commandPath = $PSCommandPath | Resolve-Path -Relative
 Write-Host "${commandPath}: Starting."
 try {
+    $SCRIPTS_ROOT = $commandPath | Resolve-Path -Parent -Abosulte
+    "$SCRIPTS_ROOT/devspace/setup/set-env-vars.ps1"
     "$SCRIPTS_ROOT/utils/chmod-plus-x.ps1"
     "$SCRIPTS_ROOT/devspace/up.ps1"
     $containerid = docker ps -q -f name=kindest-argo-cd-devspace
