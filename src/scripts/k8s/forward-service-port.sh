@@ -17,5 +17,7 @@ if [ -z "$existingForward" ]; then
         return 0
     fi
 fi
-while ! (kubectl port-forward "svc/$service" "$hostPort:$remotePort"); do sleep 1s; done
+echo "Attempting to forward $service to localhost:$hostPort..."
+while ! (kubectl port-forward "svc/$service" "$hostPort:$remotePort"); do echo "Retrying to forward $service to localhost:$hostPort..."; sleep 1s; done
+echo "$service sucessfully forwarded to localhost:$hostPort"
 echo "$script: Finished."
