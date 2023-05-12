@@ -9,6 +9,7 @@ services:
     labels: ["ai.alephz.role=Kindest K8s Cluster"]
     environment:
       - KINDEST_ARGO_CD_REPO_URL=https://github.com/AlephZ-ai/kindest-argo-cd.git
+      - KINDEST_ARGO_CD_CLUSTER_NAME=kindest
       - KINDEST_ARGO_CD_KUBE_PORT=10443
       - KINDEST_ARGO_CD_ARGO_PORT=11443
       - KINDEST_ARGO_CD_ARGO_PASSWORD=password

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+echo "argo/set-default-password.sh: Starting."
 # https://argo-cd.readthedocs.io/en/stable/user-guide/private-repositories/
 secret="$KINDEST_ARGO_CD_ARGO_NAME-initial-admin-secret"
 ./src/scripts/argo/wait-for-argo-password.sh
@@ -21,3 +22,4 @@ metadata:
 type: Opaque
 EOF
 ./src/scripts/argo/login.sh
+echo "argo/set-default-password.sh: Finished."

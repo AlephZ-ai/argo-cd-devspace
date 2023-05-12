@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Make sure this script is idempotent since it will be run multiple times
+echo "on-create.sh: Starting."
 rm -f nohup.out
 ./src/scripts/devspace/setup-zshrc.sh
 # TODO: Why does this break things?
@@ -22,3 +23,4 @@ rm -f nohup.out
 #   --selector=app.kubernetes.io/component=controller \
 #   --timeout=90s
 ./src/scripts/argo/install.sh
+echo "on-create.sh: Finished."

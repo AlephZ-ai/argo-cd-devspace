@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
-kubectlSource='source <(kubectl completion zsh)'
-grep -qxF "$kubectlSource"  ~/.zshrc || echo "$kubectlSource" >>  ~/.zshrc
+echo "setup-zshrc.sh: Starting."
+source='source <(kubectl completion zsh)'
+grep -qxF "$source"  ~/.zshrc || echo "$source" >>  ~/.zshrc
+echo "setup-zshrc.sh: Finished."
