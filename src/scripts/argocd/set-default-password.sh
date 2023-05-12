@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-echo "argocd/set-default-password.sh: Starting."
-# https://argo-cd.readthedocs.io/en/stable/user-guide/private-repositories/
+script=$0
 secret="$KINDEST_ARGO_CD_ARGO_NAME-initial-admin-secret"
+echo "$script: Starting."
+# https://argo-cd.readthedocs.io/en/stable/user-guide/private-repositories/
 ./src/scripts/argocd/wait-for-argo-password.sh
 currentpassword=$(kubectl get secret "$secret" -o jsonpath="{.data.password}" | base64 --decode)
 ./src/scripts/argocd/login.sh
@@ -22,4 +23,4 @@ metadata:
 type: Opaque
 EOF
 ./src/scripts/argocd/login.sh
-echo "argocd/set-default-password.sh: Finished."
+echo "$script: Finished."

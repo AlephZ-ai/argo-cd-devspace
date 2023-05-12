@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-echo "create-kindest-cluster.sh: Starting."
+script=$0
+echo "$script: Starting."
 # https://kind.sigs.k8s.io/docs/user/quick-start/
 # https://cloud.google.com/anthos/clusters/docs/on-prem/latest/troubleshoot-user-cluster-create-api
 # https://itnext.io/kubernetes-kind-cheat-shee-2605da77984
@@ -10,4 +11,4 @@ while ! (kind create cluster --wait 30s --config "src/clusters/$KINDEST_ARGO_CD_
 kubectl config use-context "kind-$KINDEST_ARGO_CD_CLUSTER_NAME"
 kubectl version --short
 kubectl cluster-info
-echo "create-kindest-cluster.sh: Finished."
+echo "$script: Finished."

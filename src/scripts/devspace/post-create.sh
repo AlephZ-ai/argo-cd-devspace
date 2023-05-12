@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 # Make sure this script is idempotent since it will be run multiple times
-echo "post-create.sh: Starting."
+script=$0
+echo "$script: Starting."
 ./src/scripts/argocd/self-manage.sh
-echo "post-create.sh: Finished."
+echo "Press Ctrl+Shift+~ to open a terminal in the current dev container"
+echo "$script: Finished."

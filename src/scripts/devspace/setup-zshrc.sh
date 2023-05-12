@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-echo "setup-zshrc.sh: Starting."
+script=$0
+echo "$script: Starting."
 source='source <(kubectl completion zsh)'
 grep -qxF "$source"  ~/.zshrc || echo "$source" >>  ~/.zshrc
-echo "setup-zshrc.sh: Finished."
+echo "$script: Finished."
