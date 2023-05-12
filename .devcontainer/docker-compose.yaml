@@ -8,6 +8,7 @@ services:
     container_name: kindest-argo-cd-devspace
     labels: ["ai.alephz.role=Kindest K8s Cluster"]
     environment:
+      - POWERSHELL_SHELL=pwsh
       - KINDEST_ARGO_CD_REPO_URL=https://github.com/AlephZ-ai/kindest-argo-cd.git
       - KINDEST_ARGO_CD_CLUSTER_NAME=kindest
       - KINDEST_ARGO_CD_KUBE_PORT=10443

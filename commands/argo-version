@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 script=$0
 echo "$script: Starting."
-pushd /workspaces/kindest-argo-cd || exit
-./src/scripts/argocd/forward-port.sh &
+pushd "$PROJECT_ROOT" || exit
+"$SCRIPTS_ROOT/forward-port.sh" &
 argocd version
 popd || exit
 echo "$script: Finished."

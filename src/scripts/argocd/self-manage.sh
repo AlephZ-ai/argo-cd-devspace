@@ -5,8 +5,8 @@ token=$GITHUB_TOKEN
 echo "$script: Starting."
 # Make sure this script is idempotent since it will be run multiple times
 # https://code.visualstudio.com/remote/advancedcontainers/start-processes
-./src/scripts/argocd/set-default-password.sh
-./src/scripts/argocd/login.sh
+"$SCRIPTS_ROOT/argocd/set-default-password.sh"
+"$SCRIPTS_ROOT/argocd/login.sh"
 # https://docs.github.com/en/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli#ssh-into-a-codespace
 # https://github.com/argoproj/argo-cd/blob/master/docs/user-guide/private-repositories.md
 # https://docs.github.com/en/enterprise-cloud@latest/codespaces/developing-in-codespaces/default-environment-variables-for-your-codespace

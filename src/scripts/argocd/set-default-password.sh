@@ -3,9 +3,9 @@ script=$0
 secret="$KINDEST_ARGO_CD_ARGO_NAME-initial-admin-secret"
 echo "$script: Starting."
 # https://argo-cd.readthedocs.io/en/stable/user-guide/private-repositories/
-./src/scripts/argocd/wait-for-argo-password.sh
+"$SCRIPTS_ROOT/argocd/wait-for-argo-password.sh"
 currentpassword=$(kubectl get secret "$secret" -o jsonpath="{.data.password}" | base64 --decode)
-./src/scripts/argocd/login.sh
+"$SCRIPTS_ROOT/argocd/login.sh"
 if [ "$currentpassword" == "$KINDEST_ARGO_CD_ARGO_PASSWORD" ]; then
   echo "Password already set to $KINDEST_ARGO_CD_ARGO_PASSWORD"
   exit 0
@@ -22,5 +22,5 @@ metadata:
   namespace: $KINDEST_ARGO_CD_ARGO_NAMESPACE
 type: Opaque
 EOF
-./src/scripts/argocd/login.sh
+"$SCRIPTS_ROOT/argocd/login.sh"
 echo "$script: Finished."

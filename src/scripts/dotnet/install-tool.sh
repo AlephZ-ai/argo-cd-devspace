@@ -7,6 +7,6 @@ echo "$script: Starting."
 # dotnet tool list --global | awk 'NR > 2 {print $1}' | xargs -L1 dotnet tool update --global
 if ! (dotnet tool install -g "$tool"); then
     echo "$tool$ is already installed, updating instead."
-    dotnet tool install -g "$tool"
+    dotnet tool update -g "$tool"
 fi
 echo "$script: Finished."

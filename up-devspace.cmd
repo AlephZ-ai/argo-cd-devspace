@@ -1,2 +1,2 @@
 @ECHO OFF
-powershell -command "./src/scripts/devspace/up.ps1"
+"$POWERSHELL_SHELL" -file "$SCRIPTS_ROOT/devspace/up.ps1"

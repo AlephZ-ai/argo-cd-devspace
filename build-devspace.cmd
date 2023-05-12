@@ -1,2 +1,2 @@
 @ECHO OFF
-powershell -command "./src/scripts/devspace/build.ps1"
+"$POWERSHELL_SHELL" -file "$SCRIPTS_ROOT/devspace/build.ps1"

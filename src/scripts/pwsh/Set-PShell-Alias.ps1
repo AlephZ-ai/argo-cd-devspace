@@ -1,7 +1,11 @@
 $commandPath = $PSCommandPath | Resolve-Path -Relative
 Write-Host "${commandPath}: Starting."
 try {
-    devcontainer up --workspace-folder "$PROJECT_ROOT"
+    if ($PSVersionTable.PSEdition -eq 'Core') {
+        Set-Alias -Name pshell -Value pwsh
+    } else {
+        Set-Alias -Name pshell -Value powershell
+    }
 } catch [System.Exception] {
     Write-Error "${commandPath}: Error: $_"
     exit 1

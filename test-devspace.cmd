@@ -1,3 +1,3 @@
 @ECHO OFF
-call ./chmod-plus-x
-powershell -command "./src/scripts/devspace/test.ps1"
+call "$PROJECT_ROOT/chmod-plus-x"
+"$POWERSHELL_SHELL" -file "$SCRIPTS_ROOT/devspace/test.ps1"

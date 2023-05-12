@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 script=$0
 echo "$script: Starting."
-chmod +x build-devspace
-chmod +x clean-devspace
-chmod +x test-devspace
-chmod +x generate-devcerts
-chmod -R +x commands
-./src/scripts/utils/chmod-plus-x.sh
+chmod +x "$PROJECT_ROOT/build-devspace"
+chmod +x "$PROJECT_ROOT/clean-devspace"
+chmod +x "$PROJECT_ROOT/test-devspace"
+chmod +x "$PROJECT_ROOT/generate-devcerts"
+chmod -R +x "$PROJECT_ROOT/commands"
+"$SCRIPTS_ROOT/utils/chmod-plus-x.sh"
 echo "$script: Finished."

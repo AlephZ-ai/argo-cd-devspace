@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 script=$0
 echo "$script: Starting."
-./src/scripts/devspace/build.sh
+"$SCRIPTS_ROOT/devspace/build.sh"
 echo "$script: Finished."

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 script=$0
 echo "$script: Starting."
-./src/scripts/devspace/clean.sh
+"$SCRIPTS_ROOT/devspace/clean.sh"
 echo "$script: Finished."

@@ -3,12 +3,12 @@
 script=$0
 echo "$script: Starting."
 rm -f nohup.out
-./src/scripts/devspace/setup-zshrc.sh
+"$SCRIPTS_ROOT/devspace/setup-zshrc.sh"
 # TODO: Why does this break things?
 # git config --global --add safe.directory /workspaces/kindest-argo-cd
-./src/scripts/devspace/setup/install-devcontainers-cli.sh
-./src/scripts/git/install-git-credential-manager.sh
-./src/scripts/kind/create-kindest-cluster.sh
+"$SCRIPTS_ROOT/devspace/setup/install-devcontainers-cli.sh"
+"$SCRIPTS_ROOT/git/install-git-credential-manager.sh"
+"$SCRIPTS_ROOT/kind/create-kindest-cluster.sh"
 # https://helm.sh/docs/intro/quickstart/
 # https://github.com/kubernetes/dashboard
 # https://github.com/imorti/kind-dashboard-setup
@@ -24,6 +24,6 @@ rm -f nohup.out
 #   --for=condition=ready pod \
 #   --selector=app.kubernetes.io/component=controller \
 #   --timeout=90s
-./src/scripts/argocd/install.sh
+"$SCRIPTS_ROOT/argocd/install.sh"
 echo "Press Ctrl+Shift+~ to open a terminal in the current dev container"
 echo "$script: Finished."

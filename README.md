@@ -1,6 +1,27 @@
 # kindest-argo-cd
 A Dev Container Workspace with Argo CD running powered by Kind
 
+# programming commandments and rules
+- Single Responsibility Principle this is the only Commandment the rest are Rules
+  - Never break this Commandment or Hell and Damnation will Reign down on you for all Eternity
+  - Naming Things becomes easy...
+    - Heaven on Earth
+  - Commandments can't be broken
+    - don't commit code here if you disagree
+    - go away we don't want you
+    - we can disagree about anything else and you're fine to commit code
+- Rules are made to be BROKEN
+- Ask for forgivness not permission, it takes to long
+- Only commant bing searches to correct soltuions of problems you are having in the code where you had it
+  - You can break this rule witout consequences except for useless commants littering your code
+  - If you can't find the solution on bing the google search it
+    - Gotta get them bing points
+    - ChatGPT for the win
+    - boo Bard
+  - The next rule BREAKS this rule
+- When introducing any concept, technology, tools, library, package, or other foreign entity bing search it and comment in the code where you introduce it for the first time
+  - If you con't find the item on bing then google search it
+
 # devspace-setup
 - Install Docker Desktop
   - https://www.docker.com/products/docker-desktop/

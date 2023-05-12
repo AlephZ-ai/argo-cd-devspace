@@ -1,7 +1,7 @@
 $commandPath = $PSCommandPath | Resolve-Path -Relative
 Write-Host "${commandPath}: Starting."
 try {
-    devcontainer up --workspace-folder "$PROJECT_ROOT"
+    Remove-Alias -Name pshell
 } catch [System.Exception] {
     Write-Error "${commandPath}: Error: $_"
     exit 1

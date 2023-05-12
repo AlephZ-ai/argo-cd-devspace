@@ -1,3 +1,3 @@
 @ECHO OFF
-powershell -command "./src/scripts/openssl/generate-root-ca.ps1"
-powershell -command "./src/scripts/argocd/generate-devcerts.ps1"
+"$POWERSHELL_SHELL" -file "$SCRIPTS_ROOT/openssl/generate-root-ca.ps1"
+"$POWERSHELL_SHELL" -file "$SCRIPTS_ROOT/argocd/generate-devcerts.ps1"

@@ -2,5 +2,5 @@
 script=$0
 secret=argocd-initial-admin-secret
 echo "$script: Starting."
-./src/scripts/k8s/wait-for-secret.sh $secret
+"$SCRIPTS_ROOT/k8s/wait-for-secret.sh $secret"
 echo "$script: Finished."

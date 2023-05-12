@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-./src/scripts/devspace/up.sh
+"$SCRIPTS_ROOT/devspace/up.sh"

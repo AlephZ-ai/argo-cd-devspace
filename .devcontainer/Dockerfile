@@ -4,6 +4,9 @@
 ARG IMAGE=debian:latest
 FROM ${IMAGE}
 COPY scripts/docker-entrypoint.sh /usr/local/bin/
+ENV PROJECT_NAME=kindest-argo-cd
+ENV PROJECT_ROOT=/workspaces/$kindest-argo-cd
+ENV SCRIPTS_ROOT=$PROJECT_ROOT/src/scripts
 
 # https://docs.docker.com/engine/reference/builder/#entrypoint
 # https://stackoverflow.com/questions/21553353/what-is-the-difference-between-cmd-and-entrypoint-in-a-dockerfile
