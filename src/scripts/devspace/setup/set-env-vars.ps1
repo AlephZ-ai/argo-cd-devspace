@@ -1,7 +1,13 @@
 $commandPath = $PSCommandPath | Resolve-Path -Relative
 Write-Host "${commandPath}: Starting."
 try {
-    $env:POWERSHELL_SHELL=pwsh
+    if ($PSVersionTable.PSEdition -eq 'Core') {
+        $env:PSHELL=pwsh
+    } else {
+        $env:PSHELL=powershell
+    }
+
+    Set-Alias -Name pshell -Value $PSHELL
     $env:KINDEST_ARGO_CD_REPO_URL=https://github.com/AlephZ-ai/kindest-argo-cd.git
     $env:KINDEST_ARGO_CD_CLUSTER_NAME=kindest
     $env:KINDEST_ARGO_CD_KUBE_PORT=10443

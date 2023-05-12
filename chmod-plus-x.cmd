@@ -1,2 +1,3 @@
 @ECHO OFF
-"$POWERSHELL_SHELL" -file "$PROJECT_ROOT/chmod-plus-x.ps1"
+SCRIPTS_ROOT="%~dp0/src/scripts"
+"$PSHELL" -file "$PROJECT_ROOT/chmod-plus-x.ps1"

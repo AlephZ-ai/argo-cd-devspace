@@ -1,7 +1,7 @@
 #!/usr/bin/env bashpwsh
 script=$0
 echo "$script: Starting."
-export POWERSHELL_SHELL=pwsh
+export PSHELL=pwsh
 export KINDEST_ARGO_CD_REPO_URL=https://github.com/AlephZ-ai/kindest-argo-cd.git
 export KINDEST_ARGO_CD_CLUSTER_NAME=kindest
 export KINDEST_ARGO_CD_KUBE_PORT=10443

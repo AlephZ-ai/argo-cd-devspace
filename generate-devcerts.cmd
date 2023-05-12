@@ -1,3 +1,4 @@
 @ECHO OFF
-"$POWERSHELL_SHELL" -file "$SCRIPTS_ROOT/openssl/generate-root-ca.ps1"
-"$POWERSHELL_SHELL" -file "$SCRIPTS_ROOT/argocd/generate-devcerts.ps1"
+SCRIPTS_ROOT="%~dp0/src/scripts"
+"$PSHELL" -file "$SCRIPTS_ROOT/openssl/generate-root-ca.ps1"
+"$PSHELL" -file "$SCRIPTS_ROOT/argocd/generate-devcerts.ps1"

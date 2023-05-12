@@ -1,2 +1,3 @@
 @ECHO OFF
-"$POWERSHELL_SHELL" -file "$SCRIPTS_ROOT/devspace/clean.ps1"
+SCRIPTS_ROOT="%~dp0/src/scripts"
+"$PSHELL" -file "$SCRIPTS_ROOT/devspace/clean.ps1"
