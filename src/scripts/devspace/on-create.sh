@@ -7,6 +7,7 @@ rm -f nohup.out
 # TODO: Why does this break things?
 # git config --global --add safe.directory /workspaces/kindest-argo-cd
 ./src/scripts/devspace/install-devcontainers-cli.sh
+./src/scripts/git/install-git-credential-manager.sh
 ./src/scripts/kind/create-kindest-cluster.sh
 # https://helm.sh/docs/intro/quickstart/
 # https://github.com/kubernetes/dashboard
