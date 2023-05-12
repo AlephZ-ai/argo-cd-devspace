@@ -2,7 +2,7 @@
 echo "argo/forward-ports.sh: Starting."
 # https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/
 # https://phoenixnap.com/kb/kubectl-port-forward
-./src/scripts/argo/wait-for-argo-server.sh
+./src/scripts/argo/wait-for-server.sh
 existingForward=$(lsof -i "tcp:$KINDEST_ARGO_CD_ARGO_PORT")
 if [ -z "$existingForward" ]; then
     echo "Forward already exists. Skipping."
