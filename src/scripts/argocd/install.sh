@@ -21,4 +21,5 @@ kubectl apply -n "$KINDEST_ARGO_CD_ARGO_NAMESPACE" -f https://raw.githubusercont
 kubectl config set-context --current --namespace="$KINDEST_ARGO_CD_ARGO_NAMESPACE"
 #helm upgrade --wait --install "$KINDEST_ARGO_CD_ARGO_NAME" "./src/$KINDEST_ARGO_CD_ARGO_NAME/" --create-namespace
 ./src/scripts/argocd/login.sh
+pkill kubectl -9
 echo "$script: Finished."
