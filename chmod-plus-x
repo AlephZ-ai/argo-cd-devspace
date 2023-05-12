@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
+script=$0
+echo "$script: Starting."
 chmod +x build-devspace
 chmod +x clean-devspace
 chmod +x test-devspace
-chmod +x external-argo-version
+chmod +x generate-devcerts
+chmod -R +x commands
 ./src/scripts/utils/chmod-plus-x.sh
+echo "$script: Finished."

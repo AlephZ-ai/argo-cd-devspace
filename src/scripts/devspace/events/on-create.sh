@@ -6,7 +6,7 @@ rm -f nohup.out
 ./src/scripts/devspace/setup-zshrc.sh
 # TODO: Why does this break things?
 # git config --global --add safe.directory /workspaces/kindest-argo-cd
-./src/scripts/devspace/install-devcontainers-cli.sh
+./src/scripts/devspace/setup/install-devcontainers-cli.sh
 ./src/scripts/git/install-git-credential-manager.sh
 ./src/scripts/kind/create-kindest-cluster.sh
 # https://helm.sh/docs/intro/quickstart/

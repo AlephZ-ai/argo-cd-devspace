@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+script=$0
+echo "$script: Starting."
+./src/scripts/openssl/generate-root-ca.sh
+./src/scripts/argocd/generate-devcerts.sh
+echo "$script: Finished."
