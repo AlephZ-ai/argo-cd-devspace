@@ -4,6 +4,5 @@
 # https://www.npmjs.com/package/@devcontainers/cli
 script=$0
 echo "$script: Starting."
-npm update -g npm
-npm install -g @devcontainers/cli
+/src/scripts/scripts/npm/install.sh @devcontainers/cli
 echo "$script: Finished."
