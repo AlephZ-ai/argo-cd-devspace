@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-echo "argo/install.sh: Starting."
+echo "argocd/install.sh: Starting."
 # https://argo-cd.readthedocs.io/en/stable/getting_started
 namespace=$(kubectl get namespace "$KINDEST_ARGO_CD_ARGO_NAMESPACE" | grep "$KINDEST_ARGO_CD_ARGO_NAMESPACE")
 if [ -n "$namespace" ]; then
@@ -19,5 +19,5 @@ kubectl apply -n "$KINDEST_ARGO_CD_ARGO_NAMESPACE" -f https://raw.githubusercont
 # https://howchoo.com/kubernetes/read-kubernetes-secrets
 kubectl config set-context --current --namespace="$KINDEST_ARGO_CD_ARGO_NAMESPACE"
 #helm upgrade --wait --install "$KINDEST_ARGO_CD_ARGO_NAME" "./src/$KINDEST_ARGO_CD_ARGO_NAME/" --create-namespace
-./src/scripts/argo/login.sh
-echo "argo/install.sh: Finished."
+./src/scripts/argocd/login.sh
+echo "argocd/install.sh: Finished."

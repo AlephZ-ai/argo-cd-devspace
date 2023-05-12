@@ -22,5 +22,5 @@ rm -f nohup.out
 #   --for=condition=ready pod \
 #   --selector=app.kubernetes.io/component=controller \
 #   --timeout=90s
-./src/scripts/argo/install.sh
+./src/scripts/argocd/install.sh
 echo "on-create.sh: Finished."
