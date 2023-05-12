@@ -17,5 +17,5 @@ if [ -z "$existingForward" ]; then
         return 0
     fi
 fi
-kubectl port-forward "$service" "$hostPort:$remotePort"
+kubectl port-forward "svc/$service" "$hostPort:$remotePort"
 echo "$script: Finished."
