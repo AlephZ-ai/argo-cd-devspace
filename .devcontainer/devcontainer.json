@@ -23,6 +23,11 @@
 			"packages": "wget,sudo,curl,gnupg2,openssl,dos2unix,shellcheck",
 			"updatePackages": "true"
 		},
+		"ghcr.io/devcontainers/features/dotnet:1": {
+			"version": "latest",
+			"runtimeOnly": "false",
+			"installUsingApt": "true"
+		},
 		// https://github.com/devcontainers/features/tree/main/src/powershell
 		"ghcr.io/devcontainers/features/powershell:1": {
 			"version": "latest",

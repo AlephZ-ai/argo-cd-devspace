@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 script=$0
 echo "$script: Starting."
-./src/scripts/brew/tap.sh microsoft/git
-./src/scripts/brew/install-cask.sh git-credential-manager-core
+./src/scripts/dotnet/install-tool.sh git-credential-manager
+git-credential-manager configure
 echo "$script: Finished."
