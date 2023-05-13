@@ -26,7 +26,6 @@ try {
     $env:KINDEST_ARGO_CD_ENV_SETUP_COMPLETE="true"
     
     Write-Host "${script}: Environment variables set."
-    & "$($PSCommandPath | Resolve-Path -Relative:$false | Split-Path -Parent)/set-env-vars.cmd" $PSHELL
 } catch [System.Exception] {
     Write-Error "${script}: Error: $_"
     exit 1
