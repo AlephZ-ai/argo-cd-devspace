@@ -6,7 +6,7 @@ rm -f nohup.out
 "$(dirname "$(dirname "$(dirname "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)")")")/devspace/setup/set-env-vars.sh"
 "$SCRIPTS_ROOT/devspace/setup-zshrc.sh"
 # TODO: Why does this break things?
-# git config --global --add safe.directory /workspaces/kindest-argo-cd
+# git config --global --add safe.directory /workspaces/$PROJECT
 "$SCRIPTS_ROOT/devspace/setup/install-devcontainers-cli.sh"
 "$SCRIPTS_ROOT/git/install-git-credential-manager.sh"
 "$SCRIPTS_ROOT/pwsh/install-pester.sh"

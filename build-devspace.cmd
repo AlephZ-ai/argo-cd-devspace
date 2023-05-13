@@ -2,8 +2,10 @@
 setlocal
 set script=%0
 set scriptFolder=%~dp0
-echo "%script%: Starting."
-set SCRIPTS_ROOT="%scriptFolder%/src/scripts"
-pshell -file "$%SCRIPTS_ROOT%/devspace/build.ps1"
-echo "%script%: Finished."
+echo %script%: Starting.
+rem https://stackoverflow.com/questions/74862849/powershell-convertto-securestring-not-recognised-if-run-script-inline-from-cmd
+set "PSModulePath="
+set PROJECT_ROOT=%scriptFolder%
+PowerShell -file "%PROJECT_ROOT%/build-devspace.ps1"
+echo %script%: Finished.
 endlocal

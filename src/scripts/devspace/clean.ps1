@@ -3,11 +3,11 @@ Write-Host "${script}: Starting."
 try {
     & "$($PSCommandPath | Resolve-Path -Relative:$false | Split-Path -Parent | Split-Path -Parent)/devspace/setup/set-env-vars.ps1"
     for($i=1; $i -le 3; $i++) {
-        $containerid = docker ps -q -f name=kindest-argo-cd-devspace
+        $containerid = docker ps -q -f name="$PROJECT-devspace"
         if ($containerid) {
             docker rm -f $containerid
         }
-        $volumes = docker volume ls -q -f name=kindest-argo-cd_devcontainer
+        $volumes = docker volume ls -q -f name="$PROJECT_devcontainer"
         if ($volumes) {
             $volumes | ForEach-Object { docker volume rm -f $_ }
         }

@@ -16,15 +16,16 @@ try {
         exit 0
     }
 
-    $env:PROJECT_ROOT="$($PSCommandPath | Split-Path -Parent | Split-Path -Parent | Split-Path -Parent | Split-Path -Parent | Split-Path -Parent | Resolve-Path -Relative:$false)"
+    $env:PROJECT="kindest-argo-cd"
+    $env:PROJECT_ROOT="/workspaces/$env:PROJECT"
     $env:SCRIPTS_ROOT="$env:PROJECT_ROOT/src/scripts"
-    $env:KINDEST_ARGO_CD_REPO_URL="https://github.com/AlephZ-ai/kindest-argo-cd.git"
+    $env:KINDEST_ARGO_CD_REPO_URL="https://github.com/AlephZ-ai/$env:PROJECT.git"
     $env:KINDEST_ARGO_CD_CLUSTER_NAME="kindest"
     $env:KINDEST_ARGO_CD_KUBE_PORT="10443"
     $env:KINDEST_ARGO_CD_ARGO_PORT="11443"
     $env:KINDEST_ARGO_CD_ARGO_PASSWORD="password"
     $env:KINDEST_ARGO_CD_ARGO_NAME="argocd"
-    $env:KINDEST_ARGO_CD_ARGO_NAMESPACE="argocd"
+    $env:KINDEST_ARGO_CD_ARGO_NAMESPACE="$KINDEST_ARGO_CD_ARGO_NAME"
     $env:KINDEST_ARGO_CD_ARGO_PROJECT="default"
     $env:KINDEST_ARGO_CD_ENV_VARS_SETUP_COMPLETE="true"
     Write-Host "${script}: Environment variables set."
