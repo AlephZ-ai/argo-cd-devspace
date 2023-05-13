@@ -1,13 +1,16 @@
 $script = $PSCommandPath | Resolve-Path -Relative
 Write-Host "${script}: Starting."
 try {
+    # Do this everytime to ensure the environment is always up to date.
     if ($PSVersionTable.PSEdition -eq 'Core') {
-        $env:PSHELL="pwsh"
+        $pshell="pwsh"
     } else {
-        $env:PSHELL="PowerShell"
+        $pshell="PowerShell"
     }
 
-    if ($env:KINDEST_ARGO_CD_ENV_SETUP_COMPLETE -eq "true") {
+    $env:PSHELL="$pshell"
+    Set-Alias -Name "pshell" -Value "$pshell"
+    if ($env:KINDEST_ARGO_CD_ENV_VARS_SETUP_COMPLETE -eq "true") {
         # Environment setup already complete.
         # Don't log this it would be too noisy.
         exit 0
@@ -23,8 +26,7 @@ try {
     $env:KINDEST_ARGO_CD_ARGO_NAME="argocd"
     $env:KINDEST_ARGO_CD_ARGO_NAMESPACE="argocd"
     $env:KINDEST_ARGO_CD_ARGO_PROJECT="default"
-    $env:KINDEST_ARGO_CD_ENV_SETUP_COMPLETE="true"
-    
+    $env:KINDEST_ARGO_CD_ENV_VARS_SETUP_COMPLETE="true"
     Write-Host "${script}: Environment variables set."
 } catch [System.Exception] {
     Write-Error "${script}: Error: $_"

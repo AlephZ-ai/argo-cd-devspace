@@ -12,7 +12,7 @@ param (
 $script = $PSCommandPath | Resolve-Path -Relative
 Write-Host "${script}: Starting."
 try {
-    & "$($PSScriptRoot | Resolve-Path -Parent -Abosulte)/devspace/setup/set-env-vars.ps1"
+    & "$($PSCommandPath | Resolve-Path -Relative:$false | Split-Path -Parent | Split-Path -Parent)/devspace/setup/set-env-vars.ps1"
     $root="root"
     mkdir -p "$env:PROJECT_ROOT/devcerts/$certpurpose"
     openssl req -new -nodes -newkey rsa:2048 -keyout "$env:PROJECT_ROOT/devcerts/$certpurpose/cert.key" -out "$env:PROJECT_ROOT/devcerts/$certpurpose/cert.csr" -subj "/C=US/ST=NC/L=Rolesville/O=$certpurpose/CN=localhost.local"

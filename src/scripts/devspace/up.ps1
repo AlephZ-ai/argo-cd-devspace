@@ -1,7 +1,7 @@
 $script = $PSCommandPath | Resolve-Path -Relative
 Write-Host "${script}: Starting."
 try {
-    $ "$($PSScriptRoot | Resolve-Path -Parent -Abosulte)/devspace/setup/set-env-vars.ps1"
+    & "$($PSCommandPath | Resolve-Path -Relative:$false | Split-Path -Parent | Split-Path -Parent)/devspace/setup/set-env-vars.ps1"
     devcontainer up --workspace-folder "$env:PROJECT_ROOT"
 } catch [System.Exception] {
     Write-Error "${script}: Error: $_"

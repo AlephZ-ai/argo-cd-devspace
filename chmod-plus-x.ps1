@@ -1,7 +1,7 @@
 $script = $PSCommandPath | Resolve-Path -Relative
 Write-Host "${script}: Starting."
 try {
-    $SCRIPTS_ROOT="$($PSCommandPath | Resolve-Path -Relative:$false | Split-Path -Parent)/src/scripts"; & "$SCRIPTS_ROOT/devspace/setup/set-env-vars.ps1"
+    & "$($PSCommandPath | Resolve-Path -Relative:$false | Split-Path -Parent)/src/scripts/devspace/setup/set-env-vars.ps1"
     git add .
     git update-index --chmod=+x "$env:PROJECT_ROOT/chmod-plus-x"
     git update-index --chmod=+x "$env:PROJECT_ROOT/build-devspace"
