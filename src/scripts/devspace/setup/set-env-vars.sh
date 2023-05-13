@@ -13,6 +13,7 @@ fi
 
 PROJECT_ROOT="$(dirname -- "$(dirname -- "$(dirname -- "$(dirname -- "$scriptPath")")")")"
 export "$PROJECT_ROOT"="$PROJECT_ROOT"
+export SCRIPTS_ROOT="$PROJECT_ROOT/src/scripts"
 set -o allexport
 source "$PROJECT_ROOT/.devcontainer/.env"
 set +o allexport

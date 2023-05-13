@@ -11,7 +11,7 @@ AfterAll {
 Describe "chmod-plus-x.ps1" {
     It 'Given no parameters, it should chmod +x all .sh files in the project recursively without errors' {
         # Arrange
-        $scriptPath = Join-Path -Path $PSScriptRoot -ChildPath "chmod-plus-x.ps1"
+        $scriptPath = Join-Path -Path ($PSScriptRoot | Resolve-Path -Relative:$false) -ChildPath "chmod-plus-x.ps1"
 
         # Act
         $result = { & $scriptPath }
