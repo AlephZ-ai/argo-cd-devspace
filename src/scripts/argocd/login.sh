@@ -4,7 +4,7 @@ scriptPath="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
 scriptsPath="$(dirname "$scriptPath")"
 script="$scriptPath/$script"
 echo "$script: Starting."
-"scriptsPath/devspace/setup/set-env-vars.sh"
+"$scriptsPath/devspace/setup/set-env-vars.sh"
 secret=argocd-initial-admin-secret
 "$scriptsPath/argocd/wait-for-password.sh"
 "$scriptsPath/argocd/wait-for-server.sh"

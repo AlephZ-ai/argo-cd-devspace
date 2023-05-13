@@ -6,6 +6,6 @@ script="$scriptPath/$script"
 echo "$script: Starting."
 "$scriptsPath/devspace/setup/set-env-vars.sh"
 secret=$1
-echo "Waiting for secret: $secret password. CTRL-C to exit."
+echo "Waiting for secret: $secret. CTRL-C to exit."
 while ! (kubectl get secret "$secret" 2>&1); do sleep 10s; done
 echo "$script: Finished."

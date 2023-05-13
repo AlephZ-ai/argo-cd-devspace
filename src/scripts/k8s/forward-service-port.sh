@@ -12,7 +12,7 @@ killExistingForwardIfExists=$4-false
 # https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/
 # https://phoenixnap.com/kb/kubectl-port-forward
 existingForward=$(lsof -i "tcp:$hostPort")
-needsForward=true
+needsForward="true"
 if [ -z "$existingForward" ]; then
     if [ "$killExistingForwardIfExists" = "true" ]; then
         echo "Forward already exists. Killing."

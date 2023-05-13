@@ -1,5 +1,6 @@
 $script = $PSCommandPath | Resolve-Path -Relative
-Write-Host "${script}: Starting."
+# too noisy
+# Write-Host "${script}: Starting."
 try {
     # Do this everytime to ensure the environment is always up to date.
     if ($PSVersionTable.PSEdition -eq 'Core') {
@@ -27,5 +28,6 @@ try {
     Write-Error "${script}: Error: $_"
     exit 1
 } finally {
-    Write-Host "${script}: Finished."
+    # too noisy
+    # Write-Host "${script}: Finished."
 }

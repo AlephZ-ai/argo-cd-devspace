@@ -5,7 +5,8 @@ script="$(basename "$0")"
 scriptPath="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
 scriptsPath="$(dirname "$(dirname "$scriptPath")")"
 script="$scriptPath/$script"
-echo "$script: Starting."
+# too noisy
+# echo "$script: Starting."
 export PSHELL="pwsh"
 if [ "$KINDEST_ARGO_CD_ENV_VARS_SETUP_COMPLETE" != "true" ]; then
     KINDEST_ARGO_CD_PROJECT_ROOT="$(dirname "$(dirname "$scriptsPath")")"
@@ -17,4 +18,5 @@ if [ "$KINDEST_ARGO_CD_ENV_VARS_SETUP_COMPLETE" != "true" ]; then
     echo "$script: Environment variables set."
 fi
 
-echo "$script: Finished."
+# too noisy
+# echo "$script: Finished."
