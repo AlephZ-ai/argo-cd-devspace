@@ -3,7 +3,7 @@
 script=$(basename "$0")
 returnCode=0
 echo "$script: Starting."
-"$(dirname "$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)")/devspace/setup/set-env-vars.sh"
+"$(dirname "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)")/devspace/setup/set-env-vars.sh"
 token=$GITHUB_TOKEN
 # Make sure this script is idempotent since it will be run multiple times
 # https://code.visualstudio.com/remote/advancedcontainers/start-processes

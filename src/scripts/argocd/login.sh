@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 script=$(basename "$0")
 echo "$script: Starting."
-"$(dirname "$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)")/devspace/setup/set-env-vars.sh"
+"$(dirname "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)")/devspace/setup/set-env-vars.sh"
 secret=argocd-initial-admin-secret
 "$SCRIPTS_ROOT/argocd/wait-for-password.sh"
 "$SCRIPTS_ROOT/argocd/wait-for-server.sh"

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 script=$(basename "$0")
 echo "$script: Starting."
-"$(dirname "$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)")/devspace/setup/set-env-vars.sh"
+"$(dirname "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)")/devspace/setup/set-env-vars.sh"
 tool=$1
 # https://github.com/dotnet/sdk/issues/10130
 # Bad idea since update always updates even when tool is up to date
