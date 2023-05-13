@@ -8,10 +8,10 @@ AfterAll {
     Write-Host "${script}: Finished."
 }
 
-Describe "generate-devcerts.ps1" {
-    It 'Given no parameters, it should generate devcerts recursively without errors' {
+Describe "test-devspace.ps1" {
+    It 'Given no parameters, it should test without errors' {
         # Arrange
-        $scriptPath = Join-Path -Path ($PSScriptRoot | Resolve-Path -Relative:$false | Split-Path -Parent) -ChildPath "generate-devcerts.ps1"
+        $scriptPath = Join-Path -Path ($PSScriptRoot | Resolve-Path -Relative:$false | Split-Path -Parent) -ChildPath "test-devspace.ps1"
 
         # Act
         $result = { & $scriptPath }

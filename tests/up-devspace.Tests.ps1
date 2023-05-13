@@ -8,8 +8,8 @@ AfterAll {
     Write-Host "${script}: Finished."
 }
 
-Describe "build-devspace.ps1" {
-    It "Given no parameters, build the devspace without errors" {
+Describe "up-devspace.ps1" {
+    It "Given no parameters, it should up the devspace without errors" {
         # Arrange
         $scriptPath = Join-Path -Path ($PSScriptRoot | Resolve-Path -Relative:$false | Split-Path -Parent) -ChildPath "up-devspace.ps1"
 
