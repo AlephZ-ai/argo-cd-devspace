@@ -14,6 +14,6 @@ if [ -z "$existingForward" ]; then
     echo "Forward already exists. Skipping."
     exit
 fi
-while ("$SCRIPTS_ROOT/k8s/forward-service-port.sh" "$service" "$hostPort" "$remotePort" "$killExistingForwardIfExists" || true); do sleep 1s; done &
+while ("$scriptsPath/k8s/forward-service-port.sh" "$service" "$hostPort" "$remotePort" "$killExistingForwardIfExists" || true); do sleep 1s; done &
 sleep 1s
 echo "$script: Finished."

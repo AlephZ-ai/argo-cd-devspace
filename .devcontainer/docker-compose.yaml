@@ -4,13 +4,12 @@ version: '3.8'
 services:
   # Kind cluster
   kindest:
-    image: "cr.alephz.ai/devcontainers/$PROJECT_NAME:latest"
-    container_name: $PROJECT_NAME-devspace
-    labels: ["ai.alephz.role=$PROJECT_NAME"]
+    image: "cr.alephz.ai/devcontainers/$KINDEST_ARGO_CD_PROJECT_NAME:latest"
+    container_name: $KINDEST_ARGO_CD_PROJECT_NAME-devspace
+    labels: ["ai.alephz.role=$KINDEST_ARGO_CD_PROJECT_NAME"]
     env_file: .env
     environment:
-      - PROJECT_ROOT=/workspaces/$PROJECT_NAME
-      - SCRIPTS_ROOT=/workspaces/$PROJECT_NAME/src/scripts
+      - PROJECT_ROOT=/workspaces/$KINDEST_ARGO_CD_PROJECT_NAME
     # https://docs.docker.com/compose/compose-file/build/#build-definition
     # Includes https://github.com/devcontainers/features/tree/main/src/common-utils
     build:

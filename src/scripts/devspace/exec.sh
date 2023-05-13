@@ -6,9 +6,9 @@ script="$scriptPath/$script"
 echo "$script: Starting."
 command=$1
 "$scriptsPath/devspace/setup/set-env-vars.sh"
-"$SCRIPTS_ROOT/utils/chmod-plus-x.sh"
-"SCRIPTS_ROOT/devspace/up.sh"
-containerid=$(docker ps -q -f name="$PROJECT_NAME-devspace")
+"$scriptsPath/utils/chmod-plus-x.sh"
+"$scriptsPath/devspace/up.sh"
+containerid=$(docker ps -q -f name="$KINDEST_ARGO_CD_PROJECT_NAME-devspace")
 devcontainer exec --container-id "$containerid" zsh -l -c "$PROJECT_ROOT/commands/$command"
-"SCRIPTS_ROOT/devspace/clean.sh"
+"$scriptsPath/devspace/clean.sh"
 echo "$script: Finished."

@@ -1,9 +1,10 @@
 $script = $PSCommandPath | Resolve-Path -Relative
 Write-Host "${script}: Starting."
 try {
-    & "$($PSCommandPath | Resolve-Path -Relative:$false | Split-Path -Parent)/src/scripts/devspace/setup/set-env-vars.ps1"
-    & "$env:SCRIPTS_ROOT/openssl/generate-root-ca.ps1"
-    & "$env:SCRIPTS_ROOT/argocd/generate-devcerts.ps1"
+    $scriptsPath = "$($PSCommandPath | Resolve-Path -Relative:$false | Split-Path -Parent)"
+    & "$scriptsPath/src/scripts/devspace/setup/set-env-vars.ps1"
+    & "$scriptsPath/openssl/generate-root-ca.ps1"
+    & "$scriptsPath/argocd/generate-devcerts.ps1"
 } catch [System.Exception] {
     Write-Error "${script}: Error: $_"
     exit 1

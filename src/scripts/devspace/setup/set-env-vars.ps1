@@ -18,9 +18,7 @@ try {
 
     Import-Module Set-PsEnv
     $env:PROJECT_ROOT=$($PSCommandPath | Resolve-Path -Relative:$false | Split-Path -Parent | Split-Path -Parent | Split-Path -Parent | Split-Path -Parent | Split-Path -Parent)
-    $env:SCRIPTS_ROOT="$env:PROJECT_ROOT/src/scripts"
     Write-Host "${script}: PROJECT_ROOT=$env:PROJECT_ROOT"
-    Write-Host "${script}: SCRIPTS_ROOT=$env:SCRIPTS_ROOT"
     Push-Location $env:PROJECT_ROOT/.devcontainer
     Set-PsEnv
     Pop-Location
