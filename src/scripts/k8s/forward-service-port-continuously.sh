@@ -9,7 +9,7 @@ killExistingForwardIfExists=$4-false
 existingForward=$(lsof -i "tcp:$hostPort")
 if [ -z "$existingForward" ]; then
     echo "Forward already exists. Skipping."
-    return 0
+    exit
 fi
 while ("$SCRIPTS_ROOT/k8s/forward-service-port.sh" "$service" "$hostPort" "$remotePort" "$killExistingForwardIfExists" || true); do sleep 1s; done &
 sleep 1s

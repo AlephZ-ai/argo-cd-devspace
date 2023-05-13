@@ -15,7 +15,7 @@ if [ -z "$existingForward" ]; then
         pkill kubectl -9
     else
         echo "Forward already exists. Skipping."
-        return 0
+        exit
     fi
 fi
 echo "Attempting to forward $service to localhost:$hostPort..."
