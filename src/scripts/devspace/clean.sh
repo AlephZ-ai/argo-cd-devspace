@@ -5,12 +5,12 @@ echo "$script: Starting."
 "$(dirname "$(dirname "$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)")")/devspace/setup/set-env-vars.sh"
 for i in {1..3}
 do
-    containerid=$(docker ps -q -f name="$PROJECT-devspace")
+    containerid=$(docker ps -q -f name="$PROJECT_NAME-devspace")
     if [ -n "$containerid" ]
     then
         docker rm -f "$containerid"
     fi
-    volumes=$(docker volume ls -q -f name=name="$PROJECT_devcontainer")
+    volumes=$(docker volume ls -q -f name=name="${PROJECT_NAME}_devcontainer")
     if [ -n "$volumes" ]
     then
         echo "$volumes" | xargs docker volume rm -f

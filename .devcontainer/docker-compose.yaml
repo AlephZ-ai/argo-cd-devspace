@@ -4,20 +4,12 @@ version: '3.8'
 services:
   # Kind cluster
   kindest:
-    image: "cr.alephz.ai/devcontainers/$PROJECT:latest"
-    container_name: $PROJECT-devspace
-    labels: ["ai.alephz.role=$PROJECT"]
+    image: "cr.alephz.ai/devcontainers/$PROJECT_NAME:latest"
+    container_name: $PROJECT_NAME-devspace
+    labels: ["ai.alephz.role=$PROJECT_NAME"]
+    env_file: .env
     environment:
-      - PSHELL=pwsh
-      - KINDEST_ARGO_CD_REPO_URL=https://github.com/AlephZ-ai/$PROJECT.git
-      - KINDEST_ARGO_CD_CLUSTER_NAME=kindest
-      - KINDEST_ARGO_CD_KUBE_PORT=10443
-      - KINDEST_ARGO_CD_ARGO_PORT=11443
-      - KINDEST_ARGO_CD_ARGO_PASSWORD=password
-      - KINDEST_ARGO_CD_ARGO_NAME=argocd
-      - KINDEST_ARGO_CD_ARGO_NAMESPACE=$KINDEST_ARGO_CD_ARGO_NAME
-      - KINDEST_ARGO_CD_ARGO_PROJECT=default
-      - KINDEST_ARGO_CD_ENV_SETUP_COMPLETE=true
+      - PROJECT_ROOT=/workspaces/$PROJECT
     # https://docs.docker.com/compose/compose-file/build/#build-definition
     # Includes https://github.com/devcontainers/features/tree/main/src/common-utils
     build:
