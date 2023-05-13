@@ -2,6 +2,7 @@
 script=$(basename "$0")
 echo "$script: Starting."
 "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)/src/scripts/devspace/setup/set-env-vars.sh"
+git add "$PROJECT_ROOT"
 chmod +x "$PROJECT_ROOT/build-devspace"
 chmod +x "$PROJECT_ROOT/clean-devspace"
 chmod +x "$PROJECT_ROOT/test-devspace"
