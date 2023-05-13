@@ -1,8 +1,8 @@
 $script = $PSCommandPath | Resolve-Path -Relative
 Write-Host "${script}: Starting."
 try {
-    $scriptsPath = "$($PSCommandPath | Resolve-Path -Relative:$false | Split-Path -Parent)"
-    & "$scriptsPath/src/scripts/devspace/setup/set-env-vars.ps1"
+    $scriptsPath = "$($PSCommandPath | Resolve-Path -Relative:$false | Split-Path -Parent)/src/scripts"
+    & "$scriptsPath/devspace/setup/set-env-vars.ps1"
     git add "$env:KINDEST_ARGO_CD_PROJECT_ROOT"
     git update-index --chmod=+x "$env:KINDEST_ARGO_CD_PROJECT_ROOT/chmod-plus-x"
     git update-index --chmod=+x "$env:KINDEST_ARGO_CD_PROJECT_ROOT/build-devspace"

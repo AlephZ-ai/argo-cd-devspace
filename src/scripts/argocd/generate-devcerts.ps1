@@ -2,7 +2,7 @@
 $script = $PSCommandPath | Resolve-Path -Relative
 Write-Host "${script}: Starting."
 try {
-    $scriptsPath = "$($PSCommandPath | Resolve-Path -Relative:$false | Split-Path -Parent)"
+    $scriptsPath = "$($PSCommandPath | Resolve-Path -Relative:$false | Split-Path -Parent | Split-Path -Parent)"
     & "$scriptsPath/devspace/setup/set-env-vars.ps1"
     & "$scriptsPath/openssl/generate-https-cert.ps1" -certpurpose "$env:KINDEST_ARGO_CD_ARGO_NAME-server-tls" -password $(ConvertTo-SecureString -AsPlainText -Force -String "$env:KINDEST_ARGO_CD_ARGO_NAME-server-tls-password")
     & "$scriptsPath/openssl/generate-https-cert.ps1" -certpurpose "$env:KINDEST_ARGO_CD_ARGO_NAME-repo-server-tls" -password $(ConvertTo-SecureString -AsPlainText -Force -String "$env:KINDEST_ARGO_CD_ARGO_NAME-repo-server-tls-password")
