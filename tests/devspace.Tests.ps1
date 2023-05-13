@@ -9,8 +9,8 @@ AfterAll {
 }
 
 Describe "<command>"-ForEach @(
-    @{ command = "chmod-plus-x" }
     @{ command = "generate-devcerts" }
+    @{ command = "chmod-plus-x" }
     @{ command = "clean-devspace" }
     @{ command = "build-devspace" }
     @{ command = "up-devspace" }
