@@ -1,7 +1,6 @@
 BeforeAll {
     $script = $PSCommandPath | Resolve-Path -Relative
     Write-Host "${script}: Starting."
-    & "$($PSCommandPath | Resolve-Path -Relative:$false | Split-Path -Parent | Split-Path -Parent)/src/scripts/devspace/setup/set-env-vars.ps1"
 }
 
 AfterAll {

@@ -1,14 +1,17 @@
 #!/usr/bin/env bash
 #shellcheck disable=SC2016
-script=$(basename "$0")
+script="$(basename "$0")"
+scriptPath="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
+scriptsPath="$(dirname "$scriptPath")"
+script="$scriptPath/$script"
 returnCode=0
 echo "$script: Starting."
-"$(dirname "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)")/devspace/setup/set-env-vars.sh"
+"$scriptsPath/devspace/setup/set-env-vars.sh"
 token=$GITHUB_TOKEN
 # Make sure this script is idempotent since it will be run multiple times
 # https://code.visualstudio.com/remote/advancedcontainers/start-processes
-"$SCRIPTS_ROOT/argocd/set-default-password.sh"
-"$SCRIPTS_ROOT/argocd/login.sh"
+"$scriptsPath/argocd/set-default-password.sh"
+"$scriptsPath/argocd/login.sh"
 # https://docs.github.com/en/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli#ssh-into-a-codespace
 # https://github.com/argoproj/argo-cd/blob/master/docs/user-guide/private-repositories.md
 # https://docs.github.com/en/enterprise-cloud@latest/codespaces/developing-in-codespaces/default-environment-variables-for-your-codespace

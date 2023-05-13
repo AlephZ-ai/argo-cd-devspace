@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
-script=$(basename "$0")
+script="$(basename "$0")"
+scriptPath="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
+scriptsPath="$(dirname "$scriptPath")"
+script="$scriptPath/$script"
 echo "$script: Starting."
-"$(dirname "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)")/devspace/setup/set-env-vars.sh"
-"$SCRIPTS_ROOT/openssl/generate-https-cert.sh" "$KINDEST_ARGO_CD_ARGO_NAME-server-tls" "$KINDEST_ARGO_CD_ARGO_NAME-server-tls-password"
-"$SCRIPTS_ROOT/openssl/generate-https-cert.sh" "$KINDEST_ARGO_CD_ARGO_NAME-repo-server-tls" "$KINDEST_ARGO_CD_ARGO_NAME-repo-server-tls-password"
-"$SCRIPTS_ROOT/openssl/generate-https-cert.sh" "$KINDEST_ARGO_CD_ARGO_NAME-dex-server-tls" "$KINDEST_ARGO_CD_ARGO_NAME-dex-server-tls-password"
+"$scriptsPath/devspace/setup/set-env-vars.sh"
+"$scriptsPath/openssl/generate-https-cert.sh" "$KINDEST_ARGO_CD_ARGO_NAME-server-tls" "$KINDEST_ARGO_CD_ARGO_NAME-server-tls-password"
+"$scriptsPath/openssl/generate-https-cert.sh" "$KINDEST_ARGO_CD_ARGO_NAME-repo-server-tls" "$KINDEST_ARGO_CD_ARGO_NAME-repo-server-tls-password"
+"$scriptsPath/openssl/generate-https-cert.sh" "$KINDEST_ARGO_CD_ARGO_NAME-dex-server-tls" "$KINDEST_ARGO_CD_ARGO_NAME-dex-server-tls-password"
 echo "$script: Finished."

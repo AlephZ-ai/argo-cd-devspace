@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
-script=$(basename "$0")
+script="$(basename "$0")"
+scriptPath="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
+scriptsPath="$scriptPath/src/scripts"
+script="$scriptPath/$script"
 echo "$script: Starting."
-"$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)/src/scripts/devspace/setup/set-env-vars.sh"
-"$SCRIPTS_ROOT/devspace/up.sh"
+"$scriptsPath/src/scripts/devspace/setup/set-env-vars.sh"
+"$scriptsPath/devspace/up.sh"
 echo "$script: Finished."

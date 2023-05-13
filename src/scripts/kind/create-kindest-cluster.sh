@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
-script=$(basename "$0")
+script="$(basename "$0")"
+scriptPath="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
+scriptsPath="$(dirname "$scriptPath")"
+script="$scriptPath/$script"
 echo "$script: Starting."
-"$(dirname "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)")/devspace/setup/set-env-vars.sh"
+"$scriptsPath/devspace/setup/set-env-vars.sh"
 # https://kind.sigs.k8s.io/docs/user/quick-start/
 # https://cloud.google.com/anthos/clusters/docs/on-prem/latest/troubleshoot-user-cluster-create-api
 # https://itnext.io/kubernetes-kind-cheat-shee-2605da77984

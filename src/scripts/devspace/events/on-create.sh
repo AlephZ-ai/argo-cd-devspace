@@ -1,18 +1,21 @@
 #!/usr/bin/env bash
 # Make sure this script is idempotent since it will be run multiple times
-script=$(basename "$0")
+script="$(basename "$0")"
+scriptPath="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
+scriptsPath="$(dirname "$(dirname "$scriptPath")")"
+script="$scriptPath/$script"
 echo "$script: Starting."
 rm -f nohup.out
-"$(dirname "$(dirname "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)")")/devspace/setup/set-env-vars.sh"
-"$SCRIPTS_ROOT/devspace/setup/setup-zshrc.sh"
+"$scriptsPath/devspace/setup/set-env-vars.sh"
+"$scriptsPath/devspace/setup/setup-zshrc.sh"
 # TODO: Why does this break things?
 # git config --global --add safe.directory /workspaces/$PROJECT
-"$SCRIPTS_ROOT/devspace/setup/install-devcontainers-cli.sh"
-"$SCRIPTS_ROOT/git/install-git-credential-manager.sh"
-"$SCRIPTS_ROOT/npm/install.sh" "dotenv-cli"
-"$SCRIPTS_ROOT/pwsh/install-module.sh" "Set-PsEnv"
-"$SCRIPTS_ROOT/pwsh/install-module.sh" "Pester"
-"$SCRIPTS_ROOT/kind/create-kindest-cluster.sh"
+"$scriptsPath/devspace/setup/install-devcontainers-cli.sh"
+"$scriptsPath/git/install-git-credential-manager.sh"
+"$scriptsPath/npm/install.sh" "dotenv-cli"
+"$scriptsPath/pwsh/install-module.sh" "Set-PsEnv"
+"$scriptsPath/pwsh/install-module.sh" "Pester"
+"$scriptsPath/kind/create-kindest-cluster.sh"
 # https://helm.sh/docs/intro/quickstart/
 # https://github.com/kubernetes/dashboard
 # https://github.com/imorti/kind-dashboard-setup
@@ -28,6 +31,6 @@ rm -f nohup.out
 #   --for=condition=ready pod \
 #   --selector=app.kubernetes.io/component=controller \
 #   --timeout=90s
-"$SCRIPTS_ROOT/argocd/install.sh"
+"$scriptsPath/argocd/install.sh"
 echo "Press Ctrl+Shift+~ to open a terminal in the current dev container"
 echo "$script: Finished."

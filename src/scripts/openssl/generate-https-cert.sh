@@ -2,9 +2,12 @@
 # https://linuxhandbook.com/bash-arguments
 # https://support.microfocus.com/kb/doc.php?id=7013103
 # https://gist.github.com/cecilemuller/9492b848eb8fe46d462abeb26656c4f8
-script=$(basename "$0")
+script="$(basename "$0")"
+scriptPath="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
+scriptsPath="$(dirname "$scriptPath")"
+script="$scriptPath/$script"
 echo "$script: Starting."
-"$(dirname "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)")/devspace/setup/set-env-vars.sh"
+"$scriptsPath/devspace/setup/set-env-vars.sh"
 certpurpose=$1
 password=$2
 root=root

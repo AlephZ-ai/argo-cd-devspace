@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
-script=$(basename "$0")
-"$(dirname "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)")/devspace/setup/set-env-vars.sh"
+script="$(basename "$0")"
+scriptPath="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
+scriptsPath="$(dirname "$scriptPath")"
+script="$scriptPath/$script"
 echo "$script: Starting."
-"$SCRIPTS_ROOT/dotnet/install-tool.sh" git-credential-manager
+"$scriptsPath/devspace/setup/set-env-vars.sh"
+"$scriptsPath/dotnet/install-tool.sh" git-credential-manager
 echo "$script: Finished."

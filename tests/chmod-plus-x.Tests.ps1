@@ -1,20 +1,23 @@
 BeforeAll {
-    $script = $PSCommandPath | Resolve-Path -Relative
-    Write-Host "${script}: Starting."
-    & "$($PSCommandPath | Resolve-Path -Relative:$false | Split-Path -Parent | Split-Path -Parent)/src/scripts/devspace/setup/set-env-vars.ps1"
+    $test = $PSCommandPath | Resolve-Path -Relative
+    $env:KINDEST_ARGO_CD_ENV_VARS_SETUP_COMPLETE=$false
+    Write-Host "${test}: Starting."
 }
 
 AfterAll {
-    Write-Host "${script}: Finished."
+    Write-Host "${test}: Finished."
 }
 
-Describe "chmod-plus-x.ps1" {
+Describe "chmod-plus-x.<ext>"-ForEach @(
+    @{ ext = "ps1" }
+    @{ ext = "cmd" }
+) {
     It "Given no parameters, it should chmod +x all .sh files in the project recursively without errors" {
         # Arrange
-        $scriptPath = Join-Path -Path ($PSScriptRoot | Resolve-Path -Relative:$false | Split-Path -Parent) -ChildPath "chmod-plus-x.ps1"
+        $script = Join-Path -Path ($PSScriptRoot | Resolve-Path -Relative:$false | Split-Path -Parent) -ChildPath "chmod-plus-x.$ext"
 
         # Act
-        $result = { & $scriptPath }
+        $result = { & $script }
 
         # Assert
         $result | Should -Not -Throw
