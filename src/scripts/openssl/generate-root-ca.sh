@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
-script=$0
+script=$(basename "$0")
+echo "$script: Starting."
+"$(dirname "$(dirname "$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)")")/devspace/setup/set-env-vars.sh"
 root=root
 certpurpose=$root
 password=$root-password
 subject="/C=US/CN=Dev-Root-CA"
-echo "$script: Starting."
 mkdir -p "$PROJECT_ROOT/devcerts/$certpurpose"
 openssl req -x509 -nodes -new -sha256 -days 3650 -newkey rsa:2048 -keyout "$PROJECT_ROOT/devcerts/$certpurpose/cert.key" -out "$PROJECT_ROOT/devcerts/$certpurpose/cert.pem" -subj $subject
 openssl x509 -outform pem -in "$PROJECT_ROOT/devcerts/$certpurpose/cert.pem" -out "$PROJECT_ROOT/devcerts/$certpurpose/cert.crt"

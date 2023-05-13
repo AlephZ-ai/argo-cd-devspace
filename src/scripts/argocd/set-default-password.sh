@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-script=$0
-secret="$KINDEST_ARGO_CD_ARGO_NAME-initial-admin-secret"
+script=$(basename "$0")
 echo "$script: Starting."
+"$(dirname "$(dirname "$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)")")/devspace/setup/set-env-vars.sh"
+secret="$KINDEST_ARGO_CD_ARGO_NAME-initial-admin-secret"
 # https://argo-cd.readthedocs.io/en/stable/user-guide/private-repositories/
 "$SCRIPTS_ROOT/argocd/wait-for-argo-password.sh"
 currentpassword=$(kubectl get secret "$secret" -o jsonpath="{.data.password}" | base64 --decode)

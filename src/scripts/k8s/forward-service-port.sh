@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
-script=$0
+script=$(basename "$0")
+echo "$script: Starting."
+"$(dirname "$(dirname "$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)")")/devspace/setup/set-env-vars.sh"
 service=$1
 hostPort=$2
 remotePort=$3
 killExistingForwardIfExists=$4-false
-echo "$script: Starting."
 # https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/
 # https://phoenixnap.com/kb/kubectl-port-forward
 existingForward=$(lsof -i "tcp:$hostPort")

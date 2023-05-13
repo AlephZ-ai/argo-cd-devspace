@@ -1,5 +1,5 @@
 @ECHO OFF
-PROJECT_ROOT="%~dp0"
-SCRIPTS_ROOT="$PROJECT_ROOT/src/scripts"
-call "$PROJECT_ROOT/chmod-plus-x"
-"$PSHELL" -file "$SCRIPTS_ROOT/devspace/test.ps1"
+set PROJECT_ROOT="%~dp0"
+set SCRIPTS_ROOT="%PROJECT_ROOT%/src/scripts"
+call "%$PROJECT_ROOT%/chmod-plus-x"
+pshell -file "%SCRIPTS_ROOT%/devspace/test.ps1"

@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-script=$0
+script=$(basename "$0")
 echo "$script: Starting."
-devcontainer build --workspace-folder .
+"$(dirname "$(dirname "$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)")")/devspace/setup/set-env-vars.sh"
+devcontainer build --workspace-folder "$PROJECT_ROOT"
 echo "$script: Finished."

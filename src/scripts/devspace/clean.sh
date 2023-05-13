@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 #shellcheck disable=SC2034
-script=$0
+script=$(basename "$0")
 echo "$script: Starting."
+"$(dirname "$(dirname "$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)")")/devspace/setup/set-env-vars.sh"
 for i in {1..3}
 do
     containerid=$(docker ps -q -f name=kindest-argo-cd-devspace)

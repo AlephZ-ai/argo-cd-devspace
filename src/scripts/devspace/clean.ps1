@@ -1,8 +1,7 @@
-$commandPath = $PSCommandPath | Resolve-Path -Relative
-Write-Host "${commandPath}: Starting."
+$script = $PSCommandPath | Resolve-Path -Relative
+Write-Host "${script}: Starting."
 try {
-    $SCRIPTS_ROOT = $commandPath | Resolve-Path -Parent -Abosulte
-    "$SCRIPTS_ROOT/devspace/setup/set-env-vars.ps1"
+    & "$($PSScriptRoot | Resolve-Path -Parent -Abosulte)/devspace/setup/set-env-vars.ps1"
     for($i=1; $i -le 3; $i++) {
         $containerid = docker ps -q -f name=kindest-argo-cd-devspace
         if ($containerid) {
@@ -19,8 +18,8 @@ try {
         docker volume prune -f
     }
 } catch [System.Exception] {
-    Write-Error "${commandPath}: Error: $_"
+    Write-Error "${script}: Error: $_"
     exit 1
 } finally {
-   Write-Host "${commandPath}: Finished."
+   Write-Host "${script}: Finished."
 }

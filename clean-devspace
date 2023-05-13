@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-script=$0
+script=$(basename "$0")
 echo "$script: Starting."
+"$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)/src/scripts/devspace/setup/set-env-vars.sh"
 "$SCRIPTS_ROOT/devspace/clean.sh"
 echo "$script: Finished."

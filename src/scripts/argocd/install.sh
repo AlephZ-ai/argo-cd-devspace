@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-script=$0
+script=$(basename "$0")
 echo "$script: Starting."
+"$(dirname "$(dirname "$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)")")/devspace/setup/set-env-vars.sh"
 # https://argo-cd.readthedocs.io/en/stable/getting_started
 namespace=$(kubectl get namespace "$KINDEST_ARGO_CD_ARGO_NAMESPACE" | grep "$KINDEST_ARGO_CD_ARGO_NAMESPACE")
 if [ -n "$namespace" ]; then

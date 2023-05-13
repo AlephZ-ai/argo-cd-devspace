@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # Make sure this script is idempotent since it will be run multiple times
-script=$0
+script=$(basename "$0")
 echo "$script: Starting."
 rm -f nohup.out
+"$(dirname "$(dirname "$(dirname "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)")")")/devspace/setup/set-env-vars.sh"
 "$SCRIPTS_ROOT/devspace/setup-zshrc.sh"
 # TODO: Why does this break things?
 # git config --global --add safe.directory /workspaces/kindest-argo-cd

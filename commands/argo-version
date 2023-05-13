@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-script=$0
+script=$(basename "$0")
 echo "$script: Starting."
+"$(dirname "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)")/src/scripts/devspace/setup/set-env-vars.sh"
 pushd "$PROJECT_ROOT" || exit
 "$SCRIPTS_ROOT/forward-port.sh" &
 argocd version

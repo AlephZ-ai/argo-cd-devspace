@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 #shellcheck disable=SC2016
-script=$0
-token=$GITHUB_TOKEN
+script=$(basename "$0")
 echo "$script: Starting."
+"$(dirname "$(dirname "$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)")")/devspace/setup/set-env-vars.sh"
+token=$GITHUB_TOKEN
 # Make sure this script is idempotent since it will be run multiple times
 # https://code.visualstudio.com/remote/advancedcontainers/start-processes
 "$SCRIPTS_ROOT/argocd/set-default-password.sh"

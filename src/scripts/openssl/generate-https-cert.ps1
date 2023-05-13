@@ -9,22 +9,21 @@ param (
     [Parameter(Mandatory=$true)]
     [securestring]$password
 )
-$commandPath = $PSCommandPath | Resolve-Path -Relative
-Write-Host "${commandPath}: Starting."
+$script = $PSCommandPath | Resolve-Path -Relative
+Write-Host "${script}: Starting."
 try {
-    $SCRIPTS_ROOT = $commandPath | Resolve-Path -Parent -Abosulte
-    "$SCRIPTS_ROOT/devspace/setup/set-env-vars.ps1"
+    & "$($PSScriptRoot | Resolve-Path -Parent -Abosulte)/devspace/setup/set-env-vars.ps1"
     $root="root"
-    mkdir -p "$PROJECT_ROOT/devcerts/$certpurpose"
-    openssl req -new -nodes -newkey rsa:2048 -keyout "$PROJECT_ROOT/devcerts/$certpurpose/cert.key" -out "$PROJECT_ROOT/devcerts/$certpurpose/cert.csr" -subj "/C=US/ST=NC/L=Rolesville/O=$certpurpose/CN=localhost.local"
-    openssl x509 -req -sha256 -days 3650 -in "$PROJECT_ROOT/devcerts/$certpurpose/cert.csr" -CA "$PROJECT_ROOT/devcerts/$root/cert.pem" -CAkey "$PROJECT_ROOT/devcerts/$root/cert.key" -CAcreateserial -extfile "$PROJECT_ROOT/devcerts/$root/domains.ext" -out "$PROJECT_ROOT/devcerts/$certpurpose/cert.crt"
+    mkdir -p "$env:PROJECT_ROOT/devcerts/$certpurpose"
+    openssl req -new -nodes -newkey rsa:2048 -keyout "$env:PROJECT_ROOT/devcerts/$certpurpose/cert.key" -out "$env:PROJECT_ROOT/devcerts/$certpurpose/cert.csr" -subj "/C=US/ST=NC/L=Rolesville/O=$certpurpose/CN=localhost.local"
+    openssl x509 -req -sha256 -days 3650 -in "$env:PROJECT_ROOT/devcerts/$certpurpose/cert.csr" -CA "$env:PROJECT_ROOT/devcerts/$root/cert.pem" -CAkey "$env:PROJECT_ROOT/devcerts/$root/cert.key" -CAcreateserial -extfile "$env:PROJECT_ROOT/devcerts/$root/domains.ext" -out "$env:PROJECT_ROOT/devcerts/$certpurpose/cert.crt"
     # https://stackoverflow.com/questions/808669/convert-a-cert-pem-certificate-to-a-pfx-certificate
     # https://stackoverflow.com/questions/63441247/how-to-pass-pkcs12-password-into-openssl-conversion-module
-    openssl pkcs12 -passout "pass:$password" -inkey "$PROJECT_ROOT/devcerts/$certpurpose/cert.key" -in "$PROJECT_ROOT/devcerts/$certpurpose/cert.crt" -export -out "$PROJECT_ROOT/devcerts/$certpurpose/cert.pfx"
-    git add -f "$PROJECT_ROOT/devcerts/$certpurpose/cert.pfx"
+    openssl pkcs12 -passout "pass:$password" -inkey "$env:PROJECT_ROOT/devcerts/$certpurpose/cert.key" -in "$env:PROJECT_ROOT/devcerts/$certpurpose/cert.crt" -export -out "$env:PROJECT_ROOT/devcerts/$certpurpose/cert.pfx"
+    git add -f "$env:PROJECT_ROOT/devcerts/$certpurpose/cert.pfx"
 } catch [System.Exception] {
-    Write-Error "${commandPath}: Error: $_"
+    Write-Error "${script}: Error: $_"
     exit 1
 } finally {
-    Write-Host "${commandPath}: Finished."
+    Write-Host "${script}: Finished."
 }
