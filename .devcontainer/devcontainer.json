@@ -126,7 +126,8 @@
 				"rogalmic.zsh-debug",
 				"rogalmic.bash-debug",
 				"shakram02.bash-beautify",
-				"lizebang.bash-extension-pack"
+				"lizebang.bash-extension-pack",
+				"pspester.pester-test"
 			]
 		},
 		"settings": {

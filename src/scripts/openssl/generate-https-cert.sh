@@ -14,5 +14,5 @@ openssl x509 -req -sha256 -days 3650 -in "$PROJECT_ROOT/devcerts/$certpurpose/ce
 # https://stackoverflow.com/questions/808669/convert-a-cert-pem-certificate-to-a-pfx-certificate
 # https://stackoverflow.com/questions/63441247/how-to-pass-pkcs12-password-into-openssl-conversion-module
 openssl pkcs12 -passout "pass:$password" -inkey "$PROJECT_ROOT/devcerts/$certpurpose/cert.key" -in "$PROJECT_ROOT/devcerts/$certpurpose/cert.crt" -export -out "$PROJECT_ROOT/devcerts/$certpurpose/cert.pfx"
-git add -f "devcerts/$certpurpose/cert.pfx"
+git add -f "$PROJECT_ROOT/devcerts/$certpurpose/cert.pfx"
 echo "$script: Finished."

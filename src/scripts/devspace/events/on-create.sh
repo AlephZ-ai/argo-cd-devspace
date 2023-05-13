@@ -9,6 +9,7 @@ rm -f nohup.out
 # git config --global --add safe.directory /workspaces/kindest-argo-cd
 "$SCRIPTS_ROOT/devspace/setup/install-devcontainers-cli.sh"
 "$SCRIPTS_ROOT/git/install-git-credential-manager.sh"
+"$SCRIPTS_ROOT/pwsh/install-pester.sh"
 "$SCRIPTS_ROOT/kind/create-kindest-cluster.sh"
 # https://helm.sh/docs/intro/quickstart/
 # https://github.com/kubernetes/dashboard
