@@ -1,4 +1,4 @@
-#!/usr/bin/env bashpwsh
+#!/usr/bin/env bash
 # shellcheck disable=SC1091
 # shellcheck source=$PROJECT_ROOT/.devcontainer/.env
 script=$(basename "$0")
