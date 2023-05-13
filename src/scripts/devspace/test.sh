@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 script=$(basename "$0")
 echo "$script: Starting."
-"$(dirname "$(dirname "$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)")")/devspace/setup/set-env-vars.sh"
+"$(dirname "$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)")/devspace/setup/set-env-vars.sh"
 "$SCRIPTS_ROOT/utils/chmod-plus-x.sh"
 "SCRIPTS_ROOT/devspace/up.sh"
 containerid=$(docker ps -q -f name="$PROJECT_NAME-devspace")

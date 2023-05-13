@@ -6,13 +6,11 @@ echo "$script: Starting."
 for i in {1..3}
 do
     containerid=$(docker ps -q -f name="$PROJECT_NAME-devspace")
-    if [ -n "$containerid" ]
-    then
+    if [ -n "$containerid" ]; then
         docker rm -f "$containerid"
     fi
     volumes=$(docker volume ls -q -f name=name="${PROJECT_NAME}_devcontainer")
-    if [ -n "$volumes" ]
-    then
+    if [ -n "$volumes" ]; then
         echo "$volumes" | xargs docker volume rm -f
     fi
 

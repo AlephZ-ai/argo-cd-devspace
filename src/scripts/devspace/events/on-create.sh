@@ -4,7 +4,7 @@ script=$(basename "$0")
 echo "$script: Starting."
 rm -f nohup.out
 "$(dirname "$(dirname "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)")")/devspace/setup/set-env-vars.sh"
-"$SCRIPTS_ROOT/devspace/setup-zshrc.sh"
+"$SCRIPTS_ROOT/devspace/setup/setup-zshrc.sh"
 # TODO: Why does this break things?
 # git config --global --add safe.directory /workspaces/$PROJECT
 "$SCRIPTS_ROOT/devspace/setup/install-devcontainers-cli.sh"

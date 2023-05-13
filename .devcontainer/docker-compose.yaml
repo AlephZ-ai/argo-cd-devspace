@@ -10,7 +10,7 @@ services:
     env_file: .env
     environment:
       - PROJECT_ROOT=/workspaces/$PROJECT_NAME
-      - SCRIPTS_ROOT=$PROJECT_ROOT/scripts
+      - SCRIPTS_ROOT=/workspaces/$PROJECT_NAME/src/scripts
     # https://docs.docker.com/compose/compose-file/build/#build-definition
     # Includes https://github.com/devcontainers/features/tree/main/src/common-utils
     build:
