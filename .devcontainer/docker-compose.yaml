@@ -9,7 +9,8 @@ services:
     labels: ["ai.alephz.role=$PROJECT_NAME"]
     env_file: .env
     environment:
-      - PROJECT_ROOT=/workspaces/$PROJECT
+      - PROJECT_ROOT=/workspaces/$PROJECT_NAME
+      - SCRIPTS_ROOT=$PROECT_ROOT/scripts
     # https://docs.docker.com/compose/compose-file/build/#build-definition
     # Includes https://github.com/devcontainers/features/tree/main/src/common-utils
     build:
