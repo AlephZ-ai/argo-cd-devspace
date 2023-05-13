@@ -21,5 +21,8 @@
     "terminal.integrated.defaultProfile.windows": "PowerShell",
     "terminal.integrated.defaultProfile.osx": "zsh",
     "terminal.integrated.defaultProfile.linux": "zsh",
+    // Windows PowerShell
+    // "powershell.powerShellDefaultVersion": "PowerShell"
+    // PowerShell Core
     "powershell.powerShellDefaultVersion": "pwsh"
 }
