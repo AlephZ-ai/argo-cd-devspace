@@ -16,9 +16,11 @@ try {
         exit 0
     }
 
-    Import-Module Dotenv
-    $PROJECT_ROOT=$($PSCommandPath | Resolve-Path -Relative:$false | Split-Path -Parent | Split-Path -Parent | Split-Path -Parent | Split-Path -Parent | Split-Path -Parent)
-    Set-DotEnv -Path "$PROJECT_ROOT\.devcontainer\.env"
+    Import-Module Set-PsEnv
+    $env:PROJECT_ROOT=$($PSCommandPath | Resolve-Path -Relative:$false | Split-Path -Parent | Split-Path -Parent | Split-Path -Parent | Split-Path -Parent | Split-Path -Parent)
+    Push-Location $env:PROJECT_ROOT/.devcontainer
+    Set-PsEnv
+    Pop-Location
     Write-Host "${script}: Environment variables set."
 } catch [System.Exception] {
     Write-Error "${script}: Error: $_"

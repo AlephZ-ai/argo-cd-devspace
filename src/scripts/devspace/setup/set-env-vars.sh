@@ -12,6 +12,7 @@ if [ "$KINDEST_ARGO_CD_ENV_VARS_SETUP_COMPLETE" = true ]; then
 fi
 
 PROJECT_ROOT="$(dirname -- "$(dirname -- "$(dirname -- "$(dirname -- "$scriptPath")")")")"
+export "$PROJECT_ROOT"="$PROJECT_ROOT"
 set -o allexport
 source "$PROJECT_ROOT/.devcontainer/.env"
 set +o allexport

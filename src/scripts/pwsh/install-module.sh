@@ -6,5 +6,5 @@ script=$(basename "$0")
 module=$1
 echo "$script: Starting."
 "$(dirname "$(dirname "$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)")")/devspace/setup/set-env-vars.sh"
-pshell -command Install-Module $module -Force
+pshell -command Install-Module "$module" -Force -AcceptLicense    
 echo "$script: Finished."

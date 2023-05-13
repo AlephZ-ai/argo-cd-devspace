@@ -9,7 +9,8 @@ rm -f nohup.out
 # git config --global --add safe.directory /workspaces/$PROJECT
 "$SCRIPTS_ROOT/devspace/setup/install-devcontainers-cli.sh"
 "$SCRIPTS_ROOT/git/install-git-credential-manager.sh"
-"$SCRIPTS_ROOT/pwsh/install-module.sh" "Dotenv"
+"$SCRIPTS_ROOT/npm/install.sh" "dotenv-cli"
+"$SCRIPTS_ROOT/pwsh/install-module.sh" "Set-PsEnv"
 "$SCRIPTS_ROOT/pwsh/install-module.sh" "Pester"
 "$SCRIPTS_ROOT/kind/create-kindest-cluster.sh"
 # https://helm.sh/docs/intro/quickstart/
