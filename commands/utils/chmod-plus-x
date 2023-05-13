@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+script="$(basename "$0")"
+scriptPath="$(dirname "$(dirname "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)")")"
+scriptsPath="$scriptPath/src/scripts"
+script="$scriptPath/$script"
+echo "$script: Starting."
+"$scriptsPath/devspace/setup/set-env-vars.sh"
+"$scriptsPath/utils/chmod-plus-x.sh"
+echo "$script: Finished."

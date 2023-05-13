@@ -13,7 +13,6 @@
         "rogalmic.zsh-debug",
         "rogalmic.bash-debug",
         "shakram02.bash-beautify",
-        "lizebang.bash-extension-pack",
-        "pspester.pester-test"
+        "lizebang.bash-extension-pack"
     ]
 }

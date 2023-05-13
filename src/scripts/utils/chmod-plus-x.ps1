@@ -5,6 +5,7 @@ try {
     & "$scriptsPath/devspace/setup/set-env-vars.ps1"
     git add "$env:KINDEST_ARGO_CD_PROJECT_ROOT"
     Get-ChildItem -Recurse -Path "$env:KINDEST_ARGO_CD_PROJECT_ROOT" -Filter "*.sh" | ForEach-Object { git update-index --chmod=+x $_.FullName }
+    Get-ChildItem -Recurse -Path "$env:KINDEST_ARGO_CD_PROJECT_ROOT/commands" -Filter "*" | ForEach-Object { git update-index --chmod=+x $_.FullName }
 } catch [System.Exception] {
     Write-Error "${script}: Error: $_"
     exit 1

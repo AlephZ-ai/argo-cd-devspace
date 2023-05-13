@@ -126,31 +126,16 @@
 				"rogalmic.zsh-debug",
 				"rogalmic.bash-debug",
 				"shakram02.bash-beautify",
-				"lizebang.bash-extension-pack",
-				"pspester.pester-test"
+				"lizebang.bash-extension-pack"
 			]
 		},
 		"settings": {
-			"terminal.integrated.profiles.windows": {
-					"PowerShell": {
-						"source": "PowerShell",
-						"args": ["-NoProfile"]
-					}
-				},
-				"terminal.integrated.profiles.osx": {
-					"zsh": {
-						"path": "zsh",
-						"args": ["-l"]
-					}
-				},
 				"terminal.integrated.profiles.linux": {
 					"zsh": {
 						"path": "zsh",
 						"args": ["-l"]
 					}
 				},
-				"terminal.integrated.defaultProfile.windows": "PowerShell",
-				"terminal.integrated.defaultProfile.osx": "zsh",
 				"terminal.integrated.defaultProfile.linux": "zsh"
 		}
 	}

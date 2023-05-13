@@ -2,8 +2,7 @@
     "files.eol": "\n",
     "terminal.integrated.profiles.windows": {
         "PowerShell": {
-            "source": "PowerShell",
-            "args": ["-NoProfile"]
+            "source": "PowerShell"
         }
     },
     "terminal.integrated.profiles.osx": {
@@ -21,8 +20,4 @@
     "terminal.integrated.defaultProfile.windows": "PowerShell",
     "terminal.integrated.defaultProfile.osx": "zsh",
     "terminal.integrated.defaultProfile.linux": "zsh",
-    // Windows PowerShell
-    // "powershell.powerShellDefaultVersion": "PowerShell"
-    // PowerShell Core
-    "powershell.powerShellDefaultVersion": "pwsh"
 }
