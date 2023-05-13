@@ -14,16 +14,16 @@ Write-Host "${script}: Starting."
 try {
     & "$($PSCommandPath | Resolve-Path -Relative:$false | Split-Path -Parent | Split-Path -Parent)/devspace/setup/set-env-vars.ps1"
     $root="root"
-    if (!(Test-Path -Path "$env:PROJECT_ROOT/devcerts/$certpurpose")) {
-        New-Item -Force -ItemType File "$env:PROJECT_ROOT/devcerts/$certpurpose"
+    if (!(Test-Path -Path "$env:KINDEST_ARGO_CD_PROJECT_ROOT/devcerts/$certpurpose")) {
+        New-Item -Force -ItemType File "$env:KINDEST_ARGO_CD_PROJECT_ROOT/devcerts/$certpurpose"
     }
 
-    openssl req -new -nodes -newkey rsa:2048 -keyout "$env:PROJECT_ROOT/devcerts/$certpurpose/cert.key" -out "$env:PROJECT_ROOT/devcerts/$certpurpose/cert.csr" -subj "/C=US/ST=NC/L=Rolesville/O=$certpurpose/CN=localhost.local"
-    openssl x509 -req -sha256 -days 3650 -in "$env:PROJECT_ROOT/devcerts/$certpurpose/cert.csr" -CA "$env:PROJECT_ROOT/devcerts/$root/cert.pem" -CAkey "$env:PROJECT_ROOT/devcerts/$root/cert.key" -CAcreateserial -extfile "$env:PROJECT_ROOT/devcerts/$root/domains.ext" -out "$env:PROJECT_ROOT/devcerts/$certpurpose/cert.crt"
+    openssl req -new -nodes -newkey rsa:2048 -keyout "$env:KINDEST_ARGO_CD_PROJECT_ROOT/devcerts/$certpurpose/cert.key" -out "$env:KINDEST_ARGO_CD_PROJECT_ROOT/devcerts/$certpurpose/cert.csr" -subj "/C=US/ST=NC/L=Rolesville/O=$certpurpose/CN=localhost.local"
+    openssl x509 -req -sha256 -days 3650 -in "$env:KINDEST_ARGO_CD_PROJECT_ROOT/devcerts/$certpurpose/cert.csr" -CA "$env:KINDEST_ARGO_CD_PROJECT_ROOT/devcerts/$root/cert.pem" -CAkey "$env:KINDEST_ARGO_CD_PROJECT_ROOT/devcerts/$root/cert.key" -CAcreateserial -extfile "$env:KINDEST_ARGO_CD_PROJECT_ROOT/devcerts/$root/domains.ext" -out "$env:KINDEST_ARGO_CD_PROJECT_ROOT/devcerts/$certpurpose/cert.crt"
     # https://stackoverflow.com/questions/808669/convert-a-cert-pem-certificate-to-a-pfx-certificate
     # https://stackoverflow.com/questions/63441247/how-to-pass-pkcs12-password-into-openssl-conversion-module
-    openssl pkcs12 -passout "pass:$password" -inkey "$env:PROJECT_ROOT/devcerts/$certpurpose/cert.key" -in "$env:PROJECT_ROOT/devcerts/$certpurpose/cert.crt" -export -out "$env:PROJECT_ROOT/devcerts/$certpurpose/cert.pfx"
-    git add -f "$env:PROJECT_ROOT/devcerts/$certpurpose/cert.pfx"
+    openssl pkcs12 -passout "pass:$password" -inkey "$env:KINDEST_ARGO_CD_PROJECT_ROOT/devcerts/$certpurpose/cert.key" -in "$env:KINDEST_ARGO_CD_PROJECT_ROOT/devcerts/$certpurpose/cert.crt" -export -out "$env:KINDEST_ARGO_CD_PROJECT_ROOT/devcerts/$certpurpose/cert.pfx"
+    git add -f "$env:KINDEST_ARGO_CD_PROJECT_ROOT/devcerts/$certpurpose/cert.pfx"
 } catch [System.Exception] {
     Write-Error "${script}: Error: $_"
     exit 1

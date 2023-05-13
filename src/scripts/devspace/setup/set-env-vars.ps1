@@ -17,9 +17,9 @@ try {
     }
 
     Import-Module Set-PsEnv
-    $env:PROJECT_ROOT=$($PSCommandPath | Resolve-Path -Relative:$false | Split-Path -Parent | Split-Path -Parent | Split-Path -Parent | Split-Path -Parent | Split-Path -Parent)
-    Write-Host "${script}: PROJECT_ROOT=$env:PROJECT_ROOT"
-    Push-Location $env:PROJECT_ROOT/.devcontainer
+    $env:KINDEST_ARGO_CD_PROJECT_ROOT=$($PSCommandPath | Resolve-Path -Relative:$false | Split-Path -Parent | Split-Path -Parent | Split-Path -Parent | Split-Path -Parent | Split-Path -Parent)
+    Write-Host "${script}: KINDEST_ARGO_CD_PROJECT_ROOT=$env:KINDEST_ARGO_CD_PROJECT_ROOT"
+    Push-Location $env:KINDEST_ARGO_CD_PROJECT_ROOT/.devcontainer
     Set-PsEnv
     Pop-Location
     Write-Host "${script}: Environment variables set."

@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 script="$(basename "$0")"
 scriptPath="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
-scriptsPath="$(dirname "$scriptPath")/src/scripts"
+scriptsPath="$scriptPath/src/scripts"
 script="$scriptPath/$script"
 echo "$script: Starting."
 "$scriptsPath/devspace/setup/set-env-vars.sh"
-pushd "$PROJECT_ROOT" || exit
+pushd "$KINDEST_ARGO_CD_PROJECT_ROOT" || exit
 "$scriptsPath/forward-port.sh" &
 argocd version
 popd || exit

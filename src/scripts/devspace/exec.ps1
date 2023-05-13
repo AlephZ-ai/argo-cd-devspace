@@ -11,7 +11,7 @@ try {
     & "$scriptsPath/utils/chmod-plus-x.ps1"
     & "$scriptsPath/devspace/up.ps1"
     $containerid = docker ps -q -f name="$env:KINDEST_ARGO_CD_PROJECT_NAME-devspace"
-    devcontainer exec --container-id "$containerid" zsh -l -c "$env:PROJECT_ROOT/commands/$command"
+    devcontainer exec --container-id "$containerid" zsh -l -c "$env:KINDEST_ARGO_CD_PROJECT_ROOT/$command"
     & "$scriptsPath/devspace/clean.ps1"
 } catch [System.Exception] {
     Write-Error "${script}: Error: $_"

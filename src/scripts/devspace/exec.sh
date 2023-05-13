@@ -9,6 +9,6 @@ command=$1
 "$scriptsPath/utils/chmod-plus-x.sh"
 "$scriptsPath/devspace/up.sh"
 containerid=$(docker ps -q -f name="$KINDEST_ARGO_CD_PROJECT_NAME-devspace")
-devcontainer exec --container-id "$containerid" zsh -l -c "$PROJECT_ROOT/commands/$command"
+devcontainer exec --container-id "$containerid" zsh -l -c "$KINDEST_ARGO_CD_PROJECT_ROOT/$command"
 "$scriptsPath/devspace/clean.sh"
 echo "$script: Finished."

@@ -5,7 +5,7 @@ scriptsPath="$(dirname "$scriptPath")"
 script="$scriptPath/$script"
 echo "$script: Starting."
 "$scriptsPath/devspace/setup/set-env-vars.sh"
-git add "$PROJECT_ROOT"
-find "$PROJECT_ROOT" -type f -iname "*.sh" -exec git update-index --chmod=+x "{}" \;
-find "$PROJECT_ROOT" -type f -iname "*.sh" -exec chmod +x "{}" \;
+git add "$KINDEST_ARGO_CD_PROJECT_ROOT"
+find "$KINDEST_ARGO_CD_PROJECT_ROOT" -type f -iname "*.sh" -exec git update-index --chmod=+x "{}" \;
+find "$KINDEST_ARGO_CD_PROJECT_ROOT" -type f -iname "*.sh" -exec chmod +x "{}" \;
 echo "$script: Finished."

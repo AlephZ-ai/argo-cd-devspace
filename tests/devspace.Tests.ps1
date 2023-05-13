@@ -15,7 +15,7 @@ Describe "<command>"-ForEach @(
     @{ command = "build-devspace" }
     @{ command = "up-devspace" }
 ) {
-    It "Given no parameters, build the devspace without errors" {
+    It "Given the command $command, run it without errors" {
         # Arrange
         $script = Join-Path -Path ($PSScriptRoot | Resolve-Path -Relative:$false | Split-Path -Parent) -ChildPath "$command.ps1"
 
