@@ -9,9 +9,9 @@ AfterAll {
 }
 
 Describe "chmod-plus-x.ps1" {
-    It 'Given no parameters, it should generate devcerts recursively without errors' {
+    It 'Given no parameters, it should chmod +x all .sh files in the project recursively without errors' {
         # Arrange
-        $scriptPath = Join-Path -Path ($PSScriptRoot | Resolve-Path -Relative:$false | Split-Path -Parent) -ChildPath "generate-devcerts.ps1"
+        $scriptPath = Join-Path -Path ($PSScriptRoot | Resolve-Path -Relative:$false | Split-Path -Parent) -ChildPath "build-devspace.ps1"
 
         # Act
         $result = { & $scriptPath }
