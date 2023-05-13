@@ -9,7 +9,7 @@ try {
     git update-index --chmod=+x "$env:KINDEST_ARGO_CD_PROJECT_ROOT/clean-devspace"
     git update-index --chmod=+x "$env:KINDEST_ARGO_CD_PROJECT_ROOT/test-devspace"
     git update-index --chmod=+x "$env:KINDEST_ARGO_CD_PROJECT_ROOT/generate-devcerts"
-    Get-ChildItem -Path "$env:KINDEST_ARGO_CD_PROJECT_ROOT/commands" | ForEach-Object { git update-index --chmod=+x $_.FullName }
+    git update-index --chmod=+x "$env:KINDEST_ARGO_CD_PROJECT_ROOT/argo-version"
     & "$env:scriptsPath/utils/chmod-plus-x.ps1"
 } catch [System.Exception] {
     Write-Error "${script}: Error: $_"
