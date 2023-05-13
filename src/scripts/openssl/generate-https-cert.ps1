@@ -14,7 +14,10 @@ Write-Host "${script}: Starting."
 try {
     & "$($PSCommandPath | Resolve-Path -Relative:$false | Split-Path -Parent | Split-Path -Parent)/devspace/setup/set-env-vars.ps1"
     $root="root"
-    mkdir -p "$env:PROJECT_ROOT/devcerts/$certpurpose"
+    if (!(Test-Path -Path "$env:PROJECT_ROOT/devcerts/$certpurpose")) {
+        New-Item -Force -ItemType File "$env:PROJECT_ROOT/devcerts/$certpurpose"
+    }
+
     openssl req -new -nodes -newkey rsa:2048 -keyout "$env:PROJECT_ROOT/devcerts/$certpurpose/cert.key" -out "$env:PROJECT_ROOT/devcerts/$certpurpose/cert.csr" -subj "/C=US/ST=NC/L=Rolesville/O=$certpurpose/CN=localhost.local"
     openssl x509 -req -sha256 -days 3650 -in "$env:PROJECT_ROOT/devcerts/$certpurpose/cert.csr" -CA "$env:PROJECT_ROOT/devcerts/$root/cert.pem" -CAkey "$env:PROJECT_ROOT/devcerts/$root/cert.key" -CAcreateserial -extfile "$env:PROJECT_ROOT/devcerts/$root/domains.ext" -out "$env:PROJECT_ROOT/devcerts/$certpurpose/cert.crt"
     # https://stackoverflow.com/questions/808669/convert-a-cert-pem-certificate-to-a-pfx-certificate
