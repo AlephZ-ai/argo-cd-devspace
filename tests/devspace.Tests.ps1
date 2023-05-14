@@ -9,18 +9,20 @@ AfterAll {
 }
 
 Describe "<command>"-ForEach @(
-    @{ command = "generate-devcerts" }
-    @{ command = "chmod-plus-x" }
-    @{ command = "clean-devspace" }
-    @{ command = "build-devspace" }
-    @{ command = "up-devspace" }
+    @{ name = "generate-devcerts"; command = "generate"; area = "devcerts" }
+    @{ name = "utils-chmod-plus-x"; command = "chmod-plus-x"; area = "utils" }
+    @{ name = "clean-devspace"; command = "clean"; area = "devspace" }
+    @{ name = "build-devspace"; command = "build"; area = "devspace" }
+    @{ name = "up-devspace"; command = "up"; area = "devspace" }
 ) {
-    It "Given the command $command, run it without errors" {
+    It "Given the following command(name=$name, command=$command, area=$area), run it without errors" {
         # Arrange
-        $script = Join-Path -Path ($PSScriptRoot | Resolve-Path -Relative:$false | Split-Path -Parent) -ChildPath "$command.ps1"
+        $commandsPath = Join-Path -Path ($PSScriptRoot | Resolve-Path -Relative:$false | Split-Path -Parent) -ChildPath "commands"
+        $areaPath = Join-Path -Path $commandsPath -ChildPath "$area"
+        $command = Join-Path -Path $areaPath -ChildPath "$command.ps1"
 
         # Act
-        $result = { & $script }
+        $result = { & $command }
 
         # Assert
         $result | Should -Not -Throw
