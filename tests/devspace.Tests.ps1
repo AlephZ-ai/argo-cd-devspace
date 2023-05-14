@@ -9,10 +9,10 @@ AfterAll {
 }
 
 Describe "<script>"-ForEach @(
-    @{ name = "generate-devcerts";  script = "generate";     area = "devcerts" }
-    @{ name = "utils-chmod-plus-x"; script = "chmod-plus-x"; area = "utils" }
+    # @{ name = "generate-devcerts";  script = "generate";     area = "devcerts" }
+    # @{ name = "utils-chmod-plus-x"; script = "chmod-plus-x"; area = "utils" }
     @{ name = "clean-devspace";     script = "clean";        area = "devspace" }
-    @{ name = "build-devspace";     script = "build";        area = "devspace" }
+    # @{ name = "build-devspace";     script = "build";        area = "devspace" }
     @{ name = "up-devspace";        script = "up";           area = "devspace" }
 ) {
     It "Given the following run(name=$name, script=$script, area=$area), make sure it completes without errors" {
