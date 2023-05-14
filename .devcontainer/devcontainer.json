@@ -74,9 +74,10 @@
 			"minikube": "latest"
 		},
 		// https://github.com/devcontainers-contrib/features/tree/main/src/kind
-		"ghcr.io/devcontainers-contrib/features/kind:1": {
-			"version": "latest"
-		},
+		// TODO: This is only temporarly commented out test and uncomment when it works again
+		// "ghcr.io/devcontainers-contrib/features/kind:1": {
+		// 	"version": "latest"
+		// },
 		// https://github.com/devcontainers-contrib/features/tree/main/src/argo-cd
 		"ghcr.io/devcontainers-contrib/features/argo-cd:1": {
 			"version": "latest"
