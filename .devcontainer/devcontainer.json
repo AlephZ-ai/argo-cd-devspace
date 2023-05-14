@@ -96,9 +96,9 @@
 	},
 	// https://code.visualstudio.com/remote/advancedcontainers/start-processes
 	// https://containers.dev/implementors/json_reference/#lifecycle-scripts
-	"onCreateCommand": ["/bin/zsh", "-l", "-c", "./run devspace/events/on-create"],
-	"postCreateCommand": ["/bin/zsh", "-l", "-c", "./run devspace/events/post-create"],
-	"postAttachCommand": "nohup bash -c './run devspace/events/post-attach.sh &'",
+	"onCreateCommand": ["/bin/zsh", "-l", "-c", "source run devspace/events/on-create"],
+	"postCreateCommand": ["/bin/zsh", "-l", "-c", "source run devspace/events/post-create"],
+	"postAttachCommand": "nohup bash -c 'source run devspace/events/post-attach.sh &'",
 	// https://aka.ms/dev-containers-non-root.
 	"remoteUser": "vscode",
 	// https://code.visualstudio.com/remote/advancedcontainers/environment-variables

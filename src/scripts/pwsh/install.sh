@@ -2,5 +2,5 @@
 i="$0"
 module="$1"
 echo "$i: Started installing PowerShell module: $module."
-pshell -command Install-Module "$module" -Force -AcceptLicense    
+pwsh -command Install-Module "$module" -Force -AcceptLicense    
 echo "$i: Finished installing PowerShell module: $module."
