@@ -9,7 +9,7 @@ echo "$i: Started forwarding host port: $hostPort to service: $service."
 # https://phoenixnap.com/kb/kubectl-port-forward
 needsForward="true"
 existingForward=$(lsof -i "tcp:$hostPort")
-if [ -z "$existingForward" ]; then
+if [ -n "$existingForward" ]; then
     if [ "$killExistingForwardIfExists" = "true" ]; then
         echo "Forward already exists. Killing."
         pkill kubectl -9
