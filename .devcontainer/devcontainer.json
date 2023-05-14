@@ -91,6 +91,10 @@
 		"ghcr.io/devcontainers-contrib/features/age:1": {
 			"version": "latest"
 		},
+		// https://github.com/devcontainers-contrib/features/tree/main/src/age-keygen
+		"ghcr.io/devcontainers-contrib/features/age-keygen:1": {
+			"version": "latest"
+		},
 		// https://github.com/devcontainers-contrib/features/tree/main/src/gitsign-credential-cache
 		"ghcr.io/devcontainers-contrib/features/gitsign-credential-cache:1": {
 			"version": "latest"
