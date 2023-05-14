@@ -9,5 +9,6 @@ rm -f nohup.out
 "$KINDEST_ARGO_CD_SCRIPTS_ROOT/npm/install.sh" "dotenv-cli"
 "$KINDEST_ARGO_CD_SCRIPTS_ROOT/pwsh/install.sh" "Set-PsEnv"
 "$KINDEST_ARGO_CD_SCRIPTS_ROOT/pwsh/install.sh" "Pester"
-"$KINDEST_ARGO_CD_SCRIPTS_ROOT/kind/create-kindest-cluster.sh"
-"$KINDEST_ARGO_CD_SCRIPTS_ROOT/argocd/install.sh"
+# "$KINDEST_ARGO_CD_SCRIPTS_ROOT/kind/create-kindest-cluster.sh"
+# "$KINDEST_ARGO_CD_SCRIPTS_ROOT/argocd/install.sh"
+"$KINDEST_ARGO_CD_SCRIPTS_ROOT/kubefirst/create.sh"
