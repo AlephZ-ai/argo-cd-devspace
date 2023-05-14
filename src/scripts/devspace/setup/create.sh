@@ -11,9 +11,8 @@ export PATH=$PATH:~/.dotnet/tools
 bash -c eval "$(ssh-keyscan github.com >> ~/.ssh/known_hosts)"
 dotnet dev-certs https --trust
 tool=git-credential-manager && if ! (dotnet tool install -g "$tool"); then dotnet tool update -g "$tool"; fi
-git-credential-manager configure
-git-credential-manager diagnose
-gh auth login
+if ! (git-credential-manager diagnose); then git-credential-manager configure; fi
+if ! (gh auth status); then gh auth login; fi
 # https://github.com/sigstore/gitsign/blob/main/cmd/gitsign-credential-cache/README.md
 while ("caching \$GITHUBTOKEN"); gitsign-credential-cache; do true; done &
 brew update
@@ -25,7 +24,10 @@ package=dotenv-cli && npm install -g "$package"
 module=Set-PsEnv && pwsh -command Install-Module "$module" -Force -AcceptLicense
 module=Pester && pwsh -command Install-Module "$module" -Force -AcceptLicense
 brew=kubefirst/tools/kubefirst && brew install "$brew"
-"$KINDEST_ARGO_CD_SCRIPTS_ROOT/kubefirst/create.sh"
-"$KINDEST_ARGO_CD_SCRIPTS_ROOT/devspace/setup/setup-zshrc.sh"
+while ! (bash -c "kubefirst k3d create"); do echo "Retrying Create Kubefirst Cluster"; sleep 1s; done
+source='source <(kubectl completion zsh)'
+(echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/vscode/.zprofile
+grep -qxF "$source"  ~/.zprofile || echo "$source" >>  ~/.zprofile
+grep -qxF "$source"  ~/.zshrc || echo "$source" >>  ~/.zshrc
 
 # https://stackoverflow.com/questions/33553082/how-can-i-update-all-npm-packages-modules-at-once
