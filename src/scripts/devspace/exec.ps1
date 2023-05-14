@@ -5,7 +5,7 @@ param (
 
 $i="$PSCommandPath"
 Write-Host "${i}: Started executing command: $command on devspace: $KINDEST_ARGO_CD_PROJECT_ROOT."
-& "$scriptsPath/devspace/up.ps1"
+& "$env:KINDEST_ARGO_CD_SCRIPTS_ROOT/devspace/up.ps1"
 $containerid = docker ps -q -f name="$env:KINDEST_ARGO_CD_PROJECT_NAME-devspace"
-devcontainer exec --container-id "$containerid" zsh -l -c "$env:KINDEST_ARGO_CD_PROJECT_ROOT/$command"
+devcontainer exec --container-id "$containerid" zsh -l -c "`$KINDEST_ARGO_CD_PROJECT_ROOT/run` $command"
 Write-Host "${i}: Finished executing command: $command on devspace: $KINDEST_ARGO_CD_PROJECT_ROOT."

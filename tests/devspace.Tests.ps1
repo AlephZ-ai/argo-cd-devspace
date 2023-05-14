@@ -9,18 +9,27 @@ AfterAll {
 }
 
 Describe "<script>"-ForEach @(
-    # @{ name = "generate-devcerts";  script = "generate";     area = "devcerts" }
-    # @{ name = "utils-chmod-plus-x"; script = "chmod-plus-x"; area = "utils" }
-    @{ name = "clean-devspace";     script = "clean";        area = "devspace" }
-    # @{ name = "build-devspace";     script = "build";        area = "devspace" }
-    @{ name = "up-devspace";        script = "up";           area = "devspace" }
+    @{ name = "generate-devcerts";                   script = "generate";     area = "devcerts" }
+    @{ name = "utils-chmod-plus-x";                  script = "chmod-plus-x"; area = "utils" }
+    @{ name = "clean-devspace";                      script = "clean";        area = "devspace" }
+    @{ name = "build-devspace";                      script = "build";        area = "devspace" }
+    @{ name = "up-devspace";                         script = "up";           area = "devspace" }
+    @{ name = "exec-devspace argocd version";        script = "exec";         area = "devspace"; command = "argocd/version" }
 ) {
-    It "Given the following run(name=$name, script=$script, area=$area), make sure it completes without errors" {
+    It "Given the following run(name=$name, script=$script, area=$area, command=$command), make sure it completes without errors for ext <ext>" -ForEach @(
+        @{ ext = "ps1" }
+        # Need to detect when on Windows and only run the following tests if so
+        # @{ cmd = "cmd" }
+    ) {
         # Arrange
         $projectRoot = "$($PSScriptRoot | Resolve-Path -Relative:$false | Split-Path -Parent)"
 
         # Act
-        $result = { & "$projectRoot/run.ps1" -script "$area/$script" }
+        if ($command -eq $null) {
+            $result = { & "$projectRoot/run.$ext" "$area/$script" }
+        } else {
+            $result = { & "$projectRoot/run.$ext" "$area/$script" "$command" }
+        }
 
         # Assert
         $result | Should -Not -Throw
