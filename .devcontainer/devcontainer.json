@@ -20,7 +20,7 @@
 		},
 		// https://github.com/rocker-org/devcontainer-features/tree/main/src/apt-packages
 		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
-			"packages": "wget,sudo,curl,gnupg2,openssl,dos2unix,shellcheck",
+			"packages": "wget,sudo,curl,gnupg2,openssl,dos2unix,shellcheck,libnss3-tools",
 			"updatePackages": "true"
 		},
 		"ghcr.io/devcontainers/features/dotnet:1": {
@@ -93,6 +93,9 @@
 			"label": "Argo CD (TLS)",
 			"protocol": "https"
 		}
+	},
+	"remoteEnv": {
+		"GITHUB_TOKEN": "${localEnv:ALEPHZ_AI_ADMIN_GITHUB_TOKEN}"
 	},
 	// https://code.visualstudio.com/remote/advancedcontainers/start-processes
 	// https://containers.dev/implementors/json_reference/#lifecycle-scripts

@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 rm -f nohup.out
+"$KINDEST_ARGO_CD_SCRIPTS_ROOT/mkcert/install.sh"
 "$KINDEST_ARGO_CD_SCRIPTS_ROOT/devspace/setup/setup-zshrc.sh"
 # TODO: Why does this break things?
 # git config --global --add safe.directory /workspaces/$PROJECT
