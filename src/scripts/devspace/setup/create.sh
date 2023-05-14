@@ -4,6 +4,7 @@ rm -f nohup.out
 # TODO: Why does this break things?
 # git config --global --add safe.directory /workspaces/$PROJECT
 "$KINDEST_ARGO_CD_SCRIPTS_ROOT/devspace/setup/install-devcontainers-cli.sh"
+"$KINDEST_ARGO_CD_SCRIPTS_ROOT/kubefirst/install.sh"
 "$KINDEST_ARGO_CD_SCRIPTS_ROOT/git/install-git-credential-manager.sh"
 "$KINDEST_ARGO_CD_SCRIPTS_ROOT/npm/install.sh" "dotenv-cli"
 "$KINDEST_ARGO_CD_SCRIPTS_ROOT/pwsh/install.sh" "Set-PsEnv"
