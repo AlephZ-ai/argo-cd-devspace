@@ -10,7 +10,7 @@ token="$GITHUB_TOKEN"
 # https://github.com/argoproj/argo-cd/blob/master/docs/user-guide/private-repositories.md
 # https://docs.github.com/en/enterprise-cloud@latest/codespaces/developing-in-codespaces/default-environment-variables-for-your-codespace
 if [ -z "$token" ]; then
-    token=$KINDEST_ARGO_CD_GITHUB_TOKEN_READONLY
+    token=$GITHUB_TOKEN
 fi
 if [ -z "$token" ]; then
     echo 'FAILURE: $GITHUB_TOKEN is not set. Cannot add git repo to argo.' 1>&2
