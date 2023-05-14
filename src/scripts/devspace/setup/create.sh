@@ -11,10 +11,11 @@ export PATH=$PATH:~/.dotnet/tools
 bash -c eval "$(ssh-keyscan github.com >> ~/.ssh/known_hosts)"
 dotnet dev-certs https --trust
 tool=git-credential-manager && if ! (dotnet tool install -g "$tool"); then dotnet tool update -g "$tool"; fi
-if ! (git-credential-manager diagnose); then git-credential-manager configure; fi
+git-credential-manager configure
+git-credential-manager diagnose
 if ! (gh auth status); then gh auth login; fi
 # https://github.com/sigstore/gitsign/blob/main/cmd/gitsign-credential-cache/README.md
-while ("echo caching \$GITHUBTOKEN"); gitsign-credential-cache; do true; done &
+while ("echo "caching \$GITHUBTOKEN""); gitsign-credential-cache; do true; done &
 brew update
 brew upgrade
 npm update -g npm
