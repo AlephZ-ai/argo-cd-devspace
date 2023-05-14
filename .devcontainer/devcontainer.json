@@ -95,7 +95,7 @@
 		}
 	},
 	"remoteEnv": {
-		"GITHUB_TOKEN": "${localEnv:ALEPHZ_AI_ADMIN_GITHUB_TOKEN}"
+		"ALEPHZ_AI_ADMIN_GITHUB_TOKEN": "${localEnv:ALEPHZ_AI_ADMIN_GITHUB_TOKEN}"
 	},
 	// https://code.visualstudio.com/remote/advancedcontainers/start-processes
 	// https://containers.dev/implementors/json_reference/#lifecycle-scripts
