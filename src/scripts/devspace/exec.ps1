@@ -3,19 +3,9 @@ param (
     [string]$command
 )
 
-$script = $PSCommandPath | Resolve-Path -Relative
-Write-Host "${script}: Starting."
-try {
-    $scriptsPath = "$($PSCommandPath | Resolve-Path -Relative:$false | Split-Path -Parent)"
-    & "$scriptsPath/devspace/setup/set-env-vars.ps1"
-    & "$scriptsPath/utils/chmod-plus-x.ps1"
-    & "$scriptsPath/devspace/up.ps1"
-    $containerid = docker ps -q -f name="$env:KINDEST_ARGO_CD_PROJECT_NAME-devspace"
-    devcontainer exec --container-id "$containerid" zsh -l -c "$env:KINDEST_ARGO_CD_PROJECT_ROOT/$command"
-    & "$scriptsPath/devspace/clean.ps1"
-} catch [System.Exception] {
-    Write-Error "${script}: Error: $_"
-    exit 1
-} finally {
-   Write-Host "${script}: Finished."
-}
+$i="$PSCommandPath"
+Write-Host "${i}: Started executing command: $command on devspace: $KINDEST_ARGO_CD_PROJECT_ROOT."
+& "$scriptsPath/devspace/up.ps1"
+$containerid = docker ps -q -f name="$env:KINDEST_ARGO_CD_PROJECT_NAME-devspace"
+devcontainer exec --container-id "$containerid" zsh -l -c "$env:KINDEST_ARGO_CD_PROJECT_ROOT/$command"
+Write-Host "${i}: Finished executing command: $command on devspace: $KINDEST_ARGO_CD_PROJECT_ROOT."

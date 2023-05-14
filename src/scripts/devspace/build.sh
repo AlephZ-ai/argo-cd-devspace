@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
-script="$(basename "$0")"
-scriptPath="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
-scriptsPath="$(dirname "$scriptPath")"
-script="$scriptPath/$script"
-echo "$script: Starting."
-"$scriptsPath/devspace/setup/set-env-vars.sh"
+i="$0"
+echo "$i: Started building devspace: $KINDEST_ARGO_CD_PROJECT_ROOT."
 devcontainer build --workspace-folder "$KINDEST_ARGO_CD_PROJECT_ROOT"
-echo "$script: Finished."
+echo "$i: Finished building devspace: $KINDEST_ARGO_CD_PROJECT_ROOT."
