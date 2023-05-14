@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-gcm=git-credential-manager
-"$KINDEST_ARGO_CD_SCRIPTS_ROOT/dotnet/install-tool.sh" $gcm
+"$KINDEST_ARGO_CD_SCRIPTS_ROOT/dotnet/install-tool.sh" git-credential-manager
+eval "$(ssh-keyscan github.com >> ~/.ssh/known_hosts)"

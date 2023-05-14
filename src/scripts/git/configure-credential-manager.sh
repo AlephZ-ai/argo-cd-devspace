@@ -1,4 +1,2 @@
 #!/usr/bin/env bash
-# TODO: Fix
-# gcm=git-credential-manager
-# $gcm configure
+/home/linuxbrew/.linuxbrew/bin/git-credential-manager-core configure

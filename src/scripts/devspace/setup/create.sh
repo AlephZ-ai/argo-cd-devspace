@@ -4,7 +4,7 @@ rm -f nohup.out
 echo "GITHUB_TOKEN=$GITHUB_TOKEN"
 export GITHUB_TOKEN=$ALEPHZ_AI_ADMIN_GITHUB_TOKEN
 export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"
-bash -c "NONINTERACTIVE=true && $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+while ! (bash -c "NONINTERACTIVE=true && $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"); do echo "Retrying Homebrew Install"; sleep 1s; done
 "$KINDEST_ARGO_CD_SCRIPTS_ROOT/mkcert/install.sh"
 # TODO: Why does this break things?
 # git config --global --add safe.directory /workspaces/$PROJECT
