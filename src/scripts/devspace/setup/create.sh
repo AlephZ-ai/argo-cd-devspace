@@ -14,7 +14,7 @@ tool=git-credential-manager && if ! (dotnet tool install -g "$tool"); then dotne
 if ! (git-credential-manager diagnose); then git-credential-manager configure; fi
 if ! (gh auth status); then gh auth login; fi
 # https://github.com/sigstore/gitsign/blob/main/cmd/gitsign-credential-cache/README.md
-while ("caching \$GITHUBTOKEN"); gitsign-credential-cache; do true; done &
+while ("echo caching \$GITHUBTOKEN"); gitsign-credential-cache; do true; done &
 brew update
 brew upgrade
 npm update -g npm
