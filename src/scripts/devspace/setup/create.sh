@@ -2,7 +2,6 @@
 i="$0"
 echo "$i: Started creating the devspace: $KINDEST_ARGO_CD_PROJECT_ROOT."
 rm -f nohup.out
-"$KINDEST_ARGO_CD_SCRIPTS_ROOT/devspace/setup/set-env-vars.sh"
 "$KINDEST_ARGO_CD_SCRIPTS_ROOT/devspace/setup/setup-zshrc.sh"
 # TODO: Why does this break things?
 # git config --global --add safe.directory /workspaces/$PROJECT

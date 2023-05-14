@@ -2,6 +2,7 @@
 i="$0"
 echo "$i: Started processing the post-create event on devspace: $KINDEST_ARGO_CD_PROJECT_ROOT."
 rm -f nohup.out
+"$KINDEST_ARGO_CD_SCRIPTS_ROOT/devspace/setup/set-env-vars.sh"
 "$KINDEST_ARGO_CD_SCRIPTS_ROOT/devspace/setup/init.sh"
 # Need to shut down ports after post-create or they will be orphaned
 pkill kubectl -9
