@@ -2,11 +2,17 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: argocd
-  namespace: argocd
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
 spec:
+  project: default
   source:
-    KINDEST_ARGO_CD_REPO_URL: 'https://argoproj.github.io/argo-helm'
-    targetRevision: HEAD
-    chart: argo-cd
+    repoURL: https://github.com/AlephZ-ai/kindest-argo-cd
+    path: argocd
+    targetRevision: master
+  destination:
+    namespace: argocd
+    name: in-cluster
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true

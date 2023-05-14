@@ -1,14 +1,10 @@
 #!/usr/bin/env bash
-i="$0"
 secret="$KINDEST_ARGO_CD_ARGO_NAME-initial-admin-secret"
-echo "$i: Started setting the default Argo CD password to $KINDEST_ARGO_CD_ARGO_PASSWORD."
 # https://argo-cd.readthedocs.io/en/stable/user-guide/private-repositories/
 "$KINDEST_ARGO_CD_SCRIPTS_ROOT/argocd/wait-for-password.sh"
 currentpassword=$(kubectl get secret "$secret" -o jsonpath="{.data.password}" | base64 --decode)
 "$KINDEST_ARGO_CD_SCRIPTS_ROOT/argocd/login.sh"
-if [ "$currentpassword" == "$KINDEST_ARGO_CD_ARGO_PASSWORD" ]; then
-  echo "$i: Found the existing Argo CD password already set to $KINDEST_ARGO_CD_ARGO_PASSWORD"
-else
+if [ "$currentpassword" != "$KINDEST_ARGO_CD_ARGO_PASSWORD" ]; then
   argocd account update-password --current-password "$currentpassword" --new-password "$KINDEST_ARGO_CD_ARGO_PASSWORD"
   encodedpassword=$(echo "$KINDEST_ARGO_CD_ARGO_PASSWORD" | base64)
 cat <<EOF | kubectl apply -f -

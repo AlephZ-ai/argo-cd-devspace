@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-i="$0"
-echo "$i: Started creating the devspace: $KINDEST_ARGO_CD_PROJECT_ROOT."
 rm -f nohup.out
 "$KINDEST_ARGO_CD_SCRIPTS_ROOT/devspace/setup/setup-zshrc.sh"
 # TODO: Why does this break things?
@@ -12,4 +10,3 @@ rm -f nohup.out
 "$KINDEST_ARGO_CD_SCRIPTS_ROOT/pwsh/install.sh" "Pester"
 "$KINDEST_ARGO_CD_SCRIPTS_ROOT/kind/create-kindest-cluster.sh"
 "$KINDEST_ARGO_CD_SCRIPTS_ROOT/argocd/install.sh"
-echo "$i: Finished creating the devspace: $KINDEST_ARGO_CD_PROJECT_ROOT."

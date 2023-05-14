@@ -1,11 +1,7 @@
 #!/usr/bin/env bash
-i="$0"
-echo "$i: Started installing Argo CD."
 # https://argo-cd.readthedocs.io/en/stable/getting_started
 namespace=$(kubectl get namespace "$KINDEST_ARGO_CD_ARGO_NAMESPACE" | grep "$KINDEST_ARGO_CD_ARGO_NAMESPACE")
-if [ -n "$namespace" ]; then
-  echo "$KINDEST_ARGO_CD_ARGO_NAMESPACE already exists"
-else
+if [ -z "$namespace" ]; then
   kubectl create namespace "$KINDEST_ARGO_CD_ARGO_NAMESPACE"
   kubectl apply -n "$KINDEST_ARGO_CD_ARGO_NAMESPACE" -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
   # https://argo-cd.readthedocs.io/en/stable/operator-manual/tls/
@@ -21,4 +17,3 @@ else
   #helm upgrade --wait --install "$KINDEST_ARGO_CD_ARGO_NAME" "./src/$KINDEST_ARGO_CD_ARGO_NAME/" --create-namespace
   "$KINDEST_ARGO_CD_SCRIPTS_ROOT/argocd/login.sh"
 fi
-echo "$i: Finished installing Argo CD."

@@ -1,9 +1,7 @@
-$i = "$PSCommandPath"
 $root="root"
 $certpurpose=$root
 $password="$root-password"
 $subject="/C=US/CN=Dev-Root-CA"
-Write-Host "${i}: Started generating Root CA certificate."
 if (!(Test-Path -Path "$env:KINDEST_ARGO_CD_PROJECT_ROOT/devcerts/$certpurpose")) {
     New-Item -Force -ItemType File "$env:KINDEST_ARGO_CD_PROJECT_ROOT/devcerts/$certpurpose"
 }
@@ -20,4 +18,3 @@ openssl pkcs12 -passout pass:$password `
     -in "$env:KINDEST_ARGO_CD_PROJECT_ROOT/devcerts/$certpurpose/cert.crt" -export `
     -out "$env:KINDEST_ARGO_CD_PROJECT_ROOT/devcerts/$certpurpose/cert.pfx"
 git add -f "$env:KINDEST_ARGO_CD_PROJECT_ROOT/devcerts/$certpurpose/cert.pfx"
-Write-Host "${i}: Finished generating Root CA certificate."

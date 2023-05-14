@@ -3,9 +3,6 @@
 #shellcheck source=src/scripts/devspace/setup/set-env-vars.sh
 script="$1"
 command="$2"
-i="$0"
 scriptsRoot="$(cd -- "$(dirname -- "${BASH_SOURCE-$0}")" &> /dev/null && pwd)/src/scripts"
-echo "$i: Started running: ${script}."
 source "$scriptsRoot/devspace/setup/set-env-vars.sh"
 "$KINDEST_ARGO_CD_SCRIPTS_ROOT/$script.sh" "$command"
-echo "$i: Finished running: ${script}."

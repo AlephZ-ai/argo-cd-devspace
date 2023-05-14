@@ -1,5 +1,2 @@
-$i="$PSCommandPath"
-Write-Host "${i}: Started generating certs."
 & "$env:KINDEST_ARGO_CD_SCRIPTS_ROOT/openssl/generate-root-ca.ps1"
 & "$env:KINDEST_ARGO_CD_SCRIPTS_ROOT/argocd/generate-devcerts.ps1"
-Write-Host "${i}: Finished generating certs."

@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
-i="$0"
 timeout=30s
-echo "$i: Started creating kindest cluster."
 # https://kind.sigs.k8s.io/docs/user/quick-start/
 # https://cloud.google.com/anthos/clusters/docs/on-prem/latest/troubleshoot-user-cluster-create-api
 # https://itnext.io/kubernetes-kind-cheat-shee-2605da77984
@@ -12,4 +10,3 @@ while ! (kind create cluster --wait "$timeout" --config "$KINDEST_ARGO_CD_PROJEC
 kubectl config use-context "kind-$KINDEST_ARGO_CD_CLUSTER_NAME"
 kubectl version --short
 kubectl cluster-info
-echo "$i: Finished creating kindest cluster."

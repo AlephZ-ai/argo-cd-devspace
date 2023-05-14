@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 #shellcheck disable=SC2034
-i="$0"
-echo "$i: Started cleaning devspace: $KINDEST_ARGO_CD_PROJECT_ROOT."
 for j in {1..5}; do
     containerid=$(docker ps -q -f name="$KINDEST_ARGO_CD_PROJECT_NAME-devspace")
     if [ -n "$containerid" ]; then
@@ -17,4 +15,3 @@ for j in {1..5}; do
     docker network prune -f
     docker volume prune -f
 done
-echo "$i: Finished cleaning devspace: $KINDEST_ARGO_CD_PROJECT_ROOT."

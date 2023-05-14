@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
-i="$0"
 root=root
 certpurpose=$root
 password=$root-password
 subject="/C=US/CN=Dev-Root-CA"
-echo "$i: Started generating Root CA certificate."
 mkdir -p "$KINDEST_ARGO_CD_PROJECT_ROOT/devcerts/$certpurpose"
 openssl req -x509 -nodes -new -sha256 -days 3650 -newkey rsa:2048 \
     -keyout "$KINDEST_ARGO_CD_PROJECT_ROOT/devcerts/$certpurpose/cert.key" \
@@ -20,4 +18,3 @@ openssl pkcs12 -passout pass:$password \
     -in "$KINDEST_ARGO_CD_PROJECT_ROOT/devcerts/$certpurpose/cert.crt" -export \
     -out "$KINDEST_ARGO_CD_PROJECT_ROOT/devcerts/$certpurpose/cert.pfx"
 git add -f "$KINDEST_ARGO_CD_PROJECT_ROOT/devcerts/$certpurpose/cert.pfx"
-echo "$i: Finished generating Root CA certificate."

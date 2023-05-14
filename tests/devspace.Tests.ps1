@@ -18,7 +18,7 @@ Describe "<script>"-ForEach @(
 ) {
     It "Given the following run(name=$name, script=$script, area=$area, command=$command), make sure it completes without errors for ext <ext>" -ForEach @(
         @{ ext = "ps1" }
-        # Need to detect when on Windows and only run the following tests if so
+        # TODO: detect when on Windows and run the following test
         # @{ cmd = "cmd" }
     ) {
         # Arrange

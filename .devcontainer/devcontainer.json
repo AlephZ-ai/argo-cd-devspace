@@ -98,16 +98,10 @@
 	// https://containers.dev/implementors/json_reference/#lifecycle-scripts
 	"onCreateCommand": ["/bin/zsh", "-l", "-c", "./run devspace/events/on-create"],
 	"postCreateCommand": ["/bin/zsh", "-l", "-c", "./run devspace/events/post-create"],
-	"postAttachCommand": "nohup bash -c './run devspace/events/post-attach.sh &'",
+	"postAttachCommand": "nohup bash -c './run devspace/events/post-attach &'",
 	// https://aka.ms/dev-containers-non-root.
 	"remoteUser": "vscode",
 	// https://code.visualstudio.com/remote/advancedcontainers/environment-variables
-	"remoteEnv": {
-		// This is a readonly token to access the public repos owned by https://github.com/AlephZ-ai
-		// SECURITY WARNING: If token had access to private repos or this token allowed for more than readonly access then it would be a security risk.
-		// https://docs.github.com/en/enterprise-cloud@latest/codespaces/developing-in-codespaces/default-environment-variables-for-your-codespace
-		"KINDEST_ARGO_CD_GITHUB_TOKEN_READONLY": "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"
-	},
 	"userEnvProbe": "loginInteractiveShell",  
 	"customizations": {
 		"vscode": {

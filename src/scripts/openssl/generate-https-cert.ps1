@@ -10,9 +10,7 @@ param (
     [securestring]$password
 )
 
-$i="$PSCommandPath"
 $root="root"
-Write-Host "${i}: Started generating HTTPS certificate for: ${certpurpose}."
 if (!(Test-Path -Path "$env:KINDEST_ARGO_CD_PROJECT_ROOT/devcerts/$certpurpose")) {
     New-Item -Force -ItemType File "$env:KINDEST_ARGO_CD_PROJECT_ROOT/devcerts/$certpurpose"
 }
@@ -34,4 +32,3 @@ openssl pkcs12 -passout "pass:$password" `
     -in "$env:KINDEST_ARGO_CD_PROJECT_ROOT/devcerts/$certpurpose/cert.crt" -export `
     -out "$env:KINDEST_ARGO_CD_PROJECT_ROOT/devcerts/$certpurpose/cert.pfx"
 git add -f "$env:KINDEST_ARGO_CD_PROJECT_ROOT/devcerts/$certpurpose/cert.pfx"
-Write-Host "${i}: Finished generating HTTPS certificate for: ${certpurpose}."
