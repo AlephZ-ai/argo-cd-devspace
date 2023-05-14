@@ -20,7 +20,7 @@
 		},
 		// https://github.com/rocker-org/devcontainer-features/tree/main/src/apt-packages
 		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
-			"packages": "wget,sudo,curl,gnupg2,openssl,dos2unix,shellcheck,libnss3-tools",
+			"packages": "wget,sudo,curl,gnupg2,openssl,dos2unix,shellcheck,libnss3-tools,build-essential",
 			"updatePackages": "true"
 		},
 		"ghcr.io/devcontainers/features/dotnet:1": {
@@ -44,9 +44,9 @@
 			"autoPull": true
 		},
 		// https://github.com/meaningful-ooo/devcontainer-features/tree/main/src/homebrew
-		"ghcr.io/meaningful-ooo/devcontainer-features/homebrew:2": {
-			"shallowClone": false
-		},
+		// "ghcr.io/meaningful-ooo/devcontainer-features/homebrew:2": {
+		// 	"shallowClone": false
+		// },
 		// https://github.com/devcontainers/features/tree/main/src/node
 		"ghcr.io/devcontainers/features/node:1": {
 			"version": "node",
