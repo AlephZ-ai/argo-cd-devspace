@@ -13,7 +13,7 @@ dotnet dev-certs https --trust
 "$KINDEST_ARGO_CD_SCRIPTS_ROOT/git/install-git-credential-manager.sh"
 gh auth login
 # https://github.com/sigstore/gitsign/blob/main/cmd/gitsign-credential-cache/README.md
-while (gh auth refresh); echo "\$GITHUB_TOKEN refreshed"; do echo "caching \$GITHUBTOKEN"; gitsign-credential-cache; done &
+while ("caching \$GITHUBTOKEN"); gitsign-credential-cache; do true; done &
 # TODO: Why does this break things?
 # git config --global --add safe.directory /workspaces/$PROJECT
 "$KINDEST_ARGO_CD_SCRIPTS_ROOT/devspace/setup/install-devcontainers-cli.sh"
