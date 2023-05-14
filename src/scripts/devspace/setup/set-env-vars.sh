@@ -4,7 +4,7 @@
 script="$(basename "$0")"
 #!/usr/bin/env bash
 i="$0"
-projectRoot="$(dirname "$(dirname "$(dirname "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)")")")"
+projectRoot="$(dirname "$(dirname "$(dirname "$(dirname "$(dirname "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)")")")")")"
 echo "$i: Started setting up environment variables."
 export PSHELL="pwsh"
 if [ "$KINDEST_ARGO_CD_ENV_VARS_SETUP_COMPLETE" = "true" ]; then

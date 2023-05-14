@@ -1,5 +1,5 @@
 $i="$PSCommandPath"
-$projectRoot = "$("$PSCommandPath" | Resolve-Path -Relative:$false | Split-Path -Parent | Split-Path -Parent | Split-Path -Parent | Split-Path -Parent)"
+$projectRoot = "$("$PSCommandPath" | Resolve-Path -Relative:$false | Split-Path -Parent | Split-Path -Parent | Split-Path -Parent | Split-Path -Parent | Split-Path -Parent)"
 Write-Host "${i}: Started setting up environment variables."
 if ($PSVersionTable.PSEdition -eq 'Core') {
     $pshell="pwsh"
