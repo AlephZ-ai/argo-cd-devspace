@@ -1,6 +1,6 @@
 $i="$PSCommandPath"
 Write-Host "${i}: Started cleaning devspace: $KINDEST_ARGO_CD_PROJECT_ROOT."
-for($i=1; $i -le 3; $i++) {
+for($j=1; $j -le 5; $j++) {
     $containerid = docker ps -q -f name="$KINDEST_ARGO_CD_PROJECT_NAME-devspace"
     if ($containerid) {
         docker rm -f $containerid

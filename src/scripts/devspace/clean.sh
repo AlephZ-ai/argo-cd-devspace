@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
+#shellcheck disable=SC2034
 i="$0"
 echo "$i: Started cleaning devspace: $KINDEST_ARGO_CD_PROJECT_ROOT."
-for i in {1..3}
-do
+for j in {1..5}; do
     containerid=$(docker ps -q -f name="$KINDEST_ARGO_CD_PROJECT_NAME-devspace")
     if [ -n "$containerid" ]; then
         docker rm -f "$containerid"
