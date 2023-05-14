@@ -8,8 +8,6 @@ services:
     container_name: $KINDEST_ARGO_CD_PROJECT_NAME-devspace
     labels: ["ai.alephz.role=$KINDEST_ARGO_CD_PROJECT_NAME"]
     env_file: .env
-    environment:
-      - KINDEST_ARGO_CD_PROJECT_ROOT=/workspaces/$KINDEST_ARGO_CD_PROJECT_NAME
     # https://docs.docker.com/compose/compose-file/build/#build-definition
     # Includes https://github.com/devcontainers/features/tree/main/src/common-utils
     build:

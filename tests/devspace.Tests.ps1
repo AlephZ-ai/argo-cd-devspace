@@ -1,28 +1,26 @@
+$i = $PSCommandPath | Resolve-Path -Relative:$false
 BeforeAll {
-    $test = $PSCommandPath | Resolve-Path -Relative
     $env:KINDEST_ARGO_CD_ENV_VARS_SETUP_COMPLETE=$false
-    Write-Host "${test}: Starting."
+    Write-Host "${i}: Starting Testing."
 }
 
 AfterAll {
-    Write-Host "${test}: Finished."
+    Write-Host "${i}: Finished Testing."
 }
 
-Describe "<command>"-ForEach @(
-    @{ name = "generate-devcerts"; command = "generate"; area = "devcerts" }
-    @{ name = "utils-chmod-plus-x"; command = "chmod-plus-x"; area = "utils" }
-    @{ name = "clean-devspace"; command = "clean"; area = "devspace" }
-    @{ name = "build-devspace"; command = "build"; area = "devspace" }
-    @{ name = "up-devspace"; command = "up"; area = "devspace" }
+Describe "<script>"-ForEach @(
+    @{ name = "generate-devcerts"; script = "generate"; area = "devcerts" }
+    @{ name = "utils-chmod-plus-x"; script = "chmod-plus-x"; area = "utils" }
+    @{ name = "clean-devspace"; script = "clean"; area = "devspace" }
+    @{ name = "build-devspace"; script = "build"; area = "devspace" }
+    @{ name = "up-devspace"; script = "up"; area = "devspace" }
 ) {
-    It "Given the following command(name=$name, command=$command, area=$area), run it without errors" {
+    It "Given the following run(name=$name, script=$script, area=$area), make sure it completes without errors" {
         # Arrange
-        $commandsPath = Join-Path -Path ($PSScriptRoot | Resolve-Path -Relative:$false | Split-Path -Parent) -ChildPath "commands"
-        $areaPath = Join-Path -Path $commandsPath -ChildPath "$area"
-        $command = Join-Path -Path $areaPath -ChildPath "$command.ps1"
+        $projectRoot = "$($PSScriptRoot | Resolve-Path -Relative:$false | Split-Path -Parent)"
 
         # Act
-        $result = { & $command }
+        $result = { & "$projectRoot/run.ps1" -script "$area/$script" }
 
         # Assert
         $result | Should -Not -Throw

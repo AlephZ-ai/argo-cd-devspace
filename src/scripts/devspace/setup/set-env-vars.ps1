@@ -18,17 +18,17 @@ $env:KINDEST_ARGO_CD_PROJECT_ROOT=$projectRoot
 $env:KINDEST_ARGO_CD_COMMANDS_ROOT="$env:KINDEST_ARGO_CD_PROJECT_ROOT/commands"
 $env:KINDEST_ARGO_CD_SOURCE_ROOT="$env:KINDEST_ARGO_CD_PROJECT_ROOT/src"
 $env:KINDEST_ARGO_CD_SCRIPTS_ROOT="$env:KINDEST_ARGO_CD_SOURCE_ROOT/scripts"
-Write-Host "${script}: KINDEST_ARGO_CD_PROJECT_ROOT=$env:KINDEST_ARGO_CD_PROJECT_ROOT"
-Write-Host "${script}: KINDEST_ARGO_CD_COMMANDS_ROOT=$env:KINDEST_ARGO_CD_COMMANDS_ROOT"
-Write-Host "${script}: KINDEST_ARGO_CD_SOURCE_ROOT=$env:KINDEST_ARGO_CD_SOURCE_ROOT"
-Write-Host "${script}: KINDEST_ARGO_CD_SCRIPTS_ROOT=$env:KINDEST_ARGO_CD_SCRIPTS_ROOT"
 Push-Location $env:KINDEST_ARGO_CD_PROJECT_ROOT/.devcontainer
 try {
     Import-Module Set-PsEnv
     Set-PsEnv
-    Write-Host "${script}: Environment variables set."
+    Write-Host "${i}: Set the environment variables."
 } finally {
     Pop-Location
 }
 
+Write-Host "${script}: KINDEST_ARGO_CD_PROJECT_ROOT=$env:KINDEST_ARGO_CD_PROJECT_ROOT"
+Write-Host "${script}: KINDEST_ARGO_CD_COMMANDS_ROOT=$env:KINDEST_ARGO_CD_COMMANDS_ROOT"
+Write-Host "${script}: KINDEST_ARGO_CD_SOURCE_ROOT=$env:KINDEST_ARGO_CD_SOURCE_ROOT"
+Write-Host "${script}: KINDEST_ARGO_CD_SCRIPTS_ROOT=$env:KINDEST_ARGO_CD_SCRIPTS_ROOT"
 Write-Host "${i}: Finished setting up environment variables."

@@ -14,14 +14,14 @@ else
     export KINDEST_ARGO_CD_COMMANDS_ROOT="$KINDEST_ARGO_CD_PROJECT_ROOT/commands"
     export KINDEST_ARGO_CD_SOURCE_ROOT="$KINDEST_ARGO_CD_PROJECT_ROOT/src"
     export KINDEST_ARGO_CD_SCRIPTS_ROOT="$KINDEST_ARGO_CD_SOURCE_ROOT/scripts"
-    echo "$script: KINDEST_ARGO_CD_PROJECT_ROOT=$KINDEST_ARGO_CD_PROJECT_ROOT"
-    echo "$script: KINDEST_ARGO_CD_COMMANDS_ROOT=$KINDEST_ARGO_CD_COMMANDS_ROOT"
-    echo "$script: KINDEST_ARGO_CD_SOURCE_ROOT=$KINDEST_ARGO_CD_SOURCE_ROOT"
-    echo "$script: KINDEST_ARGO_CD_SCRIPTS_ROOT=$KINDEST_ARGO_CD_SCRIPTS_ROOT"
     set -o allexport
     source "$KINDEST_ARGO_CD_PROJECT_ROOT/.devcontainer/.env"
     set +o allexport
-    echo "$script: Environment variables set."
+    echo "$i: Set the environment variables."
 fi
 
+echo "$script: KINDEST_ARGO_CD_PROJECT_ROOT=$KINDEST_ARGO_CD_PROJECT_ROOT"
+echo "$script: KINDEST_ARGO_CD_COMMANDS_ROOT=$KINDEST_ARGO_CD_COMMANDS_ROOT"
+echo "$script: KINDEST_ARGO_CD_SOURCE_ROOT=$KINDEST_ARGO_CD_SOURCE_ROOT"
+echo "$script: KINDEST_ARGO_CD_SCRIPTS_ROOT=$KINDEST_ARGO_CD_SCRIPTS_ROOT"
 echo "$i: Finished setting up environment variables."
