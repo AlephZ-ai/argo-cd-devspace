@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
+#shellcheck shell=bash
 # https://argo-cd.readthedocs.io/en/stable/getting_started
 namespace=$(kubectl get namespace "$KINDEST_ARGO_CD_ARGO_NAMESPACE" | grep "$KINDEST_ARGO_CD_ARGO_NAMESPACE")
 if [ -z "$namespace" ]; then

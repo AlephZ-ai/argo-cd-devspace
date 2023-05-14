@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
+#shellcheck shell=bash
 service=$1
 hostPort=$2
 remotePort=$3

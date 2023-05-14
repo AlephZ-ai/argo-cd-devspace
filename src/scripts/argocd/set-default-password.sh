@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
+#shellcheck shell=bash
 secret="$KINDEST_ARGO_CD_ARGO_NAME-initial-admin-secret"
 # https://argo-cd.readthedocs.io/en/stable/user-guide/private-repositories/
 "$KINDEST_ARGO_CD_SCRIPTS_ROOT/argocd/wait-for-password.sh"

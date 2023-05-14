@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
+#shellcheck shell=bash
 #shellcheck disable=SC2034
 for j in {1..5}; do
     containerid=$(docker ps -q -f name="$KINDEST_ARGO_CD_PROJECT_NAME-devspace")

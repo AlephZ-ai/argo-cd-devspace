@@ -1,3 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
+#shellcheck shell=bash
 killExistingForwardIfExists=$1-false
 "$KINDEST_ARGO_CD_SCRIPTS_ROOT/k8s/forward-service-port-continuously.sh" "$KINDEST_ARGO_CD_ARGO_NAME-server" "$KINDEST_ARGO_CD_ARGO_PORT" 443 "$killExistingForwardIfExists"

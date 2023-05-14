@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
+#shellcheck shell=bash
 package="$1"
 npm update -g npm
 # https://stackoverflow.com/questions/33553082/how-can-i-update-all-npm-packages-modules-at-once

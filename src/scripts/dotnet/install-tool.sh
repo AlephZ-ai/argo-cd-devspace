@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
+#shellcheck shell=bash
 tool="$1"
 # https://github.com/dotnet/sdk/issues/10130
 # Bad idea since update always updates even when tool is up to date

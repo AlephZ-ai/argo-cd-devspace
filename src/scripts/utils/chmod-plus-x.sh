@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
+#shellcheck shell=bash
 git add "$KINDEST_ARGO_CD_PROJECT_ROOT"
 git update-index --chmod=+x "run"
 chmod +x "run"

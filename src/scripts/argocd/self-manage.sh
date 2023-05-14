@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
+#shellcheck shell=bash
 #shellcheck disable=SC2016
 returnCode=0
 token=$("gh auth token")

@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
+#shellcheck shell=bash
 #shellcheck disable=SC2086
 secret="$1"
 echo "Waiting for secret: $secret. CTRL+C to stop."

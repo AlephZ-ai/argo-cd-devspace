@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
+#shellcheck shell=bash
 secret=argocd-initial-admin-secret
 "$KINDEST_ARGO_CD_SCRIPTS_ROOT/argocd/wait-for-password.sh"
 "$KINDEST_ARGO_CD_SCRIPTS_ROOT/argocd/wait-for-server.sh"

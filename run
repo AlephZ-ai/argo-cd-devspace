@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
+#shellcheck shell=bash
 #shellcheck disable=SC1091
 #shellcheck source=src/scripts/devspace/setup/set-env-vars.sh
 script="$1"

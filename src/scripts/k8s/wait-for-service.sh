@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
+#shellcheck shell=bash
 service="$1"
 timeout="$2-90s"
 echo "Waiting for service: $service. CTRL+C to stop."
