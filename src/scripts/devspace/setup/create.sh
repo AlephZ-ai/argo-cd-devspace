@@ -6,7 +6,6 @@ mkdir -p ~/.ssh/
 touch ~/.ssh/known_hosts
 export PATH=$PATH:~/.dotnet/tools
 bash -c eval "$(ssh-keyscan github.com >> ~/.ssh/known_hosts)"
-dotnet dev-certs https --trust
 "$KINDEST_ARGO_CD_SCRIPTS_ROOT/git/install-git-credential-manager.sh"
 gh auth setup-git
 # https://github.com/sigstore/gitsign/blob/main/cmd/gitsign-credential-cache/README.md
@@ -14,6 +13,7 @@ while (gh auth refresh); echo "\$GITHUB_TOKEN refreshed"; do echo "caching \$GIT
 while ! (bash -c "NONINTERACTIVE=true && $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"); do echo "Retrying Homebrew Install"; sleep 1s; done
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 "$KINDEST_ARGO_CD_SCRIPTS_ROOT/mkcert/install.sh"
+dotnet dev-certs https --trust
 # TODO: Why does this break things?
 # git config --global --add safe.directory /workspaces/$PROJECT
 "$KINDEST_ARGO_CD_SCRIPTS_ROOT/devspace/setup/install-devcontainers-cli.sh"
