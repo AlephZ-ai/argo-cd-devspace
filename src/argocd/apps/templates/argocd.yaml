@@ -6,8 +6,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/AlephZ-ai/kindest-argo-cd
-    path: argocd
-    targetRevision: master
+    targetRevision: HEAD
   destination:
     namespace: argocd
     name: in-cluster
