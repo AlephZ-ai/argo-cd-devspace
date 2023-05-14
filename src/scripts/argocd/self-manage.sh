@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #shellcheck disable=SC2016
 returnCode=0
-token="$GITHUB_TOKEN"
+token=$("gh auth token")
 # Make sure this script is idempotent since it will be run multiple times
 # https://code.visualstudio.com/remote/advancedcontainers/start-processes
 "$KINDEST_ARGO_CD_SCRIPTS_ROOT/argocd/set-default-password.sh"
@@ -10,10 +10,7 @@ token="$GITHUB_TOKEN"
 # https://github.com/argoproj/argo-cd/blob/master/docs/user-guide/private-repositories.md
 # https://docs.github.com/en/enterprise-cloud@latest/codespaces/developing-in-codespaces/default-environment-variables-for-your-codespace
 if [ -z "$token" ]; then
-    token=$ALEPHZ_AI_ADMIN_GITHUB_TOKEN
-fi
-if [ -z "$token" ]; then
-    echo 'FAILURE: $ALEPHZ_AI_ADMIN_GITHUB_TOKEN is not set. Cannot add git repo to argo.' 1>&2
+    echo 'FAILURE: $GITHUB_TOKEN is not set. Cannot add git repo to argo.' 1>&2
     returnCode=1
 else
     argocd repo add "$KINDEST_ARGO_CD_REPO_URL" --username token --password "$token"
