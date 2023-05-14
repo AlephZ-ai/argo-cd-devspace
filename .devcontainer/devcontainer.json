@@ -83,14 +83,14 @@
 			"version": "latest"
 		},
 		// https://github.com/devcontainers-contrib/features/tree/main/src/actions-runner
-		"ghcr.io/devcontainers-contrib/features/actions-runner:1": {
-			"versopm": "latest",
-			"dotnetVersion": "latest"
-		},
-		// http://github.com/devcontainers-contrib/features/tree/main/src/age
-		// "ghcr.io/devcontainers-contrib/features/age:1": {
-		// 	"version": "latest"
+		// "ghcr.io/devcontainers-contrib/features/actions-runner:1": {
+		// 	"versopm": "latest",
+		// 	"dotnetVersion": "latest"
 		// },
+		// http://github.com/devcontainers-contrib/features/tree/main/src/age
+		"ghcr.io/devcontainers-contrib/features/age:1": {
+			"version": "latest"
+		},
 		// https://github.com/devcontainers-contrib/features/tree/main/src/gitsign-credential-cache
 		"ghcr.io/devcontainers-contrib/features/gitsign-credential-cache:1": {
 			"version": "latest"
