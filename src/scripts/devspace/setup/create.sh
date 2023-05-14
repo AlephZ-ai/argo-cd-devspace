@@ -12,7 +12,6 @@ bash -c eval "$(ssh-keyscan github.com >> ~/.ssh/known_hosts)"
 dotnet dev-certs https --trust
 "$KINDEST_ARGO_CD_SCRIPTS_ROOT/git/install-git-credential-manager.sh"
 gh auth auth login
-gh auth setup-git
 # https://github.com/sigstore/gitsign/blob/main/cmd/gitsign-credential-cache/README.md
 while (gh auth refresh); echo "\$GITHUB_TOKEN refreshed"; do echo "caching \$GITHUBTOKEN"; gitsign-credential-cache; done &
 # TODO: Why does this break things?

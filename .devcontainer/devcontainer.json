@@ -92,13 +92,13 @@
 			"version": "latest"
 		},
 		// https://github.com/devcontainers-contrib/features/tree/main/src/age-keygen
-		// "ghcr.io/devcontainers-contrib/features/age-keygen:1": {
-		// 	"version": "latest"
-		// },
+		"ghcr.io/devcontainers-contrib/features/age-keygen:1": {
+			"version": "latest"
+		},
 		// https://github.com/devcontainers-contrib/features/tree/main/src/gitsign-credential-cache
-		// "ghcr.io/devcontainers-contrib/features/gitsign-credential-cache:1": {
-		// 	"version": "latest"
-		// }
+		"ghcr.io/devcontainers-contrib/features/gitsign-credential-cache:1": {
+			"version": "latest"
+		}
 	},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [10443, 11443],
