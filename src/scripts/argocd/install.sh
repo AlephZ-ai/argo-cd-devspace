@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
-script="$(basename "$0")"
-scriptPath="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
-scriptsPath="$(dirname "$scriptPath")"
-script="$scriptPath/$script"
-echo "$script: Starting."
-"$scriptsPath/devspace/setup/set-env-vars.sh"
+i="$0"
+echo "$i: Started installing Argo CD."
 # https://argo-cd.readthedocs.io/en/stable/getting_started
 namespace=$(kubectl get namespace "$KINDEST_ARGO_CD_ARGO_NAMESPACE" | grep "$KINDEST_ARGO_CD_ARGO_NAMESPACE")
 if [ -n "$namespace" ]; then
@@ -13,9 +9,9 @@ else
   kubectl create namespace "$KINDEST_ARGO_CD_ARGO_NAMESPACE"
   kubectl apply -n "$KINDEST_ARGO_CD_ARGO_NAMESPACE" -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
   # https://argo-cd.readthedocs.io/en/stable/operator-manual/tls/
-  "$scriptsPath/k8s/create-cert-secret.sh" "$KINDEST_ARGO_CD_ARGO_NAME-server-tls"
-  "$scriptsPath/k8s/create-cert-secret.sh" "$KINDEST_ARGO_CD_ARGO_NAME-repo-server-tls"
-  "$scriptsPath/k8s/create-cert-secret.sh" "$KINDEST_ARGO_CD_ARGO_NAME-dex-server-tls"
+  "$KINDEST_ARGO_CD_SCRIPTS_ROOT/k8s/create-cert-secret.sh" "$KINDEST_ARGO_CD_ARGO_NAME-server-tls"
+  "$KINDEST_ARGO_CD_SCRIPTS_ROOT/k8s/create-cert-secret.sh" "$KINDEST_ARGO_CD_ARGO_NAME-repo-server-tls"
+  "$KINDEST_ARGO_CD_SCRIPTS_ROOT/k8s/create-cert-secret.sh" "$KINDEST_ARGO_CD_ARGO_NAME-dex-server-tls"
   # https://argo-cd.readthedocs.io/en/stable/operator-manual/tls/
   # https://www.pcbaecker.com/posts/setup-argocd/
   # https://medium.com/devopsturkiye/self-managed-argo-cd-app-of-everything-a226eb100cf0
@@ -23,8 +19,6 @@ else
   # https://howchoo.com/kubernetes/read-kubernetes-secrets
   kubectl config set-context --current --namespace="$KINDEST_ARGO_CD_ARGO_NAMESPACE"
   #helm upgrade --wait --install "$KINDEST_ARGO_CD_ARGO_NAME" "./src/$KINDEST_ARGO_CD_ARGO_NAME/" --create-namespace
-  "$scriptsPath/argocd/login.sh"
+  "$KINDEST_ARGO_CD_SCRIPTS_ROOT/argocd/login.sh"
 fi
-# Make sure to kill the port forward when the script exits or it will be orphaned in the on-start.sh script
-pkill kubectl -9
-echo "$script: Finished."
+echo "$i: Finished installing Argo CD."
