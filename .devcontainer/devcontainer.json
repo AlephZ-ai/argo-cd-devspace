@@ -116,7 +116,7 @@
 			"terragrunt": "latest",
 			"installSentinel": false,
 			"installTFsec": true,
-			"installTerraformDocs": true,
+			"installTerraformDocs": true
 			
 		},
 		// https://github.com/rocker-org/devcontainer-features/tree/main/src/apt-packages
