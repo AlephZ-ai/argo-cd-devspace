@@ -64,6 +64,6 @@ sudo apt update
 sudo apt install microsoft-edge-dev
 popd || exit
 # Create kubefirst cluster
-kubefirst local create
+while ! kubefirst local create; do sleep 1s; done
 kubefirst k3d root-credentials
 kubectl get pods -A
