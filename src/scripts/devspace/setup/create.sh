@@ -26,4 +26,15 @@ module=Set-PsEnv && pwsh -command Install-Module "$module" -Force -AcceptLicense
 module=Pester && pwsh -command Install-Module "$module" -Force -AcceptLicense
 brew=kubefirst/tools/kubefirst && brew install "$brew"
 "$KINDEST_ARGO_CD_SCRIPTS_ROOT/devspace/setup/set-env-vars.sh"
+pushd /tmp
+sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+sudo apt install --fix-broken -y
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+rm -rf google-chrome-stable_current_amd64.deb
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main" > /etc/apt/sources.list.d/microsoft-edge-dev.list'
+sudo rm microsoft.gpg
+popd
 while ! (bash -c "kubefirst k3d create"); do echo "Retrying Create Kubefirst Cluster"; sleep 1s; done

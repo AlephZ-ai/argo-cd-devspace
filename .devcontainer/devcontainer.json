@@ -20,7 +20,7 @@
 		},
 		// https://github.com/rocker-org/devcontainer-features/tree/main/src/apt-packages
 		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
-			"packages": "sudo,wget,curl,gnupg2,openssl,dos2unix,shellcheck,libnss3-tools,build-essential",
+			"packages": "sudo,wget,curl,gnupg2,openssl,dos2unix,shellcheck,libnss3-tools,build-essential,gedit,gimp,nautilus,vlc,x11-apps",
 			"updatePackages": "true"
 		},
 		"ghcr.io/devcontainers/features/dotnet:1": {
