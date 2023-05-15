@@ -82,13 +82,13 @@
 		// 	"dotnetVersion": "latest"
 		// },
 		// http://github.com/devcontainers-contrib/features/tree/main/src/age
-		"ghcr.io/devcontainers-contrib/features/age:1": {
-			"version": "latest"
-		},
+		// "ghcr.io/devcontainers-contrib/features/age:1": {
+		// 	"version": "latest"
+		// },
 		// https://github.com/devcontainers-contrib/features/tree/main/src/age-keygen
-		"ghcr.io/devcontainers-contrib/features/age-keygen:1": {
-			"version": "latest"
-		},
+		// "ghcr.io/devcontainers-contrib/features/age-keygen:1": {
+		// 	"version": "latest"
+		// },
 		// https://github.com/devcontainers-contrib/features/tree/main/src/gitsign-credential-cache
 		"ghcr.io/devcontainers-contrib/features/gitsign-credential-cache:1": {
 			"version": "latest"
@@ -102,23 +102,23 @@
 			"version": "latest"
 		},
 		// https://github.com/devcontainers/features/tree/main/src/desktop-lite
-		"ghcr.io/devcontainers/features/desktop-lite:1": {
-			"version": "latest",
-			"noVncVersion": "1.2.0",
-			"password": "vscode",
-			"webPort": 6080,
-			"vncPort": 5901
-		},
+		// "ghcr.io/devcontainers/features/desktop-lite:1": {
+		// 	"version": "latest",
+		// 	"noVncVersion": "1.2.0",
+		// 	"password": "vscode",
+		// 	"webPort": 6080,
+		// 	"vncPort": 5901
+		// },
 		// https://github.com/devcontainers/features/tree/main/src/terraform
-		"ghcr.io/devcontainers/features/terraform:1": {
-			"version": "latest",
-			"tflint": "latest",
-			"terragrunt": "latest",
-			"installSentinel": false,
-			"installTFsec": false,
-			"installTerraformDocs": true
+		// "ghcr.io/devcontainers/features/terraform:1": {
+		// 	"version": "latest",
+		// 	"tflint": "latest",
+		// 	"terragrunt": "latest",
+		// 	"installSentinel": false,
+		// 	"installTFsec": false,
+		// 	"installTerraformDocs": true
 			
-		},
+		// },
 		// https://github.com/rocker-org/devcontainer-features/tree/main/src/apt-packages
 		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
 			"packages": "sudo,wget,curl,gnupg2,openssl,dos2unix,shellcheck,libnss3-tools,build-essential,gedit,gimp,nautilus,vlc,x11-apps,dotnet-sdk-6.0",
