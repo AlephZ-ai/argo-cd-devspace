@@ -4,6 +4,7 @@ rm -f nohup.out
 while ! (bash -c "NONINTERACTIVE=true && $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"); do echo "Retrying Homebrew Install"; sleep 1s; done
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 brew=mkcert && brew install "$brew"
+mkcert -install
 mkdir -p ~/.ssh/
 touch ~/.ssh/known_hosts
 export PATH=$PATH:~/.dotnet/tools
