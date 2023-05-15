@@ -19,12 +19,12 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 brew=kubefirst/tools/kubefirst && brew install "$brew"
 # Make container a Root CA and trust it
 ~/.k1/tools/mkcert -install
+dotnet dev-certs https --trust
 # Setup GH credentials
 mkdir -p ~/.ssh/
 touch ~/.ssh/known_hosts
 export PATH=$PATH:~/.dotnet/tools
 bash -c eval "$(ssh-keyscan github.com >> ~/.ssh/known_hosts)"
-dotnet dev-certs https --trust
 tool=git-credential-manager && if ! (dotnet tool install -g "$tool"); then dotnet tool update -g "$tool"; fi
 git-credential-manager configure
 git-credential-manager diagnose
