@@ -28,8 +28,6 @@ dotnet dev-certs https --trust
 tool=git-credential-manager && if ! (dotnet tool install -g "$tool"); then dotnet tool update -g "$tool"; fi
 git-credential-manager configure
 git-credential-manager diagnose
-# GH login
-if ! (gh auth status); then gh auth login; fi
 # Update package managers
 # https://github.com/sigstore/gitsign/blob/main/cmd/gitsign-credential-cache/README.md
 brew update
@@ -57,7 +55,3 @@ sudo rm microsoft.gpg
 sudo apt update
 sudo apt install microsoft-edge-dev
 popd || exit
-# Run Kubefirst
-while ! (bash -c "kubefirst local create "); do echo "Retrying Create Kubefirst Cluster"; sleep 1s; done
-kubefirst k3d root-credentials
-kubectl get pods -A
