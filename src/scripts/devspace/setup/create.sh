@@ -15,9 +15,10 @@ grep -qxF "$source"  ~/.zshrc || echo "$source" >>  ~/.zshrc
 # homebrew zsh profile setup
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/vscode/.zprofile
+# Install Kubefirst
+brew=kubefirst/tools/kubefirst && brew install "$brew"
 # Make container a Root CA and trust it
-brew=mkcert && brew install "$brew"
-mkcert -install
+~/.k1/tools/mkcert -install
 # Setup GH credentials
 mkdir -p ~/.ssh/
 touch ~/.ssh/known_hosts
@@ -28,7 +29,7 @@ tool=git-credential-manager && if ! (dotnet tool install -g "$tool"); then dotne
 git-credential-manager configure
 git-credential-manager diagnose
 # GH login
-gh auth login --with-token <<< "$ALEPHZ_AI_ADMIN_GITHUB_TOKEN"
+if ! (gh auth status); then gh auth login; fi
 # Update package managers
 # https://github.com/sigstore/gitsign/blob/main/cmd/gitsign-credential-cache/README.md
 brew update
@@ -36,20 +37,19 @@ brew upgrade
 npm update -g npm
 # https://stackoverflow.com/questions/33553082/how-can-i-update-all-npm-packages-modules-at-once
 npm i -g npm-check-updates && ncu -u && npm i
-# Install needed tools, packages, modules, etc...
+# Install needed tools, packages, modules, brew, etc...
 package=@devcontainers/cli && npm install -g "$package"
 package=dotenv-cli && npm install -g "$package"
 module=Set-PsEnv && pwsh -command Install-Module "$module" -Force -AcceptLicense
 module=Pester && pwsh -command Install-Module "$module" -Force -AcceptLicense
-brew=kubefirst/tools/kubefirst && brew install "$brew"
-# Chrome
+# Install Chrome
 pushd /tmp || exit
 sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 sudo apt install --fix-broken -y
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 rm -rf google-chrome-stable_current_amd64.deb
-## Edge
+## Install Edge
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo install -o root -g root -m 644 microsoft.gpg /usr/share/keyrings/
 sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/edge stable main" > /etc/apt/sources.list.d/microsoft-edge-dev.list'
@@ -57,7 +57,7 @@ sudo rm microsoft.gpg
 sudo apt update
 sudo apt install microsoft-edge-dev
 popd || exit
-# Kubefirst
-while ! (bash -c "kubefirst k3d create "); do echo "Retrying Create Kubefirst Cluster"; sleep 1s; done
+# Run Kubefirst
+while ! (bash -c "kubefirst local create "); do echo "Retrying Create Kubefirst Cluster"; sleep 1s; done
 kubefirst k3d root-credentials
 kubectl get pods -A

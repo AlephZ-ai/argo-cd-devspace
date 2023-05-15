@@ -102,13 +102,13 @@
 			"version": "latest"
 		},
 		// https://github.com/devcontainers/features/tree/main/src/desktop-lite
-		// "ghcr.io/devcontainers/features/desktop-lite:1": {
-		// 	"version": "latest",
-		// 	"noVncVersion": "1.2.0",
-		// 	"password": "vscode",
-		// 	"webPort": 6080,
-		// 	"vncPort": 5901
-		// },
+		"ghcr.io/devcontainers/features/desktop-lite:1": {
+			"version": "latest",
+			"noVncVersion": "1.2.0",
+			"password": "vscode",
+			"webPort": 10080,
+			"vncPort": 15901
+		},
 		// https://github.com/devcontainers/features/tree/main/src/terraform
 		// "ghcr.io/devcontainers/features/terraform:1": {
 		// 	"version": "latest",
@@ -125,15 +125,15 @@
 		}
 	},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [10443, 11443],
+	"forwardPorts": [10080, 15901],
 	"portsAttributes": {
-		"10443": {
-			"label": "Kindest K8s Cluster Port (TLS)",
-			"protocol": "https"
+		"10080": {
+			"label": "Web Desktop",
+			"protocol": "http"
 		},
-		"11443": {
-			"label": "Argo CD (TLS)",
-			"protocol": "https"
+		"15901": {
+			"label": "VNC",
+			"protocol": "http"
 		}
 	},
 	"remoteEnv": {
