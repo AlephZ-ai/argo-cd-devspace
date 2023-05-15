@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 #shellcheck shell=bash
 # Stand cluster back up in background process
-while ! kubefirst local create; do sleep 1s; done
+k3d clusters start kubefirst
 kubefirst k3d root-credentials
 kubectl get pods -A
