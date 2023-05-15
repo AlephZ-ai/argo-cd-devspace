@@ -114,7 +114,7 @@
 			"version": "latest",
 			"tflint": "latest",
 			"terragrunt": "latest",
-			"installSentinel": true,
+			"installSentinel": false,
 			"installTFsec": true,
 			"installTerraformDocs": true,
 			
