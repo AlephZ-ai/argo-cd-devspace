@@ -113,6 +113,12 @@
 		}
 	},
 	"remoteEnv": {
+		// WSLg GUI Apps in Dev Space
+		"TERM": "${localEnv:TERM}",
+		"DISPLAY": "${localEnv:DISPLAY}",
+		"WAYLAND_DISPLAY":  "${localEnv:WAYLAND_DISPLAY}",
+		"PULSE_SERVER": "${localEnv:PULSE_SERVER}",
+		"WSL2_GUI_APPS_ENABLED": "${localEnv:WSL2_GUI_APPS_ENABLED}"
 	},
 	// https://code.visualstudio.com/remote/advancedcontainers/start-processes
 	// https://containers.dev/implementors/json_reference/#lifecycle-scripts
