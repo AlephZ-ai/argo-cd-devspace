@@ -1,10 +1,12 @@
 {
     "recommendations": [
-        "github.codespaces",
-        "github.vscode-pull-request-github",
-        "github.remotehub",
-        "github.copilot-nightly",
-        "github.copilot-labs",
+        "editorconfig.editorconfig",
+        "ms-azuretools.vscode-docker",
+        "gitHub.codespaces",
+        "gitHub.vscode-pull-request-github",
+        "gitHub.remotehub",
+        "gitHub.copilot-nightly",
+        "gitHub.copilot-labs",
         "github.vscode-github-actions",
         "ms-vscode-remote.remote-containers",
         "ms-kubernetes-tools.vscode-kubernetes-tools",

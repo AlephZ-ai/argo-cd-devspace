@@ -5,22 +5,24 @@
 # Install Homebrew package manager
 # TODO: This can be done with a dev container feature but the feature is currently broken. Change to that when it is fixed.
 while ! (bash -c "NONINTERACTIVE=true && $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"); do echo "Retrying Homebrew Install"; sleep 1s; done
+brew install gcc
 # Setup zsh profile
 autoload -U +X compinit && compinit
+# dotnet zsh profile setup
+export PATH=$PATH:~/.dotnet/tools
+echo 'export PATH=$PATH:~/.dotnet/tools' >> ~/.zshrc
 # kubectl completion zsh profile setup
 source <(kubectl completion zsh)
 source='source <(kubectl completion zsh)'
 grep -qxF "$source"  ~/.zshrc || echo "$source" >>  ~/.zshrc
 # homebrew zsh profile setup
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-(echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/vscode/.zprofile
+(echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> ~/.zprofile
 # Install makecert
-brew=mkcert && brew install "$brew"
+brew install mkcert
 # Make container a Root CA and trust it
 mkcert -install
 dotnet dev-certs https --trust
-# Make any dotnet cli tools available
-export PATH=$PATH:~/.dotnet/tools
 # Adding GH .ssh known hosts
 mkdir -p ~/.ssh/
 touch ~/.ssh/known_hosts
@@ -34,17 +36,17 @@ npm update -g npm
 npm i -g npm-check-updates && ncu -u && npm i
 # Install needed tools, packages, modules, brew, etc...
 # Install devcontainer cli
-package=@devcontainers/cli && npm install -g "$package"
+npm install -g "@devcontainers/cli"
 # Install git-credential-manager
 tool=git-credential-manager && if ! (dotnet tool install -g "$tool"); then dotnet tool update -g "$tool"; fi
 # Install dotenv cli
-package=dotenv-cli && npm install -g "$package"
+npm install -g "dotenv-cli"
 # Install Set-PsEnv module
-module=Set-PsEnv && pwsh -command Install-Module "$module" -Force -AcceptLicense
+pwsh -command Install-Module Set-PsEnv -Force -AcceptLicense
 # Install Pester module
-module=Pester && pwsh -command Install-Module "$module" -Force -AcceptLicense
+pwsh -command Install-Module "Pester" -Force -AcceptLicense
 # Install kubefirst
-brew=kubefirst/tools/kubefirst && brew install "$brew"
+brew install kubefirst/tools/kubefirst
 # Setup git credential manager
 git-credential-manager configure
 git-credential-manager diagnose
