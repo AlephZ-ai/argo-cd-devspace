@@ -9,7 +9,6 @@ mkdir -p ~/.ssh/
 touch ~/.ssh/known_hosts
 export PATH=$PATH:~/.dotnet/tools
 bash -c eval "$(ssh-keyscan github.com >> ~/.ssh/known_hosts)"
-sudo apt-get update && sudo apt-get install -y dotnet-sdk-6.0
 dotnet dev-certs https --trust
 tool=git-credential-manager && if ! (dotnet tool install -g "$tool"); then dotnet tool update -g "$tool"; fi
 git-credential-manager configure

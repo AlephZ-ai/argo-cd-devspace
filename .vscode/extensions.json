@@ -13,6 +13,8 @@
         "rogalmic.zsh-debug",
         "rogalmic.bash-debug",
         "shakram02.bash-beautify",
-        "lizebang.bash-extension-pack"
+        "lizebang.bash-extension-pack",
+        "hashicorp.terraform",
+        "ms-azuretools.vscode-azureterraform"
     ]
 }
