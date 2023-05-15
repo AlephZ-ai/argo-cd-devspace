@@ -7,17 +7,17 @@
 while ! (bash -c "NONINTERACTIVE=true && $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"); do echo "Retrying Homebrew Install"; sleep 1s; done
 # Setup zsh profile
 autoload -U +X compinit && compinit
-    # kubectl completion zsh profile setup
-    source <(kubectl completion zsh)
-    source='source <(kubectl completion zsh)'
-    grep -qxF "$source"  ~/.zshrc || echo "$source" >>  ~/.zshrc
-    # homebrew zsh profile setup
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-    (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/vscode/.zprofile
-    # Install Kubefirst
-    brew=kubefirst/tools/kubefirst && brew install "$brew"
+# kubectl completion zsh profile setup
+source <(kubectl completion zsh)
+source='source <(kubectl completion zsh)'
+grep -qxF "$source"  ~/.zshrc || echo "$source" >>  ~/.zshrc
+# homebrew zsh profile setup
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+(echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/vscode/.zprofile
+# Install makecert
+brew=mkcert && brew install "$brew"
 # Make container a Root CA and trust it
-~/.k1/tools/mkcert -install
+mkcert -install
 dotnet dev-certs https --trust
 # Make any dotnet cli tools available
 export PATH=$PATH:~/.dotnet/tools
@@ -37,10 +37,16 @@ npm update -g npm
 # https://stackoverflow.com/questions/33553082/how-can-i-update-all-npm-packages-modules-at-once
 npm i -g npm-check-updates && ncu -u && npm i
 # Install needed tools, packages, modules, brew, etc...
+# Install devcontainer cli
 package=@devcontainers/cli && npm install -g "$package"
+# Install dotenv cli
 package=dotenv-cli && npm install -g "$package"
+# Install Set-PsEnv module
 module=Set-PsEnv && pwsh -command Install-Module "$module" -Force -AcceptLicense
+# Install Pester module
 module=Pester && pwsh -command Install-Module "$module" -Force -AcceptLicense
+# Install kubefirst
+brew=kubefirst/tools/kubefirst && brew install "$brew"
 # Install Chrome
 pushd /tmp || exit
 sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
