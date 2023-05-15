@@ -25,10 +25,6 @@ export PATH=$PATH:~/.dotnet/tools
 mkdir -p ~/.ssh/
 touch ~/.ssh/known_hosts
 bash -c eval "$(ssh-keyscan github.com >> ~/.ssh/known_hosts)"
-# Setup git credential manager
-tool=git-credential-manager && if ! (dotnet tool install -g "$tool"); then dotnet tool update -g "$tool"; fi
-git-credential-manager configure
-git-credential-manager diagnose
 # Update package managers
 # https://github.com/sigstore/gitsign/blob/main/cmd/gitsign-credential-cache/README.md
 brew update
@@ -39,6 +35,8 @@ npm i -g npm-check-updates && ncu -u && npm i
 # Install needed tools, packages, modules, brew, etc...
 # Install devcontainer cli
 package=@devcontainers/cli && npm install -g "$package"
+# Install git-credential-manager
+tool=git-credential-manager && if ! (dotnet tool install -g "$tool"); then dotnet tool update -g "$tool"; fi
 # Install dotenv cli
 package=dotenv-cli && npm install -g "$package"
 # Install Set-PsEnv module
@@ -62,3 +60,8 @@ sudo rm microsoft.gpg
 sudo apt update
 sudo apt install microsoft-edge-dev
 popd || exit
+# GH login
+if ! (gh auth status); then gh auth login; fi
+# Setup git credential manager
+git-credential-manager configure
+git-credential-manager diagnose
