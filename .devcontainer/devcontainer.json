@@ -116,12 +116,11 @@
 		// 	"terragrunt": "latest",
 		// 	"installSentinel": false,
 		// 	"installTFsec": false,
-		// 	"installTerraformDocs": true
-			
+		// 	"installTerraformDocs": false			
 		// },
 		// https://github.com/rocker-org/devcontainer-features/tree/main/src/apt-packages
 		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
-			"packages": "sudo,wget,curl,gnupg2,openssl,dos2unix,shellcheck,libnss3-tools,build-essential,gedit,gimp,nautilus,vlc,x11-apps,dotnet-sdk-6.0",
+			"packages": "sudo,wget,curl,gnupg2,openssl,dos2unix,shellcheck,libnss3-tools,build-essential,gnupg,gedit,gimp,nautilus,vlc,x11-apps,dotnet-sdk-6.0",
 			"updatePackages": "true"
 		}
 	},
@@ -143,7 +142,8 @@
 		"DISPLAY": "${localEnv:DISPLAY}",
 		"WAYLAND_DISPLAY":  "${localEnv:WAYLAND_DISPLAY}",
 		"PULSE_SERVER": "${localEnv:PULSE_SERVER}",
-		"WSL2_GUI_APPS_ENABLED": "${localEnv:WSL2_GUI_APPS_ENABLED}"
+		"WSL2_GUI_APPS_ENABLED": "${localEnv:WSL2_GUI_APPS_ENABLED}",
+		"GITHUB_TOKEN": "${localEnv:ALEPHZ_AI_ADMIN_GITHUB_TOKEN}"
 	},
 	// https://code.visualstudio.com/remote/advancedcontainers/start-processes
 	// https://containers.dev/implementors/json_reference/#lifecycle-scripts

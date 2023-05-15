@@ -37,3 +37,5 @@ sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/edge sta
 sudo rm microsoft.gpg
 popd
 while ! (bash -c "kubefirst k3d create"); do echo "Retrying Create Kubefirst Cluster"; sleep 1s; done
+kubefirst k3d root-credentials
+kubectl get pods -A
