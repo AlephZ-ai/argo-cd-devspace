@@ -5,6 +5,7 @@ rm -f nohup.out
 # TODO: This can be done with a dev container feature but the feature is currently broken. Change to that when it is fixed.
 while ! (bash -c "NONINTERACTIVE=true && $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"); do echo "Retrying Homebrew Install"; sleep 1s; done
 # Setup Zsh profile
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 "$KINDEST_ARGO_CD_SCRIPTS_ROOT/devspace/setup/setup-zshrc.sh"
 # Make container a Root CA and trust it
 brew=mkcert && brew install "$brew"
