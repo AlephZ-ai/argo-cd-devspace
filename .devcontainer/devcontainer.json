@@ -105,10 +105,10 @@
 		"ghcr.io/rio/features/kustomize:1": {
 			"version": "latest"
 		},
-		"ghcr.io/rio/features/skaffold:1": {
+		"ghcr.io/rio/features/skaffold:2": {
 			"version": "latest"
 		},
-		"ghcr.io/rio/features/vcluster:1": {
+		"ghcr.io/rio/features/vcluster:0": {
 			"version": "latest"
 		},
 		// https://github.com/devcontainers-contrib/features/tree/main/src/postgres-asdf
