@@ -74,10 +74,9 @@
 			"minikube": "latest"
 		},
 		// https://github.com/devcontainers-contrib/features/tree/main/src/kind
-		// TODO: This is only temporarly commented out test and uncomment when it works again
-		// "ghcr.io/devcontainers-contrib/features/kind:1": {
-		// 	"version": "latest"
-		// },
+		"ghcr.io/devcontainers-contrib/features/kind:1": {
+			"version": "latest"
+		},
 		// https://github.com/devcontainers-contrib/features/tree/main/src/argo-cd
 		"ghcr.io/devcontainers-contrib/features/argo-cd:1": {
 			"version": "latest"
@@ -98,6 +97,32 @@
 		// https://github.com/devcontainers-contrib/features/tree/main/src/gitsign-credential-cache
 		"ghcr.io/devcontainers-contrib/features/gitsign-credential-cache:1": {
 			"version": "latest"
+		},
+		// https://github.com/natescherer/devcontainers-custom-features/tree/main/src/k9s
+		"ghcr.io/natescherer/devcontainers-custom-features/k9s:1": {
+			"version": "latest"
+		},
+		// https://github.com/devcontainers-contrib/features/tree/main/src/postgres-asdf
+		"ghcr.io/devcontainers-contrib/features/postgres-asdf:1": {
+			"version": "latest"
+		},
+		// https://github.com/devcontainers/features/tree/main/src/desktop-lite
+		"ghcr.io/devcontainers/features/desktop-lite:1": {
+			"version": "latest",
+			"noVncVersion": "1.2.0",
+			"password": "vscode",
+			"webPort": 6080,
+			"vncPort": 5901
+		},
+		// https://github.com/devcontainers/features/tree/main/src/terraform
+		"ghcr.io/devcontainers/features/terraform:1": {
+			"version": "latest",
+			"tflint": "latest",
+			"terragrunt": "latest",
+			"installSentinel": true,
+			"installTFsec": true,
+			"installTerraformDocs": true,
+			
 		}
 	},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
