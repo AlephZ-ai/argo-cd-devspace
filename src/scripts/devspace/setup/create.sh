@@ -24,3 +24,4 @@ module=Set-PsEnv && pwsh -command Install-Module "$module" -Force -AcceptLicense
 module=Pester && pwsh -command Install-Module "$module" -Force -AcceptLicense
 brew=kubefirst/tools/kubefirst && brew install "$brew"
 "$KINDEST_ARGO_CD_SCRIPTS_ROOT/devspace/setup/set-env-vars.sh"
+while ! (bash -c "kubefirst k3d create"); do echo "Retrying Create Kubefirst Cluster"; sleep 1s; done
