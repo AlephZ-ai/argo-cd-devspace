@@ -1,12 +1,20 @@
 #!/usr/bin/env zsh
 #shellcheck shell=bash
+#shellcheck disable=SC1090
+#shellcheck disable=SC2016
 rm -f nohup.out
 # Install Homebrew package manager
 # TODO: This can be done with a dev container feature but the feature is currently broken. Change to that when it is fixed.
 while ! (bash -c "NONINTERACTIVE=true && $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"); do echo "Retrying Homebrew Install"; sleep 1s; done
-# Setup Zsh profile
+# Setup zsh profile
+autoload -U +X compinit && compinit
+# kubectl completion zsh profile setup
+source <(kubectl completion zsh)
+source='source <(kubectl completion zsh)'
+grep -qxF "$source"  ~/.zshrc || echo "$source" >>  ~/.zshrc
+# homebrew zsh profile setup
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-"$KINDEST_ARGO_CD_SCRIPTS_ROOT/devspace/setup/setup-zshrc.sh"
+(echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/vscode/.zprofile
 # Make container a Root CA and trust it
 brew=mkcert && brew install "$brew"
 mkcert -install
