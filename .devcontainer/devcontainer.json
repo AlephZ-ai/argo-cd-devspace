@@ -106,8 +106,8 @@
 			"version": "latest",
 			"noVncVersion": "1.2.0",
 			"password": "vscode",
-			"webPort": 10080,
-			"vncPort": 15901
+			"webPort": 11080,
+			"vncPort": 11901
 		},
 		// https://github.com/devcontainers/features/tree/main/src/terraform
 		// "ghcr.io/devcontainers/features/terraform:1": {
@@ -125,13 +125,13 @@
 		}
 	},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [10080, 15901],
+	"forwardPorts": [11080, 11901],
 	"portsAttributes": {
-		"10080": {
+		"11080": {
 			"label": "Web Desktop",
 			"protocol": "http"
 		},
-		"15901": {
+		"11901": {
 			"label": "VNC",
 			"protocol": "http"
 		}
