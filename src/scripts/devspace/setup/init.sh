@@ -1,7 +1,5 @@
 #!/usr/bin/env zsh
 #shellcheck shell=bash
-# Cleanup log from previous run
-rm -f nohup.out
 # GH login
 if ! (gh auth status); then gh auth login; fi
 # Cache gitsign credentials
