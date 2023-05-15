@@ -2,29 +2,30 @@
 #shellcheck shell=bash
 #shellcheck disable=SC1090
 #shellcheck disable=SC2016
-rm -f nohup.out
 # Install Homebrew package manager
 # TODO: This can be done with a dev container feature but the feature is currently broken. Change to that when it is fixed.
 while ! (bash -c "NONINTERACTIVE=true && $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"); do echo "Retrying Homebrew Install"; sleep 1s; done
 # Setup zsh profile
 autoload -U +X compinit && compinit
-# kubectl completion zsh profile setup
-source <(kubectl completion zsh)
-source='source <(kubectl completion zsh)'
-grep -qxF "$source"  ~/.zshrc || echo "$source" >>  ~/.zshrc
-# homebrew zsh profile setup
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-(echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/vscode/.zprofile
-# Install Kubefirst
-brew=kubefirst/tools/kubefirst && brew install "$brew"
+    # kubectl completion zsh profile setup
+    source <(kubectl completion zsh)
+    source='source <(kubectl completion zsh)'
+    grep -qxF "$source"  ~/.zshrc || echo "$source" >>  ~/.zshrc
+    # homebrew zsh profile setup
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/vscode/.zprofile
+    # Install Kubefirst
+    brew=kubefirst/tools/kubefirst && brew install "$brew"
 # Make container a Root CA and trust it
 ~/.k1/tools/mkcert -install
 dotnet dev-certs https --trust
-# Setup GH credentials
+# Make any dotnet cli tools available
+export PATH=$PATH:~/.dotnet/tools
+# Adding GH .ssh known hosts
 mkdir -p ~/.ssh/
 touch ~/.ssh/known_hosts
-export PATH=$PATH:~/.dotnet/tools
 bash -c eval "$(ssh-keyscan github.com >> ~/.ssh/known_hosts)"
+# Setup git credential manager
 tool=git-credential-manager && if ! (dotnet tool install -g "$tool"); then dotnet tool update -g "$tool"; fi
 git-credential-manager configure
 git-credential-manager diagnose
