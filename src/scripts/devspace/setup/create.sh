@@ -45,6 +45,9 @@ module=Set-PsEnv && pwsh -command Install-Module "$module" -Force -AcceptLicense
 module=Pester && pwsh -command Install-Module "$module" -Force -AcceptLicense
 # Install kubefirst
 brew=kubefirst/tools/kubefirst && brew install "$brew"
+# Setup git credential manager
+git-credential-manager configure
+git-credential-manager diagnose
 # Install Chrome
 pushd /tmp || exit
 sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -60,8 +63,3 @@ sudo rm microsoft.gpg
 sudo apt update
 sudo apt install microsoft-edge-dev
 popd || exit
-# GH login
-if ! (gh auth status); then gh auth login; fi
-# Setup git credential manager
-git-credential-manager configure
-git-credential-manager diagnose
