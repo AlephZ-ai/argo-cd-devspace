@@ -100,5 +100,5 @@ sudo apt update
 sudo apt upgrade -y
 sudo,file,wget,curl,git,openssl,ca-certificates,apt-transport-https,checkinstall,dos2unix,shellcheck,libnss3,libnss3-tools,build-essential,zlib1g-dev,gcc,postgresql-client,dotnet-sdk-6.0,dotnet-sdk-7.0,powerline,fonts-powerline,gedit,gimp,nautilus,vlc,x11-apps
 sudo apt install -y gh git-lfs powershell dotnet-sdk-6.0 dotnet-sdk-7.0 kubectl minikube
-brew upgrade derailed/k9s/k9s kind argocd mkcert kustomize skaffold vcluster
+brew upgrade #derailed/k9s/k9s kind argocd mkcert kustomize skaffold vcluster
 ../../devspace/setup/setup.sh
