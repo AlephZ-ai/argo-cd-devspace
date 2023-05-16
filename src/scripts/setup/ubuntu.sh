@@ -7,7 +7,7 @@ sudo apt-get update
 # Upgrade any packages available
 sudo ap-get upgrade -y
 # Install pre-requisite packages.
-sudo apt install -y --fix-missing sudo openssl apt-transport-https ca-certificates speedtest-cli checkinstall dos2unix shellcheck file wget curl git zsh procps software-properties-common libnss3 libnss3-tools build-essential zlib1g-dev gcc bash-completion age postgresql-client powerline fonts-powerline gedit gimp nautilus vlc x11-apps
+sudo apt install -y --fix-missing bzip2 sudo fonts-dejavu-core g++ git less libz-dev locales openssl make netbase openssh-client patch tzdata uuid-runtime apt-transport-https ca-certificates speedtest-cli checkinstall dos2unix shellcheck file wget curl zsh procps software-properties-common libnss3 libnss3-tools build-essential zlib1g-dev gcc bash-completion age postgresql-client powerline fonts-powerline gedit gimp nautilus vlc x11-apps
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 touch ~/.zshenv
@@ -35,20 +35,6 @@ pwsh --version
 (. /etc/lsb-release && curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo env os=ubuntu dist="${DISTRIB_CODENAME}" bash)
 sudo apt-get update
 sudo apt-get install git-lfs -y
-# Install Homebrew package manager
-BREW_PREFIX="/home/linuxbrew/.linuxbrew"
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-# No need to restart after Homebrew install
-eval "$($BREW_PREFIX/bin/brew shellenv)"
-brew --version
-# bash for Homebrew
-echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bash_profile
-echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.profile
-echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
-# zsh for Homebrew
-echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.zshenv
-echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.zprofile
-echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.zshrc
 # Install nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 # No need to restart after nvm install
