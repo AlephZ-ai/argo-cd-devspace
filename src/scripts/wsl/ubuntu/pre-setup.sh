@@ -26,8 +26,6 @@ sudo apt install dotnet-sdk-6.0 dotnet-sdk-7.0 -y
 # Install PowerShell
 sudo apt-get update
 sudo apt-get install -y powershell
-# Start PowerShell
-pwsh
 # Install Git LFS
 (. /etc/lsb-release && curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo env os=ubuntu dist="${DISTRIB_CODENAME}" bash)
 sudo apt-get update
