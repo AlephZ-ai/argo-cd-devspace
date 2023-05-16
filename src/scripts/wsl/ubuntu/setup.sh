@@ -4,6 +4,7 @@
 #shellcheck disable=SC2016
 # Install Homebrew package manager
 while ! (bash -c "NONINTERACTIVE=true && $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"); do echo "Retrying Homebrew Install"; sleep 1s; done
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 brew install gcc
 # Setup zsh profile
 autoload -U +X compinit && compinit
@@ -16,7 +17,6 @@ source='source <(kubectl completion zsh)'
 grep -qxF "$source"  ~/.zshrc || echo "$source" >>  ~/.zshrc
 # homebrew zsh profile setup
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-(echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> ~/.zprofile
 # Install makecert
 brew install mkcert
 # Make container a Root CA and trust it

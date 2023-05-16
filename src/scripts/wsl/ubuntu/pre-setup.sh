@@ -33,6 +33,7 @@ sudo apt-get install git-lfs -y
 # Install Homebrew package manager
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 # No need to restart after Homebrew install
+
 test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
 test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # bash profile for Homebrew
@@ -73,7 +74,7 @@ curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 # Install minikube
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
 sudo dpkg -i minikube_latest_amd64.deb
-rm --rf minikube_latest_amd64.deb
+rm -rf minikube_latest_amd64.deb
 # Install kind
 brew install kind
 # Install argocd cli
