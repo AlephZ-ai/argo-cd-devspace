@@ -2,7 +2,7 @@
 #shellcheck shell=bash
 #shellcheck disable=SC1091
 #shellcheck source=$KINDEST_ARGO_CD_PROJECT_ROOT/.devcontainer/.env
-projectRoot="$(dirname "$(dirname "$(dirname "$(dirname "$(cd -- "$(dirname -- "${BASH_SOURCE-$0}")" &> /dev/null && pwd)")")")")"
+projectRoot="$(dirname "$(dirname "$(dirname "$(cd -- "$(dirname -- "${BASH_SOURCE-$0}")" &> /dev/null && pwd)")")")"
 set -o allexport
 source "$projectRoot/.devcontainer/.env"
 set +o allexport

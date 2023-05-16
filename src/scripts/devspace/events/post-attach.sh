@@ -2,6 +2,6 @@
 #shellcheck shell=bash
 rm -f nohup.out
 rm -f gcm-diagnose.log
-"$KINDEST_ARGO_CD_SCRIPTS_ROOT/devspace/setup/attach.sh"
+"$KINDEST_ARGO_CD_SCRIPTS_ROOT/setup/attach.sh"
 echo "Press Ctrl+Shift+~ to open a terminal in the current dev container"
 sleep infinity

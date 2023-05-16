@@ -39,9 +39,9 @@
 			"autoPull": true
 		},
 		// https://github.com/alephz-ai/devcontainer-features/tree/main/src/homebrew
-		"ghcr.io/alephz-ai/devcontainer-features/homebrew:2": {
-			"shallowClone": false
-		},
+		// "ghcr.io/alephz-ai/devcontainer-features/homebrew:2": {
+		// 	"shallowClone": false
+		// },
 		// https://github.com/devcontainers/features/tree/main/src/node
 		"ghcr.io/devcontainers/features/node:1": {
 			"version": "node",
@@ -140,7 +140,7 @@
 		// },
 		// https://github.com/rocker-org/devcontainer-features/tree/main/src/apt-packages
 		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
-			"packages": "sudo,openssl,apt-transport-https,ca-certificates,speedtest-cli,checkinstall,dos2unix,shellcheck,file,wget,curl,git,zsh,procps,software-properties-common,libnss3,libnss3-tools,build-essential,zlib1g-dev,gcc,bash-completion,age,postgresql-client,powerline,fonts-powerline,gedit,gimp,nautilus,vlc,x11-apps,git-lfs,powershell,dotnet-sdk-6.0,dotnet-sdk-7.0,kubectl,minikube,age",
+			"packages": "sudo,openssl,apt-transport-https,ca-certificates,speedtest-cli,checkinstall,dos2unix,shellcheck,file,wget,curl,git,zsh,procps,software-properties-common,libnss3,libnss3-tools,build-essential,zlib1g-dev,gcc,bash-completion,age,postgresql-client,powerline,fonts-powerline,gedit,gimp,nautilus,vlc,x11-apps",
 			"updatePackages": "true"
 		}
 	},

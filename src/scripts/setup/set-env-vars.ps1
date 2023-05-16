@@ -1,4 +1,4 @@
-$projectRoot = "$("$PSCommandPath" | Resolve-Path -Relative:$false | Split-Path -Parent | Split-Path -Parent | Split-Path -Parent | Split-Path -Parent | Split-Path -Parent)"
+$projectRoot = "$("$PSCommandPath" | Resolve-Path -Relative:$false | Split-Path -Parent | Split-Path -Parent | Split-Path -Parent | Split-Path -Parent)"
 Push-Location $projectRoot/.devcontainer
 try {
     Import-Module Set-PsEnv
