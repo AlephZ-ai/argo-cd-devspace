@@ -140,7 +140,7 @@
 		// },
 		// https://github.com/rocker-org/devcontainer-features/tree/main/src/apt-packages
 		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
-			"packages": "sudo,file,wget,curl,git,openssl,ca-certificates,apt-transport-https,checkinstall,dos2unix,shellcheck,libnss3,libnss3-tools,build-essential,zlib1g-dev,gcc,postgresql-client,dotnet-sdk-6.0,dotnet-sdk-7.0,powerline,fonts-powerline,gedit,gimp,nautilus,vlc,x11-apps",
+			"packages": "sudo,openssl,apt-transport-https,ca-certificates,speedtest-cli,checkinstall,dos2unix,shellcheck,file,wget,curl,git,zsh,procps,software-properties-common,libnss3,libnss3-tools,build-essential,zlib1g-dev,gcc,bash-completion,age,postgresql-client,powerline,fonts-powerline,gedit,gimp,nautilus,vlc,x11-apps,git-lfs,powershell,dotnet-sdk-6.0,dotnet-sdk-7.0,kubectl,minikube,age",
 			"updatePackages": "true"
 		}
 	},
